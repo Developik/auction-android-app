@@ -1,20 +1,12 @@
 package comp3350.srsys.presentation;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,7 +26,7 @@ public class StudentsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_students);
+        setContentView(R.layout.activity_feed);
 
         accessStudents = new AccessStudents();
 
@@ -65,40 +57,6 @@ public class StudentsActivity extends Activity {
             final ListView listView = (ListView)findViewById(R.id.listStudents);
             listView.setAdapter(studentArrayAdapter);
 
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Button updateButton = (Button)findViewById(R.id.buttonStudentUpdate);
-                    Button deleteButton = (Button)findViewById(R.id.buttonStudentDelete);
-
-                    if (position == selectedStudentPosition) {
-                        listView.setItemChecked(position, false);
-                        updateButton.setEnabled(false);
-                        deleteButton.setEnabled(false);
-                        selectedStudentPosition = -1;
-                    } else {
-                        listView.setItemChecked(position, true);
-                        updateButton.setEnabled(true);
-                        deleteButton.setEnabled(true);
-                        selectedStudentPosition = position;
-                        selectStudentAtPosition(position);
-                    }
-                }
-            });
-            
-            final EditText editStudentID = (EditText)findViewById(R.id.editStudentID);
-            final Button buttonStudentCourses = (Button)findViewById(R.id.buttonStudentCourses);
-            editStudentID.addTextChangedListener(new TextWatcher() {
-				@Override
-				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-				@Override
-				public void onTextChanged(CharSequence s, int start, int before, int count) {}
-
-				@Override
-				public void afterTextChanged(Editable s) {
-					buttonStudentCourses.setEnabled(editStudentID.getText().toString().length() > 0);
-				}
-            });
         }
     }
 
@@ -117,103 +75,6 @@ public class StudentsActivity extends Activity {
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void selectStudentAtPosition(int position) {
-        Student selected = studentArrayAdapter.getItem(position);
-
-        EditText editID = (EditText)findViewById(R.id.editStudentID);
-        EditText editName = (EditText)findViewById(R.id.editStudentName);
-        EditText editAddress = (EditText)findViewById(R.id.editStudentAddress);
-
-        editID.setText(selected.getStudentID());
-        editName.setText(selected.getStudentName());
-        editAddress.setText(selected.getStudentAddress());
-    }
-
-    public void buttonStudentCoursesOnClick(View v) {
-        EditText editID = (EditText)findViewById(R.id.editStudentID);
-        String studentID = editID.getText().toString();
-
-        Intent scIntent = new Intent(StudentsActivity.this, StudentCoursesActivity.class);
-        Bundle b = new Bundle();
-        b.putString("studentID", studentID);
-        scIntent.putExtras(b);
-        StudentsActivity.this.startActivity(scIntent);
-    }
-
-    public void buttonStudentCreateOnClick(View v) {
-        Student student = createStudentFromEditText();
-        String result;
-
-        result = validateStudentData(student, true);
-        if (result == null) {
-            result = accessStudents.insertStudent(student);
-            if (result == null) {
-                accessStudents.getStudents(studentList);
-                studentArrayAdapter.notifyDataSetChanged();
-                int pos = studentList.indexOf(student);
-                if (pos >= 0) {
-                    ListView listView = (ListView)findViewById(R.id.listStudents);
-                    listView.setSelection(pos);
-                }
-            } else {
-            	Messages.fatalError(this, result);
-            }
-        } else {
-        	Messages.warning(this, result);
-        }
-    }
-
-    public void buttonStudentUpdateOnClick(View v) {
-        Student student = createStudentFromEditText();
-        String result;
-
-        result = validateStudentData(student, false);
-        if (result == null) {
-            result = accessStudents.updateStudent(student);
-            if (result == null) {
-                accessStudents.getStudents(studentList);
-                studentArrayAdapter.notifyDataSetChanged();
-                int pos = studentList.indexOf(student);
-                if (pos >= 0) {
-                    ListView listView = (ListView)findViewById(R.id.listStudents);
-                    listView.setSelection(pos);
-                }
-            } else {
-            	Messages.fatalError(this, result);
-            }
-        } else {
-        	Messages.warning(this, result);
-        }
-    }
-
-    public void buttonStudentDeleteOnClick(View v) {
-        Student student = createStudentFromEditText();
-        String result;
-
-        result = accessStudents.deleteStudent(student);
-        if (result == null) {
-            int pos = studentList.indexOf(student);
-            if (pos >= 0) {
-                ListView listView = (ListView) findViewById(R.id.listStudents);
-                listView.setSelection(pos);
-            }
-            accessStudents.getStudents(studentList);
-            studentArrayAdapter.notifyDataSetChanged();
-        } else {
-        	Messages.warning(this, result);
-        }
-    }
-
-    private Student createStudentFromEditText() {
-        EditText editID = (EditText)findViewById(R.id.editStudentID);
-        EditText editName = (EditText)findViewById(R.id.editStudentName);
-        EditText editAddress = (EditText)findViewById(R.id.editStudentAddress);
-
-        Student student = new Student(editID.getText().toString(), editName.getText().toString(), editAddress.getText().toString());
-
-        return student;
     }
 
     private String validateStudentData(Student student, boolean isNewStudent) {

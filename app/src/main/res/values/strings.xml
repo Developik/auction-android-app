@@ -20,4 +20,6 @@
     <string name="gpa">GPA</string>
     <string name="fatalError">Fatal error</string>
     <string name="warning">Warning</string>
+    <string name="bidding_market_simulator">Bidding Market Simulator</string>
+    <string name="choose_user">Choose User</string>
 </resources>

@@ -49,8 +49,11 @@ public class HomeActivity extends Activity {
         HomeActivity.this.startActivity(studentsIntent);
     }
 
+    /*
     public void buttonCoursesOnClick(View v) {
         Intent coursesIntent = new Intent(HomeActivity.this, CoursesActivity.class);
         HomeActivity.this.startActivity(coursesIntent);
     }
+    */
+
 }

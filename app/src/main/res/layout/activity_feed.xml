@@ -5,14 +5,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="comp3350.srsys.presentation.CourseStudentsActivity" >
+    tools:context="comp3350.srsys.presentation.StudentsActivity">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/listCourseStudents"
+        android:id="@+id/listStudents"
         android:layout_weight="1"
         android:layout_gravity="top"
-        android:choiceMode="none" />
-    
+        android:choiceMode="singleChoice" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:id="@+id/separator"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
 </LinearLayout>

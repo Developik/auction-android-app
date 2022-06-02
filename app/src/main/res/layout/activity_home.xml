@@ -9,7 +9,7 @@
         android:id="@+id/textTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/student_records_system" />
+        android:text="@string/bidding_market_simulator" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -29,27 +29,12 @@
         android:layout_centerHorizontal="true">
 
         <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/students"
             android:id="@+id/buttonStudents"
-            android:onClick="buttonStudentsOnClick" />
-
-        <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/courses"
-            android:id="@+id/buttonCourses"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="60dp"
-            android:onClick="buttonCoursesOnClick" />
+            android:onClick="buttonStudentsOnClick"
+            android:text="@string/choose_user" />
 
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/registrations"
-            android:enabled="false"
-            android:id="@+id/buttonRegistrations" />
     </LinearLayout>
 
 </RelativeLayout>
