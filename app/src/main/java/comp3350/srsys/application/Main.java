@@ -1,7 +1,5 @@
 package comp3350.srsys.application;
 
-import comp3350.srsys.presentation.CLI;
-
 public class Main
 {
 	public static final String dbName="SC";
@@ -10,7 +8,7 @@ public class Main
 	{
 		startUp();
 
-		CLI.run();
+		//CLI.run();
 		
 		shutDown();
 		System.out.println("All done");

@@ -21,5 +21,7 @@
     <string name="fatalError">Fatal error</string>
     <string name="warning">Warning</string>
     <string name="bidding_market_simulator">Bidding Market Simulator</string>
-    <string name="choose_user">Choose User</string>
+    <string name="choose_user">Go to Feed</string>
+    <string name="item_title">Item Page</string>
+    <string name="username">Username</string>
 </resources>
