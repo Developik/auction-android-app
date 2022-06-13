@@ -4,41 +4,47 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import comp3350.srsys.R;
-import comp3350.srsys.business.AccessStudents;
-import comp3350.srsys.objects.Student;
+import comp3350.srsys.application.Main;
+import comp3350.srsys.business.AccessItems;
+import comp3350.srsys.objects.Item;
 
-public class StudentsActivity extends Activity {
+public class ItemActivity extends Activity {
 
-    private AccessStudents accessStudents;
-    private ArrayList<Student> studentList;
-    private ArrayAdapter<Student> studentArrayAdapter;
-    private int selectedStudentPosition = -1;
+    private AccessItems accessItems;
+    private ArrayList<Item> itemList;
+    private ArrayAdapter<Item> itemArrayAdapter;
+    private int selectedItemPosition = -1;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //Main.startUp();
+
+        setContentView(R.layout.activity_item);
+    }
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
-        accessStudents = new AccessStudents();
+        accessItems = new AccessItems();
 
-        studentList = new ArrayList<Student>();
-        String result = accessStudents.getStudents(studentList);
+        itemList = new ArrayList<Item>();
+        String result = accessItems.getItems(itemList);
         if (result != null)
         {
         	Messages.fatalError(this, result);
         }
         else
         {
-            studentArrayAdapter = new ArrayAdapter<Student>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, studentList)
+            itemArrayAdapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList)
             {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -47,18 +53,19 @@ public class StudentsActivity extends Activity {
                     TextView text1 = (TextView) view.findViewById(android.R.id.text1);
                     TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
-                    text1.setText(studentList.get(position).getStudentID() + ": " + studentList.get(position).getStudentName());
-                    text2.setText(studentList.get(position).getStudentAddress());
+                    text1.setText(itemList.get(position).getItemID() + ": " + itemList.get(position).getItemName());
+                    text2.setText(itemList.get(position).getItemAddress());
 
                     return view;
                 }
             };
 
-            final ListView listView = (ListView)findViewById(R.id.listStudents);
-            listView.setAdapter(studentArrayAdapter);
+            final ListView listView = (ListView)findViewById(R.id.listItems);
+            listView.setAdapter(itemArrayAdapter);
 
         }
     }
+     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -77,6 +84,7 @@ public class StudentsActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    /*
     private String validateStudentData(Student student, boolean isNewStudent) {
         if (student.getStudentID().length() == 0) {
             return "Student ID required";
@@ -92,4 +100,6 @@ public class StudentsActivity extends Activity {
 
         return null;
     }
+
+     */
 }

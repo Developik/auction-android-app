@@ -17,25 +17,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.StudentsActivity"
-            android:label="@string/title_activity_students" >
+            android:name="comp3350.srsys.presentation.FeedActivity"
+            android:label="@string/item_title" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="comp3350.srsys.presentation.HomeActivity" />
         </activity>
         <activity
-            android:name="comp3350.srsys.presentation.CoursesActivity"
-            android:label="@string/title_activity_courses" >
+            android:name="comp3350.srsys.presentation.ItemActivity"
+            android:label="@string/item_title" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.HomeActivity" />
-        </activity>
-        <activity
-            android:name="comp3350.srsys.presentation.CourseStudentsActivity"
-            android:label="@string/title_activity_course_students" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.CoursesActivity" />
+                android:value="comp3350.srsys.presentation.FeedActivity" />
         </activity>
 
     </application>
