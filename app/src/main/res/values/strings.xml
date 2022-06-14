@@ -24,4 +24,5 @@
     <string name="choose_user">Go to Feed</string>
     <string name="item_title">Item Page</string>
     <string name="username">Username</string>
+    <string name="EnterChat">Button</string>
 </resources>
