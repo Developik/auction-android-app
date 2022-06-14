@@ -8,6 +8,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import comp3350.srsys.application.Main;
+import comp3350.srsys.objects.ChatMessages;
 import comp3350.srsys.objects.Student;
 import comp3350.srsys.objects.Course;
 import comp3350.srsys.objects.SC;
@@ -19,11 +20,9 @@ public class DataAccessStub {
 	private String dbName;
 	private String dbType = "stub";
 
-	private ArrayList<Student> students;
-	private ArrayList<Course> courses;
-	private ArrayList<SC> scs;
-	private ArrayList<Item> items;
 	private ArrayList<User> users;
+	private ArrayList<Item> items;
+	private ArrayList<ChatMessages> chatMessages;
 
 	public DataAccessStub(String dbName) {
 		this.dbName = dbName;
@@ -34,11 +33,9 @@ public class DataAccessStub {
 	}
 
 	public void open(String dbName) {
-		Student student;
-		Course course;
-		SC mySC;
 		User user;
 		Item item;
+		ChatMessages newMessage;
 
 		// OUR OBJECTS:
 		//
@@ -69,6 +66,21 @@ public class DataAccessStub {
 		item = new Item("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(2));
 
 		items.add(item);
+
+		chatMessages = new ArrayList<>();
+
+		newMessage = new ChatMessages("Welcome to the BMS game.", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("BMS (Bidding Market Simulation)", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("Random Messages pop up every time you post.", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("This is meant to simulate a sort of live chat function.", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("Users will be generated randomly in later iterations.", "Ryan");
+		chatMessages.add(newMessage);
+
+
 		// SAMPLE PROJECT OBJECTS :
 		//
 		//
@@ -78,6 +90,11 @@ public class DataAccessStub {
 
 	public void close() {
 		System.out.println("Closed " + dbType + " database " + dbName);
+	}
+
+	public String getChatMessagesSequential(List<ChatMessages> ChatMessagesResult) {
+		ChatMessagesResult.addAll(chatMessages);
+		return null;
 	}
 
 	public String getItemSequential(List<Item> itemResult) {

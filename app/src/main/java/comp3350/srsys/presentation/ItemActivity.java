@@ -1,24 +1,31 @@
 package comp3350.srsys.presentation;
 
+import static java.lang.Thread.sleep;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import comp3350.srsys.R;
-import comp3350.srsys.application.Main;
-import comp3350.srsys.business.AccessItems;
-import comp3350.srsys.objects.Item;
+import comp3350.srsys.business.PingChat;
+import comp3350.srsys.objects.ChatMessages;
 
-public class ItemActivity extends Activity {
+public class ItemActivity extends Activity{
 
-    private AccessItems accessItems;
-    private ArrayList<Item> itemList;
-    private ArrayAdapter<Item> itemArrayAdapter;
-    private int selectedItemPosition = -1;
+    private PingChat pingChat;
+    private ArrayList<ChatMessages> chatList;
+    private TextView chatLog1;
+    private TextView chatLog2;
+    private TextView chatLog3;
+    private TextView chatLog4;
+    private EditText chatInput;
+    private int done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,26 @@ public class ItemActivity extends Activity {
         //Main.startUp();
 
         setContentView(R.layout.activity_item);
+
+        pingChat = new PingChat();
+
+        chatList = new ArrayList<>();
+        String result = pingChat.getMessages();
+        if (result != null)
+        {
+            Messages.fatalError(this, result);
+        }
+
+        chatList = new ArrayList<>();
+        chatLog1 = findViewById(R.id.ChatLog1);
+        chatLog2 = findViewById(R.id.ChatLog2);
+        chatLog3 = findViewById(R.id.ChatLog3);
+        chatLog4 = findViewById(R.id.ChatLog4);
+        chatInput = findViewById(R.id.chatInput);
     }
+
+
+
     /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +109,23 @@ public class ItemActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void updateChat(View view) {
+        final int MAX_NEW_CHATS = 3;
+        int numberOfChats = (int) (Math.random() * MAX_NEW_CHATS);
+        for (int i = 0; i < numberOfChats; i++) {
+            updateAllChat(pingChat.getRandom());
+        }
+        updateAllChat("User: " + chatInput.getText());
+    }
+
+    public void updateAllChat(String newMessage){
+        chatLog4.setText(chatLog3.getText());
+        chatLog3.setText(chatLog2.getText());
+        chatLog2.setText(chatLog1.getText());
+        chatLog1.setText(newMessage);
+    }
+
 
     /*
     private String validateStudentData(Student student, boolean isNewStudent) {
