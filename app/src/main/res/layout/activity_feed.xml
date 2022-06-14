@@ -15,10 +15,52 @@
         android:text="TextView"
         tools:text="@string/username" />
 
-    <SearchView
+    <LinearLayout
+        android:id="@+id/Filters"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginTop="10dp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <SearchView
+            android:id="@+id/search_query"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginTop="10dp"
+            android:queryHint="@string/search_feed">
+
+        </SearchView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/min_bid"
+                android:layout_width="178dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/min_bid"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/max_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:ems="10"
+                android:hint="@string/max_bid"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/search_feed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="searchFeedOnClick"
+            android:text="@string/search_feed" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listItems"

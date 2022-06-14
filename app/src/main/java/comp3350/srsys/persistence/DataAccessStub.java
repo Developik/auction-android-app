@@ -57,7 +57,7 @@ public class DataAccessStub {
 		Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		List pictures = new ArrayList<>(Arrays.asList("./1.png", "./2.png"));
+		List pictures = new ArrayList<>(Arrays.asList("1.png", "2.png"));
 		item = new Item("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(1));
 
 		items.add(item);
@@ -66,7 +66,7 @@ public class DataAccessStub {
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		pictures = new ArrayList<>(Arrays.asList("./3.png"));
-		item = new Item("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(2));
+		item = new Item("Rolex Watch", date, pictures, 5.0, 5.0, start, end, false, categories.get(2));
 
 		items.add(item);
 		// SAMPLE PROJECT OBJECTS :

@@ -68,4 +68,9 @@ public class Item
 		return (datePosted);
 	}
 
+	public double getCurrentBid()
+	{
+		return (current_bid);
+	}
+
 }
