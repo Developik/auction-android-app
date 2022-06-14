@@ -48,29 +48,29 @@ public class Item
 	}
 	*/
 
-	public Long getItemID()
-	{
+	public Long getItemID() {
 		return (itemID);
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return (name);
 	}
 
-	public String getCategory()
-	{
+	public String getCategory() {
 		return (category);
 	}
 
-	public Date getDatePosted()
-	{
+	public Date getDatePosted() {
 		return (datePosted);
 	}
 
-	public double getCurrentBid()
+	public double getCurrentBid() { return (current_bid); }
+
+	public boolean isSold() { return (sold); }
+
+	public double setNewBid(double newBid)
 	{
-		return (current_bid);
+		return (this.current_bid = newBid);
 	}
 
 }

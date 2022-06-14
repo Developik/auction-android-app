@@ -7,14 +7,6 @@
     android:orientation="vertical"
     tools:context="comp3350.srsys.presentation.FeedActivity">
 
-    <TextView
-        android:id="@+id/selected_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="20dp"
-        android:text="TextView"
-        tools:text="@string/username" />
-
     <LinearLayout
         android:id="@+id/Filters"
         android:layout_width="match_parent"

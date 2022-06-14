@@ -172,18 +172,19 @@ public class FeedActivity extends Activity {
             Messages.fatalError(this, result);
         }
         else {
-            itemArrayAdapter = new ArrayAdapter<Item>(this, R.layout.feed_list_item, android.R.id.text1, itemList) {
+            itemArrayAdapter = new ArrayAdapter<Item>(this, R.layout.feed_list_item, R.id.text1, itemList) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
 
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text1 = (TextView) view.findViewById(android.R.id.text2);
-                    //TextView text3 = (TextView) view.findViewById(android.R.id.text3);
+                    TextView text1 = (TextView) view.findViewById(R.id.text1);
+                    TextView text2 = (TextView) view.findViewById(R.id.text2);
+                    TextView text3 = (TextView) view.findViewById(R.id.text3);
 
-                    text2.setText("Category: " + itemList.get(position).getCategory());
-                    text1.setText("Title: " + itemList.get(position).getName());
-                    //text3.setText("Date Posted: " + itemList.get(position).getDatePosted());
+                    text1.setText("Category: " + itemList.get(position).getCategory());
+                    text2.setText("Title: " + itemList.get(position).getName());
+                    String curr_bid_str = ""+itemList.get(position).getCurrentBid();
+                    text3.setText("Last Bid: " + curr_bid_str);
 
                     return view;
                 }
