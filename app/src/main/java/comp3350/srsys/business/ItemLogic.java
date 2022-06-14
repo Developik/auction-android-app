@@ -37,14 +37,13 @@ public class ItemLogic
 
         double last_bid = rand_item.getCurrentBid();
 
-        int min_bid = 0;
         int max_bid = 100;
 
         if (last_bid >= max_bid){
             return false;
         }
 
-        double rnd_bid = ThreadLocalRandom.current().nextDouble(last_bid, 100);
+        double rnd_bid = ThreadLocalRandom.current().nextDouble(last_bid, max_bid);
         DecimalFormat df = new DecimalFormat("#.##");
         rnd_bid = Double.parseDouble(df.format(rnd_bid));
 

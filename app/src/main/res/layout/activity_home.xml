@@ -29,13 +29,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown"/>
-
         <Button
             android:id="@+id/buttonFeed"
             android:layout_width="fill_parent"
