@@ -41,26 +41,27 @@ public class FeedActivity extends Activity {
         if(bundle != null) {
             String user = bundle.getString("user");
 
-            TextView userTextView = findViewById(R.id.selected_username);
-            if (user != null) {
-                userTextView.setText(user);
-            } else {
-                userTextView.setText("");
-            }
+            // Can't find a text view from FeedActivity, will fix later
+            // TextView userTextView = findViewById(R.id.selected_username);
+            // if (user != null) {
+            //     userTextView.setText(user);
+            // } else {
+            //     userTextView.setText("");
+            // }
         }
 
 
-        accessItems = new AccessItems();
+        AccessProducts accessItems = new AccessProducts();
 
-        itemList = new ArrayList<Item>();
-        String result = accessItems.getItems(itemList);
+        ArrayList<Product> itemList = new ArrayList<>();
+        String result = accessItems.getProducts(itemList);
         if (result != null)
         {
         	Messages.fatalError(this, result);
         }
         else
         {
-            itemArrayAdapter = new ArrayAdapter<Item>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList)
+            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList)
             {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -70,8 +71,8 @@ public class FeedActivity extends Activity {
                     TextView text1 = (TextView) view.findViewById(android.R.id.text2);
                     //TextView text3 = (TextView) view.findViewById(android.R.id.text3);
 
-                    text2.setText("Category: " + itemList.get(position).getCategory());
-                    text1.setText("Title: " + itemList.get(position).getName());
+                    text2.setText("Category: " + productList.get(position).getCategory());
+                    text1.setText("Title: " + productList.get(position).getName());
                     //text3.setText("Date Posted: " + itemList.get(position).getDatePosted());
 
                     return view;
@@ -85,7 +86,7 @@ public class FeedActivity extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Object listItem = listView.getItemAtPosition(position);
-                    Intent feedIntent = new Intent(FeedActivity.this, ItemActivity.class);
+                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
                     FeedActivity.this.startActivity(feedIntent);
                 }
             });
