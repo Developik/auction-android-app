@@ -2,7 +2,8 @@ package comp3350.srsys.presentation;
 
 import comp3350.srsys.R;
 import comp3350.srsys.application.Main;
-import comp3350.srsys.business.ItemLogic;
+import comp3350.srsys.business.BotLogic;
+import comp3350.srsys.business.ProductLogic;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,9 +14,6 @@ import android.view.View;
 
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class HomeActivity extends Activity {
 
@@ -30,7 +28,7 @@ public class HomeActivity extends Activity {
             @Override
             public void run() {
                 //your method
-                ItemLogic.assignBidToRandomItem();
+                BotLogic.assignBidToRandomProduct();
                 System.out.println("Random bid was done!");
             }
         }, 0, 5000);//put here time 1000 milliseconds=1 second

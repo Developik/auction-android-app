@@ -21,9 +21,11 @@ public class AllTests
 
     private static void testObjects()
     {
-        suite.addTestSuite(StudentTest.class);
-        suite.addTestSuite(CourseTest.class);
-        suite.addTestSuite(SCTest.class);
+        //suite.addTestSuite(StudentTest.class);
+        //suite.addTestSuite(CourseTest.class);
+        //suite.addTestSuite(SCTest.class);
+
+
     }
 
     private static void testBusiness()

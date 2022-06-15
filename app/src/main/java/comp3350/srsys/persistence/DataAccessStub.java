@@ -11,7 +11,7 @@ import comp3350.srsys.application.Main;
 import comp3350.srsys.objects.Student;
 import comp3350.srsys.objects.Course;
 import comp3350.srsys.objects.SC;
-import comp3350.srsys.objects.Item;
+import comp3350.srsys.objects.Product;
 import comp3350.srsys.objects.User;
 
 
@@ -19,10 +19,7 @@ public class DataAccessStub {
 	private String dbName;
 	private String dbType = "stub";
 
-	private ArrayList<Student> students;
-	private ArrayList<Course> courses;
-	private ArrayList<SC> scs;
-	private ArrayList<Item> items;
+	private ArrayList<Product> products;
 	private ArrayList<User> users;
 
 	public DataAccessStub(String dbName) {
@@ -38,7 +35,7 @@ public class DataAccessStub {
 		Course course;
 		SC mySC;
 		User user;
-		Item item;
+		Product product;
 
 		// OUR OBJECTS:
 		//
@@ -52,23 +49,28 @@ public class DataAccessStub {
 		user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20);
 		users.add(user);
 
-		items = new ArrayList<Item>();
+		products = new ArrayList<Product>();
 
 		Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		List pictures = new ArrayList<>(Arrays.asList("1.png", "2.png"));
-		item = new Item("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(1));
-
-		items.add(item);
+		ArrayList<String> pictures = new ArrayList<>(Arrays.asList("1.png", "2.png"));
+		try{
+			product = new Product("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(1));
+			products.add(product);
+		}
+		catch (Exception ignored){}
 
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		pictures = new ArrayList<>(Arrays.asList("./3.png"));
-		item = new Item("Rolex Watch", date, pictures, 5.0, 5.0, start, end, false, categories.get(2));
+		pictures = new ArrayList<>(Arrays.asList("3.png"));
+		try{
+			product = new Product("Garden Bucket", date, pictures, 5.0, 5.0, start, end, false, categories.get(2));
+			products.add(product);
+		}
+		catch (Exception ignored){}
 
-		items.add(item);
 		// SAMPLE PROJECT OBJECTS :
 		//
 		//
@@ -80,35 +82,35 @@ public class DataAccessStub {
 		System.out.println("Closed " + dbType + " database " + dbName);
 	}
 
-	public String getItemSequential(List<Item> itemResult) {
-		itemResult.addAll(items);
+	public String getProductSequential(List<Product> productResult) {
+		productResult.addAll(products);
 		return null;
 	}
 
-	public ArrayList<Item> getItemRandom(Item currentItem) {
-		ArrayList<Item> newItems;
+	public ArrayList<Product> getProductRandom(Product currentProduct) {
+		ArrayList<Product> newProducts;
 		int index;
 
-		newItems = new ArrayList<Item>();
-		index = items.indexOf(currentItem);
+		newProducts = new ArrayList<Product>();
+		index = products.indexOf(currentProduct);
 		if (index >= 0) {
-			newItems.add(items.get(index));
+			newProducts.add(products.get(index));
 		}
-		return newItems;
+		return newProducts;
 	}
 
-	public String insertItem(Item currentItem) {
+	public String insertProduct(Product currentProduct) {
 		// don't bother checking for duplicates
-		items.add(currentItem);
+		products.add(currentProduct);
 		return null;
 	}
 
-	public String updateItem(Item currentItem) {
+	public String updateProduct(Product currentProduct) {
 		int index;
 
-		index = items.indexOf(currentItem);
+		index = products.indexOf(currentProduct);
 		if (index >= 0) {
-			items.set(index, currentItem);
+			products.set(index, currentProduct);
 		}
 		return null;
 	}
