@@ -38,6 +38,7 @@ public class DataAccessStub {
 		SC mySC;
 		User user;
 		Product product;
+		ChatMessages newMessage;
 
 		// OUR OBJECTS:
 		//
@@ -72,8 +73,6 @@ public class DataAccessStub {
 			products.add(product);
 		}
 		catch (Exception ignored){}
-
-		items.add(item);
 
 		chatMessages = new ArrayList<>();
 
