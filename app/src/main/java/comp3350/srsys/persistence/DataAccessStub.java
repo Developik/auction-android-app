@@ -13,6 +13,7 @@ import comp3350.srsys.objects.Course;
 import comp3350.srsys.objects.SC;
 import comp3350.srsys.objects.Product;
 import comp3350.srsys.objects.User;
+import comp3350.srsys.objects.ChatMessages;
 
 
 public class DataAccessStub {
@@ -21,6 +22,7 @@ public class DataAccessStub {
 
 	private ArrayList<Product> products;
 	private ArrayList<User> users;
+	private ArrayList<ChatMessages> chatMessages;
 
 	public DataAccessStub(String dbName) {
 		this.dbName = dbName;
@@ -71,6 +73,21 @@ public class DataAccessStub {
 		}
 		catch (Exception ignored){}
 
+		items.add(item);
+
+		chatMessages = new ArrayList<>();
+
+		newMessage = new ChatMessages("Welcome to the BMS game.", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("BMS (Bidding Market Simulation)", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("Random Messages pop up every time you post.", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("This is meant to simulate a sort of live chat function.", "Ryan");
+		chatMessages.add(newMessage);
+		newMessage = new ChatMessages("Users will be generated randomly in later iterations.", "Ryan");
+		chatMessages.add(newMessage);
+
 		// SAMPLE PROJECT OBJECTS :
 		//
 		//
@@ -80,6 +97,11 @@ public class DataAccessStub {
 
 	public void close() {
 		System.out.println("Closed " + dbType + " database " + dbName);
+	}
+
+	public String getChatMessagesSequential(List<ChatMessages> ChatMessagesResult) {
+		ChatMessagesResult.addAll(chatMessages);
+		return null;
 	}
 
 	public String getProductSequential(List<Product> productResult) {
