@@ -34,9 +34,9 @@ public class FeedActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getExtras();
+        setContentView(R.layout.activity_feed);
         if(bundle != null) {
             String user = bundle.getString("user");
-            setContentView(R.layout.activity_feed);
 
             TextView userTextView = findViewById(R.id.selected_username);
             if (user != null) {
