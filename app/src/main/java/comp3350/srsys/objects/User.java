@@ -1,5 +1,6 @@
 package comp3350.srsys.objects;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class User
@@ -10,7 +11,7 @@ public class User
 	private String wallet; // expand more who will be working on this part (amount, list of transactions)
 	private String address;
 	private Integer age;
-	private float[] bids;
+	private ArrayList<Bid> myBids;
 	private String[] messages; // expand more who will be working on this part
 	private Integer[] watchlist; // list of IDs or the person working on this part could create relation object
 	private Integer[] soldItems;
@@ -28,6 +29,7 @@ public class User
 		this.last_name = last_name;
 		this.address = address;
 		this.age = age;
+		this.myBids = new ArrayList<>();
 	}
 
 	public String getUsername()
@@ -58,6 +60,12 @@ public class User
 	public Integer getAge()
 	{
 		return (age);
+	}
+
+	public void setBid(Bid b){
+		if(b != null){
+			myBids.add(b);
+		}
 	}
 
 }
