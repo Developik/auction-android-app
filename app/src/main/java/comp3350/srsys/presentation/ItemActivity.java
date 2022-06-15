@@ -1,7 +1,5 @@
 package comp3350.srsys.presentation;
 
-import static java.lang.Thread.sleep;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,7 +23,6 @@ public class ItemActivity extends Activity{
     private TextView chatLog3;
     private TextView chatLog4;
     private EditText chatInput;
-    private int done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

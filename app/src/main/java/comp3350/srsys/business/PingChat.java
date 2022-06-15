@@ -26,12 +26,11 @@ public class PingChat
 		String message = "";
 		if (allMessages != null && allMessages.size() > 0) {
 			message = getRandomS(-1);
-			System.out.println("Inside if");
 		}
 		return message;
 	}
 
-	protected String getRandomS(int index) {//Index is used to test random function
+	public String getRandomS(int index) {//Index is used to test random function
 		String message = "Range {" + allMessages.size() + "}, Invalid Index";
 		if (index == -1) {
 			message = allMessages.get((int) (Math.random() * allMessages.size())).getMessage();

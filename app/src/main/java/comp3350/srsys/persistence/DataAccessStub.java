@@ -9,9 +9,6 @@ import java.util.List;
 
 import comp3350.srsys.application.Main;
 import comp3350.srsys.objects.ChatMessages;
-import comp3350.srsys.objects.Student;
-import comp3350.srsys.objects.Course;
-import comp3350.srsys.objects.SC;
 import comp3350.srsys.objects.Item;
 import comp3350.srsys.objects.User;
 
