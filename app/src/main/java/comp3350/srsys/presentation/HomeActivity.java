@@ -2,12 +2,18 @@ package comp3350.srsys.presentation;
 
 import comp3350.srsys.R;
 import comp3350.srsys.application.Main;
+import comp3350.srsys.business.BotLogic;
+import comp3350.srsys.business.ProductLogic;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HomeActivity extends Activity {
 
@@ -16,6 +22,16 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         //Main.startUp();
+
+        // generate bids
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                //your method
+                BotLogic.assignBidToRandomProduct();
+                System.out.println("Random bid was done!");
+            }
+        }, 0, 5000);//put here time 1000 milliseconds=1 second
 
         setContentView(R.layout.activity_home);
     }

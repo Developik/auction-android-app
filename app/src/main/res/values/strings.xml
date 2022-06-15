@@ -14,9 +14,11 @@
     <string name="choose_user">Go to Feed</string>
     <string name="item_title">Item Page</string>
     <string name="username">Username</string>
-    <string name="EnterChat">Enter Chat</string>
+    <string name="EnterChat">EnterChat</string>
     <string name="welcome_onboarding">Welcome to Bidding Market Simulator!</string>
     <string name="bidding_market_simulator_onboarding">Bidding Market Simulator is a simple app that allows you to create a bidding market and bid on items.</string>
     <string name="bidding_market_simulator_onboarding2">Let\'s get you started!</string>
-
+    <string name="search_feed">Search</string>
+    <string name="min_bid">Min Bid</string>
+    <string name="max_bid">Max Bid</string>
 </resources>
