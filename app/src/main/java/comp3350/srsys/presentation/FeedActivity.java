@@ -13,6 +13,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import comp3350.srsys.R;
@@ -31,7 +33,19 @@ public class FeedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            String user = bundle.getString("user");
+            setContentView(R.layout.activity_feed);
+
+            TextView userTextView = findViewById(R.id.selected_username);
+            if (user != null) {
+                userTextView.setText(user);
+            } else {
+                userTextView.setText("");
+            }
+        }
+
 
         accessItems = new AccessItems();
 

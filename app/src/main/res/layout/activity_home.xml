@@ -19,7 +19,8 @@
         android:src="@drawable/mortarboard"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:contentDescription="TODO" />
 
     <LinearLayout
         android:orientation="vertical"

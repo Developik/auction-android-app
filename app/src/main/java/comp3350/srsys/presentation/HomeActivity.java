@@ -15,7 +15,7 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Main.startUp();
+        //Main.startUp();
 
         setContentView(R.layout.activity_home);
     }

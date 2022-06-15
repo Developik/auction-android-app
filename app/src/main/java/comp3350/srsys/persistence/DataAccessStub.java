@@ -129,4 +129,9 @@ public class DataAccessStub {
 		}
 		return null;
 	}
+
+	public String getUserSequential(List<User> userResult) {
+		userResult.addAll(users);
+		return null;
+	}
 }
