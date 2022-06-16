@@ -24,5 +24,8 @@
     <string name="choose_user">Go to Feed</string>
     <string name="item_title">Item Page</string>
     <string name="username">Username</string>
+    <string name="search_feed">Search</string>
+    <string name="min_bid">Min Bid</string>
+    <string name="max_bid">Max Bid</string>
     <string name="EnterChat">EnterChat</string>
 </resources>
