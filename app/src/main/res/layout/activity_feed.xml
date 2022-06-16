@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingRight="16dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
@@ -13,14 +13,20 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/search_query"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginTop="10dp"
-            android:queryHint="@string/search_feed">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        </SearchView>
+            <SearchView
+                android:id="@+id/search_query"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:queryHint="@string/search_feed">
+
+            </SearchView>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +45,7 @@
                 android:id="@+id/max_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:ems="10"
                 android:hint="@string/max_bid"
                 android:inputType="number" />
@@ -52,6 +58,7 @@
             android:layout_marginTop="10dp"
             android:onClick="searchFeedOnClick"
             android:text="@string/search_feed" />
+
     </LinearLayout>
 
     <ListView
@@ -61,7 +68,9 @@
         android:layout_gravity="top"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:choiceMode="singleChoice" />
+        android:choiceMode="singleChoice" >
+
+    </ListView>
 
     <View
         android:layout_width="match_parent"
@@ -70,5 +79,13 @@
         android:id="@+id/separator"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/wallet_button"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="0.1"
+        android:onClick="buttonWalletOnClick"
+        android:text="@string/wallet" />
 
 </LinearLayout>

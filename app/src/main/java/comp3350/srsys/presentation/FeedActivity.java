@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,7 +36,55 @@ public class FeedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getIntent().getExtras();
         setContentView(R.layout.activity_feed);
+        if(bundle != null) {
+            String user = bundle.getString("user");
+        }
+
+
+        AccessProducts accessItems = new AccessProducts();
+
+        ArrayList<Product> itemList = new ArrayList<>();
+        String result = accessItems.getProducts(itemList);
+        if (result != null)
+        {
+        	Messages.fatalError(this, result);
+        }
+        else
+        {
+            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList)
+            {
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+
+                    TextView text2 = (TextView) view.findViewById(android.R.id.text1);
+                    TextView text1 = (TextView) view.findViewById(android.R.id.text2);
+                    //TextView text3 = (TextView) view.findViewById(android.R.id.text3);
+
+                    text2.setText("Category: " + productList.get(position).getCategory());
+                    text1.setText("Title: " + productList.get(position).getName());
+                    //text3.setText("Date Posted: " + itemList.get(position).getDatePosted());
+
+                    return view;
+                }
+            };
+
+            final ListView listView = (ListView)findViewById(R.id.listItems);
+
+            // go to Item Activity
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Object listItem = listView.getItemAtPosition(position);
+                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
+                    FeedActivity.this.startActivity(feedIntent);
+                }
+            });
+            listView.setAdapter(itemArrayAdapter);
+
+        }
         HashMap<String, String> filters = getFilters();
         update_feed(filters);
     }
@@ -42,11 +92,6 @@ public class FeedActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_students, menu);
-
-        //MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.menu_students, menu);
 
         return true;
     }
@@ -64,6 +109,11 @@ public class FeedActivity extends Activity {
     public void searchFeedOnClick(View v) {
         HashMap<String, String> filters = getFilters();
         update_feed(filters);
+    }
+
+    public void buttonWalletOnClick(View v) {
+        Intent walletIntent = new Intent(FeedActivity.this, WalletActivity.class);
+        FeedActivity.this.startActivity(walletIntent);
     }
 
     private HashMap<String, String> getFilters(){

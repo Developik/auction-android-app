@@ -1,12 +1,14 @@
 package comp3350.srsys.tests.business;
 
+import junit.framework.TestCase;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 import comp3350.srsys.application.Main;
 import comp3350.srsys.business.PingChat;
 
-public class PingChatTest {
+public class PingChatTest extends TestCase {
 
 	PingChat pingChat;
 	String message;

@@ -30,9 +30,6 @@ public class DataAccessStub {
 	}
 
 	public void open(String dbName) {
-		Student student;
-		Course course;
-		SC mySC;
 		User user;
 		Product product;
 		ChatMessages newMessage;
@@ -130,6 +127,11 @@ public class DataAccessStub {
 		if (index >= 0) {
 			products.set(index, currentProduct);
 		}
+		return null;
+	}
+
+	public String getUserSequential(List<User> userResult) {
+		userResult.addAll(users);
 		return null;
 	}
 }
