@@ -139,14 +139,14 @@ ________________
 Developer Tasks, Iteration 1:
 
 
-Simulating bids for AI bot (Simple) - Andrii
-Wallet feature - Hamdi
-OnBoarding page - Hamdi
-Feed of products - Andrii
-Display Product Reviews / Add area for creating reviews - Nikhil
-Display Product Seller - Nikhil
-Chat widget Logic (Display chat function) - Ryan
-Chat widget UI (Display chat function) - Ryan
-Have a bidding tool (logic) - Brett
-Have a bidding tool (UI) - Brett
-Display product description and image - Nikhil
+- Simulating bids for AI bot (Simple) - Andrii
+- Wallet feature - Hamdi
+- OnBoarding page - Hamdi
+- Feed of products - Andrii
+- Display Product Reviews / Add area for creating reviews - Nikhil
+- Display Product Seller - Nikhil
+- Chat widget Logic (Display chat function) - Ryan
+- Chat widget UI (Display chat function) - Ryan
+- Have a bidding tool (logic) - Brett
+- Have a bidding tool (UI) - Brett
+- Display product description and image - Nikhil
