@@ -25,22 +25,36 @@ public class OnboardingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Main.startUp();
+        try {
+            Main.startUp();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // generate bids
-        final BotLogic newBot = new BotLogic();
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                newBot.assignBidToRandomProduct();
-            }
-        }, 0, 5000);//put here time 1000 milliseconds=1 second
+
+        try {
+            final BotLogic newBot = new BotLogic();
+            new Timer().scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    newBot.assignBidToRandomProduct();
+                }
+            }, 0, 5000);//put here time 1000 milliseconds=1 second
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         setContentView(R.layout.activity_onboarding);
 
         // Update the spinner with the list of users from DataAccessStub
         Spinner spinner = findViewById(R.id.userSpinner);
-        updateSpinnerWithData(spinner);
+        try {
+            updateSpinnerWithData(spinner);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -58,7 +72,7 @@ public class OnboardingActivity extends AppCompatActivity {
         OnboardingActivity.this.startActivity(feedIntent);
     }
 
-    private void updateSpinnerWithData(Spinner spinner) {
+    private void updateSpinnerWithData(Spinner spinner) throws Exception {
         List<User> users = new ArrayList<>();
         DataAccessStub dataAccess = Services.getDataAccess(Main.dbName);
 
