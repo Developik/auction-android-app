@@ -5,12 +5,12 @@ import java.util.Date;
 
 public class Bid {
 
-    private int value;
+    private double value;
     private Date date;
     private User user;
 
 
-    public Bid(int value, User user){
+    public Bid(double value, User user){
         if(user == null) throw new NullPointerException("user cannot be null");
         
         this.value = Math.max(0, value);
@@ -19,7 +19,7 @@ public class Bid {
 
     }
 
-    public int getValue(){
+    public double getValue(){
         return value;
     }
     public Date getDate(){
