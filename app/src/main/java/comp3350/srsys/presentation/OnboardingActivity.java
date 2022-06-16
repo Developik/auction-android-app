@@ -28,10 +28,11 @@ public class OnboardingActivity extends AppCompatActivity {
         Main.startUp();
 
         // generate bids
+        final BotLogic newBot = new BotLogic();
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                BotLogic.assignBidToRandomProduct();
+                newBot.assignBidToRandomProduct();
             }
         }, 0, 5000);//put here time 1000 milliseconds=1 second
 
@@ -71,7 +72,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
         for (User user : users) {
             String name = user.getUsername();
-            if (!name.contains("bot"))
+            if (!name.contains("bot") && !user.checkIsBot())
                 names.add(user.getUsername());
         }
 
