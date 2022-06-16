@@ -22,6 +22,10 @@ public class AccessProducts
 		currentItem = 0;
 	}
 
+    public ArrayList<Product> getAllProducts() {
+        return dataAccess.getAllProducts();
+    }
+
     public String getProducts(List<Product> products) {
         products.clear();
         return dataAccess.getProductSequential(products);

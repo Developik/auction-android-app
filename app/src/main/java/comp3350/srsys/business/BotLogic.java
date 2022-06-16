@@ -20,7 +20,7 @@ public class BotLogic
 
     private User selectedUser;
 
-    public BotLogic() {
+    public BotLogic() throws Exception {
         List<User> users = new ArrayList<>();
         DataAccessStub dataAccess = Services.getDataAccess(Main.dbName);
         dataAccess.open(Main.dbName);

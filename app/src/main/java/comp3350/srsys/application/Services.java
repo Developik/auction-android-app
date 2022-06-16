@@ -6,8 +6,7 @@ public class Services
 {
 	private static DataAccessStub dataAccessService = null;
 
-	public static DataAccessStub createDataAccess(String dbName)
-	{
+	public static DataAccessStub createDataAccess(String dbName) throws Exception {
 		if (dataAccessService == null)
 		{
 			dataAccessService = new DataAccessStub(dbName);

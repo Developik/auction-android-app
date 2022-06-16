@@ -29,7 +29,7 @@ public class DataAccessStub {
 		this(Main.dbName);
 	}
 
-	public void open(String dbName) {
+	public void open(String dbName) throws Exception {
 		User user;
 		Product product;
 		ChatMessages newMessage;
@@ -47,6 +47,12 @@ public class DataAccessStub {
 		users.add(user);
 
 		products = new ArrayList<Product>();
+		ArrayList pics = new ArrayList<String>();
+		pics.add("../../../res/drawable/mortarboard.png");
+		Date today = new Date();
+		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
+		Product prod = new Product("test product", today, pics, 50.00, 75.00, today, tomorrow, false, "watches");
+		products.add(prod);
 
 		Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
@@ -95,6 +101,10 @@ public class DataAccessStub {
 	public String getChatMessagesSequential(List<ChatMessages> ChatMessagesResult) {
 		ChatMessagesResult.addAll(chatMessages);
 		return null;
+	}
+
+	public ArrayList<Product> getAllProducts() {
+		return this.products;
 	}
 
 	public String getProductSequential(List<Product> productResult) {

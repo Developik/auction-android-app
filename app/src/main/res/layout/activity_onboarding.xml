@@ -82,4 +82,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onboarding_header_started" />
 
+    <Button
+        android:id="@+id/buttonProductView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="buttonProductViewOnClick"
+        android:text="@string/goToProductView"
+        android:layout_marginVertical="20dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="545dp" />
+
 </android.support.constraint.ConstraintLayout>
