@@ -51,18 +51,18 @@ Personal Logs:
 
 
 Andrii:
-        6 pm - 10 pm, June 11: 
-Added Item, User object. Cleaned up the project
-                3 pm - 7 pm, June 12:
- Replaced Sample project variable names, added objects to Stub database and created the logic for moving from Welcome page to Feed, then to Item page.
-                8pm - 10pm, June 13:
-                        Completed Filters.
-                5pm - 8pm, June 14:
-                        Added tests for Item object
-                8pm - 10pm, June 14:
-                        Project crashed locally, debugging (pulled .idea files from repo)
-                10pm - 12pm, June 15:
-                        Added more tests, fixed project
+* 6 pm - 10 pm, June 11: 
+  * Added Item, User object. Cleaned up the project
+* 3 pm - 7 pm, June 12:
+  * Replaced Sample project variable names, added objects to Stub database and created the logic for moving from Welcome page to Feed, then to Item page.
+* 8pm - 10pm, June 13:
+  * Completed Filters.
+* 5pm - 8pm, June 14:
+  * Added tests for Item object
+* 8pm - 10pm, June 14:
+  * Project crashed locally, debugging (pulled .idea files from repo)
+* 10pm - 12pm, June 15:
+  * Added more tests, fixed project
 
 
 
