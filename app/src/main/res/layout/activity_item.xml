@@ -8,7 +8,6 @@
     tools:context="comp3350.srsys.presentation.ProductActivity">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/item_title"
@@ -18,7 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#000000"
-        android:id="@+id/separator"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
@@ -54,7 +52,6 @@
         android:inputType="text" />
 
     <Button
-        android:id="@+id/ChatSubmit"
         android:layout_width="105dp"
         android:layout_height="48dp"
         android:onClick="updateChat"

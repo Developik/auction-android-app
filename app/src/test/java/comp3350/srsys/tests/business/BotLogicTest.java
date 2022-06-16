@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import comp3350.srsys.application.Main;
 import comp3350.srsys.business.BotLogic;
-import comp3350.srsys.business.PingChat;
 import comp3350.srsys.objects.Bid;
 import comp3350.srsys.objects.User;
 
@@ -27,7 +26,7 @@ public class BotLogicTest extends TestCase {
 	ArrayList<User> users = new ArrayList<>();
 
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception {
 		Main.startUp();
 		username = "joedoe";
 		firstName = "Joe";

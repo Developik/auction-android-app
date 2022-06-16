@@ -7,7 +7,6 @@
     tools:context=".presentation.OnboardingActivity">
 
     <TextView
-        android:id="@+id/onboarding_header_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
@@ -25,7 +24,6 @@
         />
 
     <TextView
-        android:id="@+id/onboarding_header_subtitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="47dp"
@@ -83,7 +81,6 @@
         app:layout_constraintTop_toBottomOf="@+id/onboarding_header_started" />
 
     <Button
-        android:id="@+id/buttonProductView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="buttonProductViewOnClick"
