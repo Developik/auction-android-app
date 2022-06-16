@@ -9,25 +9,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".presentation.WalletActivity"
+            android:exported="false"
+            android:label="Wallet" />
+        <activity
             android:name=".presentation.OnboardingActivity"
             android:exported="true"
             android:label="@string/bidding_market_simulator">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name="comp3350.srsys.presentation.FeedActivity"
+            android:name=".presentation.FeedActivity"
             android:label="@string/item_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="comp3350.srsys.presentation.OnboardingActivity" />
         </activity>
         <activity
-            android:name="comp3350.srsys.presentation.ProductActivity"
-            android:label="@string/item_title" >
+            android:name=".presentation.ProductActivity"
+            android:label="@string/item_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="comp3350.srsys.presentation.FeedActivity" />
