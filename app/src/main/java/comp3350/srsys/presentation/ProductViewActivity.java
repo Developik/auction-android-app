@@ -18,19 +18,19 @@ public class ProductViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_view_page);
-        AccessProducts ap = new AccessProducts();
-        ArrayList<Product> prodList = ap.getAllProducts();
-        Product p = prodList.get(0);
-        String name = p.getName();
-        double currBid = p.getCurrentBid();
-        TextView tv = findViewById(R.id.productTitle);
-        tv.setText(name);
-        tv = findViewById(R.id.productDescription);
-        String desc = "this is a test description. \nthis is a test description. \nthis is a test description.";
-        tv.setText(desc);
-        tv.findViewById(R.id.productPrice);
-        String currBidStr = "Current Bid: " + currBid;
-        tv.setText(currBidStr);
+        AccessProducts productAccess = new AccessProducts();
+        ArrayList<Product> productList = productAccess.getAllProducts();
+        Product thisProduct = productList.get(0);
+        String productName = thisProduct.getName();
+        double currBidPrice = thisProduct.getCurrentBid();
+        TextView thisTextView = findViewById(R.id.productTitle);
+        thisTextView.setText(productName);
+        thisTextView = findViewById(R.id.productDescription);
+        String productDescription = "this is a test description. \nthis is a test description. \nthis is a test description.";
+        thisTextView.setText(productDescription);
+        thisTextView.findViewById(R.id.productPrice);
+        String currBidString = "Current Bid: " + currBidPrice;
+        thisTextView.setText(currBidString);
     }
 
     public void buttonProductReviewsOnClick(View v) {
