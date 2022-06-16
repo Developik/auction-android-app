@@ -127,7 +127,6 @@ Hamdi:
 
 
 Nikhil
-Nikhil
 * 3pm - 6pm, June 12:
    * Created branch and learned basic android studio functionality
    * Researched layouts and activities
