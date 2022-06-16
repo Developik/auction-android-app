@@ -16,6 +16,7 @@ import comp3350.srsys.persistence.DataAccessStub;
 
 public class BotLogic
 {
+    // Purpose: Generate bids on Products
 
     private User selectedUser;
 

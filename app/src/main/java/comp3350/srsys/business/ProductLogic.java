@@ -10,6 +10,8 @@ import comp3350.srsys.objects.Product;
 
 public class ProductLogic
 {
+    // Purpose: Functions for filtering out products and helper functions for dealing with Products
+
     public static Long generateID()
     {
         return new Date().getTime();
