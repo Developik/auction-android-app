@@ -12,8 +12,13 @@ public class Bid {
 
     public Bid(double value, User user){
         if(user == null) throw new NullPointerException("user cannot be null");
-        
-        this.value = Math.max(0, value);
+
+        if(value < 0){
+            this.value = 0;
+        }
+        else{
+            this.value = value;
+        }
         this.date = new Date();
         this.user = user;
 
