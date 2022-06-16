@@ -23,8 +23,7 @@ public class User
 	// pre-generated User
 	// add new fields later
 	public User(String username, String first_name, String last_name, String address,
-                Integer age, boolean isBot)
-	{
+                Integer age, boolean isBot) {
 		this.username = username;
 		this.first_name = first_name;
 		this.last_name = last_name;
@@ -61,10 +60,7 @@ public class User
 
 	public Integer getAge() { return (age); }
 
-	public boolean checkIsBot()
-	{
-		return (isBot);
-	}
+	public boolean checkIsBot() { return (isBot); }
 
 	public void setBid(Bid b){
 		if(b != null){

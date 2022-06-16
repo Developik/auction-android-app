@@ -17,15 +17,18 @@ public class ProductLogic
 
     public static ArrayList<Product> filterFeed(Map<String, String> filters, ArrayList<Product> productList){
         ArrayList<Product> newProductList = new ArrayList<Product>(productList);
-        Iterator it = filters.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry)it.next();
-            String key = (String) pair.getKey();
-            String value = (String) pair.getValue();
-            if (value != null && !(value.trim().equals("")))
-                newProductList = filterFeedBy(key, value, newProductList);
-            it.remove(); // avoids a ConcurrentModificationException
+        if (filters != null){
+            Iterator it = filters.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry)it.next();
+                String key = (String) pair.getKey();
+                String value = (String) pair.getValue();
+                if (value != null && !(value.trim().equals("")))
+                    newProductList = filterFeedBy(key, value, newProductList);
+                it.remove(); // avoids a ConcurrentModificationException
+            }
         }
+
         return newProductList;
     }
 
