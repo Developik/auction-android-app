@@ -1,6 +1,10 @@
 # BMS android-app
 Comp 3350 android app | Team 2
 
+## Architecture
+
+![image](https://user-images.githubusercontent.com/54965144/174135143-8b5d4798-4a37-46e2-80c7-78fe659305af.png)
+
 ## How to run Tests:
 
 - Go to ../tests
