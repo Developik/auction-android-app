@@ -2,9 +2,6 @@ package comp3350.srsys.tests.business;
 
 import junit.framework.TestCase;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-
 import comp3350.srsys.application.Main;
 import comp3350.srsys.business.PingChat;
 
@@ -13,7 +10,6 @@ public class PingChatTest extends TestCase {
 	PingChat pingChat;
 	String message;
 
-	@Test
 	public void testEmptyList()	{
 		System.out.println("\nStarting testPingChat: empty list");
 
@@ -29,7 +25,6 @@ public class PingChatTest extends TestCase {
 		System.out.println("Finished testPingChat: empty list");
 	}
 
-	@Test
 	public void testInitializedList(){
 		System.out.println("\nStarting testPingChat: Initialized list");
 
