@@ -30,6 +30,27 @@
                 android:value="comp3350.srsys.presentation.OnboardingActivity" />
         </activity>
         <activity
+            android:name=".presentation.ProductViewActivity"
+            android:label="@string/prodViewPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="comp3350.srsys.presentation.OnboardingActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.ProductReviewActivity"
+            android:label="@string/prodReviewPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="comp3350.srsys.presentation.ProductViewActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.ProfileViewActivity"
+            android:label="@string/profilePage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="comp3350.srsys.presentation.ProductReviewActivity"/>
+        </activity>
+        <activity
             android:name=".presentation.ProductActivity"
             android:label="@string/item_title">
             <meta-data

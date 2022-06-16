@@ -83,4 +83,9 @@ public class OnboardingActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
     }
+
+    public void buttonProductViewOnClick(View v) {
+        Intent productViewIntent = new Intent(OnboardingActivity.this, ProductViewActivity.class);
+        OnboardingActivity.this.startActivity(productViewIntent);
+    }
 }
