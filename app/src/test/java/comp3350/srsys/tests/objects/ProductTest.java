@@ -1,5 +1,7 @@
 package comp3350.srsys.tests.objects;
 
+import junit.framework.TestCase;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +17,7 @@ import comp3350.srsys.objects.Product;
 
 import static org.junit.Assert.*;
 
-public class ProductTest {
+public class ProductTest extends TestCase {
 
 	Product product;
 	Date date;
