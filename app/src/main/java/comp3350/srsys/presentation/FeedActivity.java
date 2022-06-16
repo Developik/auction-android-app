@@ -40,14 +40,6 @@ public class FeedActivity extends Activity {
         setContentView(R.layout.activity_feed);
         if(bundle != null) {
             String user = bundle.getString("user");
-
-            // Can't find a text view from FeedActivity, will fix later
-            // TextView userTextView = findViewById(R.id.selected_username);
-            // if (user != null) {
-            //     userTextView.setText(user);
-            // } else {
-            //     userTextView.setText("");
-            // }
         }
 
 
@@ -100,11 +92,6 @@ public class FeedActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_students, menu);
-
-        //MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.menu_students, menu);
 
         return true;
     }
@@ -122,6 +109,11 @@ public class FeedActivity extends Activity {
     public void searchFeedOnClick(View v) {
         HashMap<String, String> filters = getFilters();
         update_feed(filters);
+    }
+
+    public void buttonWalletOnClick(View v) {
+        Intent walletIntent = new Intent(FeedActivity.this, WalletActivity.class);
+        FeedActivity.this.startActivity(walletIntent);
     }
 
     private HashMap<String, String> getFilters(){

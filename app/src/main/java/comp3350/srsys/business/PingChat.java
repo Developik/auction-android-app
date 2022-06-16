@@ -1,5 +1,7 @@
 package comp3350.srsys.business;
 
+// Purpose: Manages the databases ChatMessages
+
 import java.util.ArrayList;
 
 import comp3350.srsys.application.Main;
@@ -7,8 +9,7 @@ import comp3350.srsys.application.Services;
 import comp3350.srsys.objects.ChatMessages;
 import comp3350.srsys.persistence.DataAccessStub;
 
-public class PingChat
-{
+public class PingChat {
 	private final DataAccessStub dataAccess;
 	private ArrayList<ChatMessages> allMessages;
 
