@@ -19,15 +19,11 @@
         </activity>
 
         <activity
-            android:name="comp3350.srsys.presentation.HomeActivity"
-            android:label="SRSYS">
-        </activity>
-        <activity
             android:name="comp3350.srsys.presentation.FeedActivity"
             android:label="@string/item_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.HomeActivity" />
+                android:value="comp3350.srsys.presentation.OnboardingActivity" />
         </activity>
         <activity
             android:name="comp3350.srsys.presentation.ProductActivity"
