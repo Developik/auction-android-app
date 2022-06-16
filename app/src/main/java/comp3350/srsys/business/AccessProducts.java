@@ -1,5 +1,6 @@
 package comp3350.srsys.business;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,10 @@ public class AccessProducts
         product = null;
 		currentItem = 0;
 	}
+
+    public ArrayList<Product> getAllProducts() {
+        return dataAccess.getAllProducts();
+    }
 
     public String getProducts(List<Product> products) {
         products.clear();

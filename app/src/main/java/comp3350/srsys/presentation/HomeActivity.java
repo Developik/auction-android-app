@@ -21,7 +21,11 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Main.startUp();
+        try {
+            Main.startUp();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         // generate bids
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -69,7 +73,6 @@ public class HomeActivity extends Activity {
     public void buttonProductViewOnClick(View v) {
         Intent productViewIntent = new Intent(HomeActivity.this, ProductViewActivity.class);
         HomeActivity.this.startActivity(productViewIntent);
-
     }
 
     /*

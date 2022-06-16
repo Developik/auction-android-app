@@ -33,4 +33,10 @@
     <string name="bidHint">enter bid</string>
     <string name="bidButton">bid</string>
     <string name="prodViewPage">product view page</string>
+    <string name="prodReviewButton">reviews</string>
+    <string name="prodReviewPage">product review page</string>
+    <string name="reviewHint">leave a detailed review here!</string>
+    <string name="submitReview">submit</string>
+    <string name="sellerProfileButton">view seller\'s profile</string>
+    <string name="profilePage">profile page</string>
 </resources>

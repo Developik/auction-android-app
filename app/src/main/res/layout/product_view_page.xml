@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,14 +12,17 @@
 
         <ImageView
             android:id="@+id/productImage"
+            android:src="@drawable/mortarboard"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/prodImgDesc"
             tools:background="#999"
             tools:srcCompat="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/productTitle"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,11 +35,35 @@
 
         <TextView
             android:id="@+id/productDescription"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             tools:text="@tools:sample/lorem/random" />
+
+        <Button
+            android:id="@+id/review_button"
+            android:onClick="buttonProductReviewsOnClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="#ffffff"
+            android:text="@string/prodReviewButton"  />
+
+        <Button
+            android:id="@+id/seller_profile_button"
+            android:onClick="buttonSellerProfileOnClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:textColor="#ffffff"
+            android:text="@string/sellerProfileButton"  />
 
         <TextView
             android:id="@+id/productPrice"
@@ -49,7 +75,6 @@
             android:layout_marginHorizontal="10dp"
             android:textSize="32sp"
             tools:text="Current Bid: $1.99"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="#000000" />
 
         <EditText

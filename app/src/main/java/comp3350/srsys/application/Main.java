@@ -4,8 +4,7 @@ public class Main
 {
 	public static final String dbName="SC";
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) throws Exception {
 		startUp();
 
 		//CLI.run();
@@ -14,8 +13,7 @@ public class Main
 		System.out.println("All done");
 	}
 
-	public static void startUp()
-	{
+	public static void startUp() throws Exception {
 		Services.createDataAccess(dbName);
 	}
 
