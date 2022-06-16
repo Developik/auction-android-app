@@ -1,7 +1,6 @@
 package comp3350.srsys.business;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import comp3350.srsys.objects.Bid;
 import comp3350.srsys.objects.User;
@@ -10,19 +9,29 @@ import comp3350.srsys.objects.User;
 //          Auction style is closed-book, so bidders don't know the highest bid
 
 public class AuctionManager {
-    private Date startDate;
-    private Date endDate;
+    private long startTimeSec;
+    private long endTimeSec;
     private ArrayList<Bid> bids;
 
-    public AuctionManager(Date endDate){
-        this.startDate = new Date();
-        this.endDate = endDate;
+    public AuctionManager(int durationSeconds){
+        if(durationSeconds <= 0){
+            throw new RuntimeException("Cannot have Auction of <= 0 minutes!");
+        }
+        this.startTimeSec = getTimeSec();
+        this.endTimeSec = startTimeSec + durationSeconds;
         this.bids = new ArrayList<>();
     }
 
     public boolean addBid(int value, User user){
-        Date curDate = new Date();
-        if(user != null && curDate.before(endDate)){
+        long curTimeSec = getTimeSec();
+        if(value > 0 && curTimeSec < endTimeSec && user != null){
+            // duplicate bids from same user not allowed
+            for(int i = 0; i < bids.size(); i++){
+                if(bids.get(i).getUser().equals(user) && bids.get(i).getValue() == value){
+                    return false;
+                }
+            }
+            // add bid
             Bid b = new Bid(value, user);
             bids.add(b);
             user.setBid(b);
@@ -36,8 +45,8 @@ public class AuctionManager {
     }
 
     public Bid getWinner(){
-        Date curDate = new Date();
-        if(curDate.before(endDate)) return null;
+        long curTimeSec = getTimeSec();
+        if(curTimeSec < endTimeSec) return null;
         if(bids == null || bids.size() == 0) return null;
 
         Bid highestBid = bids.get(0);
@@ -50,17 +59,13 @@ public class AuctionManager {
         return highestBid;
     }
 
-    public int getMinutesRemaining(){
-        int minutesRemaining;
+    public int getSecondsRemaining(){
+        int secondsRemaining = (int) (endTimeSec - getTimeSec());
+        return Math.max(0, secondsRemaining);
+    }
 
-        long millisecondsRemaining = endDate.getTime() - startDate.getTime();
-        if(millisecondsRemaining <= 0){
-            minutesRemaining = 0;
-        }
-        else{
-            minutesRemaining = (int)(millisecondsRemaining / 60000) + 1;
-        }
-        return minutesRemaining;
+    private long getTimeSec(){
+        return System.currentTimeMillis() / 1000L;
     }
 
 }
