@@ -4,12 +4,14 @@ import java.util.Date;
 
 public class Bid {
 
+
     private int value;
     private Date date;
     private User user;
 
 
     public Bid(int value, User user){
+        if(user == null) throw new NullPointerException("user cannot be null");
         this.value = value;
         this.date = new Date();
         this.user = user;

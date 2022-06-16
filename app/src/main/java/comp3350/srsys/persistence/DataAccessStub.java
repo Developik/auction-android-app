@@ -30,9 +30,6 @@ public class DataAccessStub {
 	}
 
 	public void open(String dbName) {
-		Student student;
-		Course course;
-		SC mySC;
 		User user;
 		Product product;
 		ChatMessages newMessage;

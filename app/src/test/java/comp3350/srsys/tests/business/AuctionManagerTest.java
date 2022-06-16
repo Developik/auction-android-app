@@ -1,43 +1,15 @@
-package comp3350.srsys.tests;
+package comp3350.srsys.tests.business;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 import comp3350.srsys.business.AuctionManager;
-import comp3350.srsys.objects.Bid;
 import comp3350.srsys.objects.User;
-import comp3350.srsys.tests.business.PingChatTest;
-import comp3350.srsys.tests.objects.ChatMessagesTest;
 
-@RunWith(Suite.class)
-@Suite.SuiteClasses({ChatMessagesTest.class, PingChatTest.class})
+public class AuctionManagerTest {
 
-public class AllTests {
-
-    //-----------------------------------------------------------------------------------------------------
-    // BidTest.java tests
-    @Test(expected = NullPointerException.class)
-    public void testConstructor(){
-        System.out.println("Testing Bid constructor");
-
-        System.out.println("normal test");
-        User u = new User("username", "john","smith", "55 road dr.", 44);
-        Bid bid = new Bid(50, u);
-        assertNotNull(bid);
-
-        System.out.println("with null user should throw exception");
-        Bid badBid = new Bid(50, null);
-    }
-
-    //-----------------------------------------------------------------------------------------------------
-    // AuctionManagerTest.java tests
     AuctionManager am;
     User u1;
     User u2;
@@ -197,8 +169,4 @@ public class AllTests {
         Thread.sleep(5000);
         assertEquals(0, am.getSecondsRemaining());
     }
-
-    //-----------------------------------------------------------------------------------------------------
-
-
 }
