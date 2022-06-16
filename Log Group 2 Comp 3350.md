@@ -63,6 +63,8 @@ Andrii:
   * Project crashed locally, debugging (pulled .idea files from repo)
 * 10pm - 12pm, June 15:
   * Added more tests, fixed project
+* 12:15pm - 2:pm, June 16:
+  * Finalized files
 
 
 
