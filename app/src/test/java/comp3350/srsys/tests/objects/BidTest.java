@@ -1,15 +1,12 @@
 package comp3350.srsys.tests.objects;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
+import junit.framework.TestCase;
 
 import comp3350.srsys.objects.Bid;
 import comp3350.srsys.objects.User;
 
-public class BidTest {
+public class BidTest extends TestCase {
 
-    @Test(expected = NullPointerException.class)
     public void testConstructor(){
         System.out.println("Testing Bid constructor");
 
@@ -19,6 +16,14 @@ public class BidTest {
         assertNotNull(bid);
 
         System.out.println("with null user should throw exception");
-        Bid badBid = new Bid(50, null);
+        try{
+            Bid badBid = new Bid(50, null);
+            assertEquals(1, 2);
+        }
+        catch(NullPointerException e){
+            // should get here
+            assertEquals(1, 1);
+        }
+
     }
 }

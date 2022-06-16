@@ -3,7 +3,9 @@ package comp3350.srsys.tests;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
+import comp3350.srsys.tests.business.AuctionManagerTest;
 import comp3350.srsys.tests.business.PingChatTest;
+import comp3350.srsys.tests.objects.BidTest;
 import comp3350.srsys.tests.objects.ChatMessagesTest;
 import comp3350.srsys.tests.objects.ProductTest;
 
@@ -23,10 +25,12 @@ public class AllTests
     {
         suite.addTestSuite(ProductTest.class);
         suite.addTestSuite(ChatMessagesTest.class);
+        suite.addTestSuite(BidTest.class);
     }
 
     private static void testBusiness()
     {
         suite.addTestSuite(PingChatTest.class);
+        suite.addTestSuite(AuctionManagerTest.class);
     }
 }

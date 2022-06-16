@@ -1,27 +1,22 @@
 package comp3350.srsys.tests.business;
 
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
+import junit.framework.TestCase;
 
 import comp3350.srsys.business.AuctionManager;
 import comp3350.srsys.objects.User;
 
-public class AuctionManagerTest {
+public class AuctionManagerTest extends TestCase {
 
     AuctionManager am;
     User u1;
     User u2;
 
-    @Before
     public void setUp() {
         am = new AuctionManager(3);
         u1 = new User("username", "john", "smith", "55 road dr.", 44);
         u2 = new User("username", "bob", "last", "10 lol cres.", 2);
     }
 
-    @Test
     public void testAddBid() {
         System.out.println("Running testAddBid");
         System.out.println("normal bids");
@@ -64,7 +59,6 @@ public class AuctionManagerTest {
         assertEquals(1, am.getBidCount());
     }
 
-    @Test
     public void testGetBidCount() {
         System.out.println("Running testGetBidCount");
         System.out.println("normal test");
@@ -85,7 +79,6 @@ public class AuctionManagerTest {
         assertEquals(0, am.getBidCount());
     }
 
-    @Test
     public void testGetWinner() throws InterruptedException {
         System.out.println("Running testGetWinner");
 
@@ -156,7 +149,6 @@ public class AuctionManagerTest {
         assertNull(am.getWinner());
     }
 
-    @Test
     public void testGetSecondsRemaining() throws InterruptedException {
         System.out.println("Running testGetSecondsRemaining");
 
