@@ -2,14 +2,10 @@ package comp3350.srsys.tests.objects;
 
 import junit.framework.TestCase;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-
 import comp3350.srsys.objects.ChatMessages;
 
 public class ChatMessagesTest extends TestCase {
 
-	@Test
 	public void testMessageSet() {
 		ChatMessages chatMessages;
 
