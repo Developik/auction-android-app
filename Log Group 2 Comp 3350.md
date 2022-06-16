@@ -126,6 +126,10 @@ Hamdi:
    * Cleaned unused code, and the top up functionality now works.
 * 11:30am - 1:30pm, June 16
    * Tasks were completed, so I did code review and resolving issues and conflicts with group members
+* 2pm - 2:30pm, June 16
+   * Done code review and bug fixing
+* 2:30pm - 3pm, June 16
+   * Major code cleanup, scariest merge of my life.
 
 
 Nikhil
