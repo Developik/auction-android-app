@@ -1,4 +1,4 @@
-# auction-android-app
+# BMS android-app
 Comp 3350 android app | Team 2
 
 ## How to run Tests:
