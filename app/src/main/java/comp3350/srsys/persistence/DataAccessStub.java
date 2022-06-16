@@ -8,12 +8,9 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import comp3350.srsys.application.Main;
-import comp3350.srsys.objects.Student;
-import comp3350.srsys.objects.Course;
-import comp3350.srsys.objects.SC;
+import comp3350.srsys.objects.ChatMessages;
 import comp3350.srsys.objects.Product;
 import comp3350.srsys.objects.User;
-import comp3350.srsys.objects.ChatMessages;
 
 
 public class DataAccessStub {
@@ -133,6 +130,11 @@ public class DataAccessStub {
 		if (index >= 0) {
 			products.set(index, currentProduct);
 		}
+		return null;
+	}
+
+	public String getUserSequential(List<User> userResult) {
+		userResult.addAll(users);
 		return null;
 	}
 }
