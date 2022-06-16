@@ -11,7 +11,7 @@ public class BidTest extends TestCase {
         System.out.println("Testing Bid constructor");
 
         System.out.println("normal test");
-        User u = new User("username", "john","smith", "55 road dr.", 44);
+        User u = new User("username", "john","smith", "55 road dr.", 44, false);
         Bid bid = new Bid(50, u);
         assertNotNull(bid);
 

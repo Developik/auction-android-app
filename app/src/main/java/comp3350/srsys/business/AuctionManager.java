@@ -22,7 +22,7 @@ public class AuctionManager {
         this.bids = new ArrayList<>();
     }
 
-    public boolean addBid(int value, User user){
+    public boolean addBid(double value, User user){
         long curTimeSec = getTimeSec();
         if(value > 0 && curTimeSec < endTimeSec && user != null){
             // duplicate bids from same user not allowed
