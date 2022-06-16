@@ -1,0 +1,14 @@
+The below coding standards should be followed for all projects files.
+
+1. Variable names: Use Camel Case (thisIsAnExample)
+2. Constant names: Use all upercase with words separated with _ text (THIS_IS_AN_EXAMPLE)
+3. Class names: Uppercase first letter of word (ThisIsClassExample)
+4. Bracket placement: Follow the template below
+    foo(int param) {
+      // contents
+    }
+5. Indentation: Use Android Studio default of 4 spaces (can hit tab to get 4 spaces)
+6. Comments: Add comments when it is not clear what the code is doing.
+             Use good variable names and functions (clean code) to limit need for excess commenting.
+7. Instance variables: Should not be public. Use getters and setters when required.
+8. Only include imports that are used.
