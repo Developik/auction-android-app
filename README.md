@@ -21,3 +21,8 @@ Comp 3350 android app | Team 2
 - What if there is a project error?
   - There could be a number of potential issues, but try to 'Sync Project with Gradle files'
   - ![image](https://user-images.githubusercontent.com/54965144/173991853-26cb6447-e071-49ce-a86a-fcbd9059cf60.png)
+
+  - If that does not help try the following steps:
+    - Switch gradle version a few times and keep installing them until it works 
+    - Go to "build.gradle" file in project root folder and keep changing version of " classpath 'com.android.tools.build:gradle:4.0.2' "
+    - Try to install 4.0.2 then 7.0.3, then change version to 4.0.2 again and after installing again App should run
