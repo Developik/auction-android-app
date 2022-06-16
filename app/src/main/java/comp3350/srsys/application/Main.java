@@ -11,8 +11,11 @@ public class Main
 		System.out.println("All done");
 	}
 
-	public static void startUp() throws Exception {
-		Services.createDataAccess(dbName);
+	public static void startUp(){
+		try {
+			Services.createDataAccess(dbName);
+		}
+		catch (Exception e){}
 	}
 
 	public static void shutDown()

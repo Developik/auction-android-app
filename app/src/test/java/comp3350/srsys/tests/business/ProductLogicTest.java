@@ -60,8 +60,6 @@ public class ProductLogicTest extends TestCase {
 
 		filters = new HashMap<>();
 		String query = "";
-		String minBid = "5";
-		String maxBid = "25";
 		filters.put("query", query);
 		filters.put("minMaxBid", minBid + ";" + maxBid);
 
