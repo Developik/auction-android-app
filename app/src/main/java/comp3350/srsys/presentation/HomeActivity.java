@@ -66,6 +66,11 @@ public class HomeActivity extends Activity {
         HomeActivity.this.startActivity(feedIntent);
     }
 
+    public void buttonProductViewOnClick(View v) {
+        Intent feedIntent = new Intent(HomeActivity.this, FeedActivity.class);
+
+    }
+
     /*
     public void buttonCoursesOnClick(View v) {
         Intent coursesIntent = new Intent(HomeActivity.this, CoursesActivity.class);

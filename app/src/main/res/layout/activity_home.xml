@@ -36,6 +36,13 @@
             android:onClick="buttonFeedOnClick"
             android:text="@string/choose_user" />
 
+        <Button
+            android:id="@+id/buttonProductView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buttonFeedOnClick"
+            android:text="@string/goToProductView"/>
+
     </LinearLayout>
 
 </RelativeLayout>
