@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="comp3350.srsys">
 
@@ -7,18 +8,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".presentation.OnboardingActivity"
+            android:exported="true"
+            android:label="@string/bidding_market_simulator">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity
-            android:name=".presentation.HomeActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name="comp3350.srsys.presentation.HomeActivity"
+            android:label="SRSYS">
         </activity>
         <activity
             android:name="comp3350.srsys.presentation.FeedActivity"
-            android:label="@string/item_title" >
+            android:label="@string/item_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="comp3350.srsys.presentation.HomeActivity" />
@@ -30,7 +36,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="comp3350.srsys.presentation.FeedActivity" />
         </activity>
-
     </application>
 
 </manifest>

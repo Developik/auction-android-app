@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,7 +36,63 @@ public class FeedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getIntent().getExtras();
         setContentView(R.layout.activity_feed);
+        if(bundle != null) {
+            String user = bundle.getString("user");
+
+            // Can't find a text view from FeedActivity, will fix later
+            // TextView userTextView = findViewById(R.id.selected_username);
+            // if (user != null) {
+            //     userTextView.setText(user);
+            // } else {
+            //     userTextView.setText("");
+            // }
+        }
+
+
+        AccessProducts accessItems = new AccessProducts();
+
+        ArrayList<Product> itemList = new ArrayList<>();
+        String result = accessItems.getProducts(itemList);
+        if (result != null)
+        {
+        	Messages.fatalError(this, result);
+        }
+        else
+        {
+            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList)
+            {
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+
+                    TextView text2 = (TextView) view.findViewById(android.R.id.text1);
+                    TextView text1 = (TextView) view.findViewById(android.R.id.text2);
+                    //TextView text3 = (TextView) view.findViewById(android.R.id.text3);
+
+                    text2.setText("Category: " + productList.get(position).getCategory());
+                    text1.setText("Title: " + productList.get(position).getName());
+                    //text3.setText("Date Posted: " + itemList.get(position).getDatePosted());
+
+                    return view;
+                }
+            };
+
+            final ListView listView = (ListView)findViewById(R.id.listItems);
+
+            // go to Item Activity
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Object listItem = listView.getItemAtPosition(position);
+                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
+                    FeedActivity.this.startActivity(feedIntent);
+                }
+            });
+            listView.setAdapter(itemArrayAdapter);
+
+        }
         HashMap<String, String> filters = getFilters();
         update_feed(filters);
     }
