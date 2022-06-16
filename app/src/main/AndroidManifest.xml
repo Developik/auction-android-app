@@ -24,6 +24,13 @@
                 android:value="comp3350.srsys.presentation.HomeActivity" />
         </activity>
         <activity
+            android:name=".presentation.ProductViewActivity"
+            android:label="@string/prodViewPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="comp3350.srsys.presentation.HomeActivity"/>
+        </activity>
+        <activity
             android:name="comp3350.srsys.presentation.ProductActivity"
             android:label="@string/item_title" >
             <meta-data

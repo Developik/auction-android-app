@@ -67,7 +67,8 @@ public class HomeActivity extends Activity {
     }
 
     public void buttonProductViewOnClick(View v) {
-        Intent feedIntent = new Intent(HomeActivity.this, FeedActivity.class);
+        Intent productViewIntent = new Intent(HomeActivity.this, ProductViewActivity.class);
+        HomeActivity.this.startActivity(productViewIntent);
 
     }
 

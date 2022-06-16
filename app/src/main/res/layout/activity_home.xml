@@ -40,7 +40,7 @@
             android:id="@+id/buttonProductView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:onClick="buttonFeedOnClick"
+            android:onClick="buttonProductViewOnClick"
             android:text="@string/goToProductView"/>
 
     </LinearLayout>
