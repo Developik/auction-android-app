@@ -1,9 +1,9 @@
 package comp3350.srsys.objects;
 
+import java.text.DecimalFormat;
 import java.util.Date;
 
 public class Bid {
-
 
     private int value;
     private Date date;
@@ -12,9 +12,11 @@ public class Bid {
 
     public Bid(int value, User user){
         if(user == null) throw new NullPointerException("user cannot be null");
-        this.value = value;
+        
+        this.value = Math.max(0, value);
         this.date = new Date();
         this.user = user;
+
     }
 
     public int getValue(){
