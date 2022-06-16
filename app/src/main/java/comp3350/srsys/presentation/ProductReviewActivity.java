@@ -18,13 +18,13 @@ public class ProductReviewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_review_page);
-        AccessProducts ap = new AccessProducts();
-        ArrayList<Product> prodList = ap.getAllProducts();
-        Product p = prodList.get(0);
-        String name = p.getName();
+        AccessProducts productListAccess = new AccessProducts();
+        ArrayList<Product> productList = productListAccess.getAllProducts();
+        Product thisProduct = productList.get(0);
+        String thisProductName = thisProduct.getName();
         double currBid = p.getCurrentBid();
-        TextView tv = findViewById(R.id.productTitle);
-        tv.setText(name);
+        TextView thisTextView = findViewById(R.id.productTitle);
+        tv.setText(thisProductName);
     }
 
     public void submitReviewOnClick(View view) {
