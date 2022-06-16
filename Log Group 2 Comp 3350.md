@@ -127,7 +127,20 @@ Hamdi:
 
 
 Nikhil
-* 
+Nikhil
+* 3pm - 6pm, June 12:
+   * Created branch and learned basic android studio functionality
+   * Researched layouts and activities
+* 1pm - 2pm, June 13:
+   * Created layout for a product page
+* 1pm - 6:30pm, June 14:
+   * Created layouts for review page and profile page
+   * Created activities for each layout
+* 2:30pm - 5:30pm, June 15:
+   * Linked activities to each other
+* 8:30am - 2pm, June 16:
+   * Linked pages to main app and tested functionality
+   * Added pages to manifest.xml
 
 ________________
 
