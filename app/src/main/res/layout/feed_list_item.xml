@@ -9,9 +9,9 @@
     android:mode="twoLine">
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="72dp"
         android:layout_height="62dp"
+        android:contentDescription="@string/bidding_market_simulator"
         android:src="@drawable/mortarboard" />
 
     <LinearLayout

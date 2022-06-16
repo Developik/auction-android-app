@@ -16,7 +16,7 @@ public class AccessProducts
 	private int currentItem;
 
 	public AccessProducts() {
-		dataAccess = (DataAccessStub) Services.getDataAccess(Main.dbName);
+		dataAccess = Services.getDataAccess(Main.dbName);
         products = null;
         product = null;
 		currentItem = 0;
@@ -34,12 +34,12 @@ public class AccessProducts
     public Product getSequential() {
         String result = null;
         if (products == null) {
-            products = new ArrayList<Product>();
+            products = new ArrayList<>();
             result = dataAccess.getProductSequential(products);
             currentItem = 0;
         }
         if (currentItem < products.size()) {
-            product = (Product) products.get(currentItem);
+            product = products.get(currentItem);
             currentItem++;
         }
         else {

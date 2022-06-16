@@ -4,11 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import comp3350.srsys.R;
-import comp3350.srsys.business.AccessProducts;
-import comp3350.srsys.objects.Product;
 
 public class ProfileViewActivity extends Activity {
     @Override

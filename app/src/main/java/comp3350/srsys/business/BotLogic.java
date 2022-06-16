@@ -51,7 +51,7 @@ public class BotLogic
     public boolean assignBidToRandomProduct() {
         System.out.println("Attempt to bid rand Started!");
         AccessProducts accessProducts = new AccessProducts();
-        ArrayList<Product> ProductList = new ArrayList<Product>();
+        ArrayList<Product> ProductList = new ArrayList<>();
         accessProducts.getProducts(ProductList);
         int min = 0;
         int max = ProductList.size();

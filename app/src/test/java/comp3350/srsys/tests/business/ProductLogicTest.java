@@ -1,8 +1,5 @@
 package comp3350.srsys.tests.business;
 
-import android.widget.SearchView;
-import android.widget.TextView;
-
 import junit.framework.TestCase;
 
 import org.junit.After;
@@ -15,16 +12,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.PropertyResourceBundle;
-
-import comp3350.srsys.R;
 import comp3350.srsys.application.Main;
 import comp3350.srsys.business.AccessProducts;
-import comp3350.srsys.business.PingChat;
 import comp3350.srsys.business.ProductLogic;
 import comp3350.srsys.objects.Product;
-import comp3350.srsys.objects.User;
 
 public class ProductLogicTest extends TestCase {
 
@@ -48,10 +39,10 @@ public class ProductLogicTest extends TestCase {
 
 
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception {
 		Main.startUp();
 		accessProducts = new AccessProducts();
-		productList = new ArrayList<Product>();
+		productList = new ArrayList<>();
 		accessProducts.getProducts(productList);
 
 		productInitSize = productList.size();
@@ -65,7 +56,7 @@ public class ProductLogicTest extends TestCase {
 	@Test
 	public void testBasicFilters(){
 		accessProducts = new AccessProducts();
-		productList = new ArrayList<Product>();
+		productList = new ArrayList<>();
 
 		filters = new HashMap<>();
 		String query = "";
@@ -84,7 +75,7 @@ public class ProductLogicTest extends TestCase {
 	@Test
 	public void testNullFilters(){
 		accessProducts = new AccessProducts();
-		productList = new ArrayList<Product>();
+		productList = new ArrayList<>();
 
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
@@ -108,7 +99,7 @@ public class ProductLogicTest extends TestCase {
 	@Test
 	public void testQueryBidFilters(){
 		accessProducts = new AccessProducts();
-		productList = new ArrayList<Product>();
+		productList = new ArrayList<>();
 
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();

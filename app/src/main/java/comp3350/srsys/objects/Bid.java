@@ -1,6 +1,5 @@
 package comp3350.srsys.objects;
 
-import java.text.DecimalFormat;
 import java.util.Date;
 
 public class Bid {

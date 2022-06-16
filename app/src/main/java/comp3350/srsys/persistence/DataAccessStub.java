@@ -40,13 +40,13 @@ public class DataAccessStub {
 
 		List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
-		users = new ArrayList<User>();
+		users = new ArrayList<>();
 		user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25, false);
 		users.add(user);
 		user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20, true);
 		users.add(user);
 
-		products = new ArrayList<Product>();
+		products = new ArrayList<>();
 		ArrayList pics = new ArrayList<String>();
 		pics.add("../../../res/drawable/mortarboard.png");
 		Date today = new Date();
@@ -116,7 +116,7 @@ public class DataAccessStub {
 		ArrayList<Product> newProducts;
 		int index;
 
-		newProducts = new ArrayList<Product>();
+		newProducts = new ArrayList<>();
 		index = products.indexOf(currentProduct);
 		if (index >= 0) {
 			newProducts.add(products.get(index));

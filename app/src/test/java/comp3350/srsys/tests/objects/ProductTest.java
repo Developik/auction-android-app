@@ -15,8 +15,6 @@ import java.util.List;
 
 import comp3350.srsys.objects.Product;
 
-import static org.junit.Assert.*;
-
 public class ProductTest extends TestCase {
 
 	Product product;
