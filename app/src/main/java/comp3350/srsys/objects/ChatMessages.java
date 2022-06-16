@@ -1,10 +1,12 @@
 package comp3350.srsys.objects;
 
+// Purpose: Simple object that contains a message, user pair.
+
 public class ChatMessages {
     private String message;
     private String user;
 
-    public ChatMessages() {//sets default states
+    public ChatMessages() {
         message = "";
         user = "Temp";
     }

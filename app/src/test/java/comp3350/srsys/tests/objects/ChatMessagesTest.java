@@ -8,8 +8,7 @@ import comp3350.srsys.objects.ChatMessages;
 public class ChatMessagesTest {
 
 	@Test
-	public void testMessageSet()
-	{
+	public void testMessageSet() {
 		ChatMessages chatMessages;
 
 		System.out.println("\nStarting testMessageSet");
