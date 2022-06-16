@@ -63,25 +63,27 @@ Andrii:
   * Project crashed locally, debugging (pulled .idea files from repo)
 * 10pm - 12pm, June 15:
   * Added more tests, fixed project
+* 12:15pm - 2:pm, June 16:
+  * Finalized files
 
 
 
 
 Ryan:
-                11:00am - 1:00pm, June 8:
-                        Setup Android Studio and Nexus 7 device
-9am - 10:30am, June 12:
-                        Researched organisation of Android studio and coding format
-                11:30am - 1:30pm, June 13:
-                        Worked on Chat visual presentation and implemented ChatMessages
-                8am - 9am, &&
-10:20am - 10:50am, && 
-12:30pm - 3:00pm, June 14:
-                        Worked on DataAccessStub ChatMessages and communication between PingChat and ItemActivity. Implemented the first version of the chat widget in the Item page.
-                3:30pm - 6:00pm, June 15:
-                        Implemented test classes for ChatMessages and PingChat and merged conflicts.
-                8:00am - 9:30am, June 16:
-                        Cleaned up test classes and code standards. Tested Main, failed locally with debug java with Javac error. Origin was tested and declared fine.
+* 11:00am - 1:00pm, June 8:
+  * Setup Android Studio and Nexus 7 device
+* 9am - 10:30am, June 12:
+  * Researched organisation of Android studio and coding format
+* 11:30am - 1:30pm, June 13:
+  * Worked on Chat visual presentation and implemented ChatMessages
+* 8am - 9am, &&
+* 10:20am - 10:50am, && 
+* 12:30pm - 3:00pm, June 14:
+  * Worked on DataAccessStub ChatMessages and communication between PingChat and ItemActivity. Implemented the first version of the chat widget in the Item page.
+* 3:30pm - 6:00pm, June 15:
+  * Implemented test classes for ChatMessages and PingChat and merged conflicts.
+* 8:00am - 9:30am, June 16:
+  * Cleaned up test classes and code standards. Tested Main, failed locally with debug java with Javac error. Origin was tested and declared fine.
 
 
 Brett:
