@@ -15,14 +15,15 @@ public class User
 	private String[] messages; // expand more who will be working on this part
 	private Integer[] watchlist; // list of IDs or the person working on this part could create relation object
 	private Integer[] soldItems;
-	private Integer[] auctions_won;
-	private Integer[] items_listed;
+	private Integer[] auctionsWon;
+	private Integer[] itemsListed;
+	private boolean isBot;
 
 
 	// pre-generated User
 	// add new fields later
 	public User(String username, String first_name, String last_name, String address,
-                Integer age)
+                Integer age, boolean isBot)
 	{
 		this.username = username;
 		this.first_name = first_name;
@@ -30,6 +31,7 @@ public class User
 		this.address = address;
 		this.age = age;
 		this.myBids = new ArrayList<>();
+		this.isBot = isBot;
 	}
 
 	public String getUsername()
@@ -57,9 +59,11 @@ public class User
 		return (address);
 	}
 
-	public Integer getAge()
+	public Integer getAge() { return (age); }
+
+	public boolean checkIsBot()
 	{
-		return (age);
+		return (isBot);
 	}
 
 	public void setBid(Bid b){
@@ -67,5 +71,7 @@ public class User
 			myBids.add(b);
 		}
 	}
+
+	public Bid getLastBid(){ return myBids.get(myBids.size()-1);}
 
 }

@@ -41,9 +41,9 @@ public class DataAccessStub {
 		List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
 		users = new ArrayList<User>();
-		user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25);
+		user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25, false);
 		users.add(user);
-		user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20);
+		user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20, true);
 		users.add(user);
 
 		products = new ArrayList<Product>();
