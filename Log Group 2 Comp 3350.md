@@ -168,3 +168,12 @@ Developer Tasks, Iteration 1:
 - Have a bidding tool (logic) - Brett
 - Have a bidding tool (UI) - Brett
 - Display product description and image - Nikhil
+
+
+
+
+﻿Team Meetings, Iteration 2:
+May 30th:
+* Andrii, Nikhil, Ryan
+* 7pm - 8pm
+* Reviewed Iteration 1 feedback. Created and assigned developer tasks to group members
