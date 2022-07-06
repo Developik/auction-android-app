@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class User
 {
 	private String username;
-	private String first_name;
-	private String last_name;
+	private String firstName;
+	private String lastName;
 	private String wallet; // expand more who will be working on this part (amount, list of transactions)
 	private String address;
 	private Integer age;
@@ -21,16 +21,20 @@ public class User
 
 	// pre-generated User
 	// add new fields later
-	public User(String username, String first_name, String last_name, String address,
-                Integer age, boolean isBot) {
+	public User(String username, String firstName, String lastName, String address,
+                Integer age, boolean isBot) throws Exception {
 		this.username = username;
-		this.first_name = first_name;
-		this.last_name = last_name;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.address = address;
 		this.age = age;
 		this.myBids = new ArrayList<>();
 		this.isBot = isBot;
-	}
+
+		if (!userObjectValidation()){
+			throw new Exception("Product Item parameters are incorrect!");
+		}
+}
 
 	public String getUsername()
 	{
@@ -39,17 +43,17 @@ public class User
 
 	public String getFirstName()
 	{
-		return (first_name);
+		return (firstName);
 	}
 
 	public String getLastName()
 	{
-		return (last_name);
+		return (lastName);
 	}
 
 	public String getFullName()
 	{
-		return (first_name + " " + last_name);
+		return (firstName + " " + lastName);
 	}
 
 	public String getAddress()
@@ -68,5 +72,17 @@ public class User
 	}
 
 	public Bid getLastBid(){ return myBids.get(myBids.size()-1);}
+
+	public boolean userObjectValidation(){
+		boolean result = true;
+
+		if (username == null || username.length() < 1 || firstName == null ||
+				firstName.length() < 1 ||  lastName == null || lastName.length() < 1 ||
+				address == null || address.length() < 1 || age == null || age < 0){
+			result = false;
+		}
+
+		return result;
+	}
 
 }

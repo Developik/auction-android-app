@@ -13,8 +13,13 @@ public class AuctionManagerTest extends TestCase {
 
     public void setUp() {
         am = new AuctionManager(3);
-        u1 = new User("username", "john", "smith", "55 road dr.", 44, false);
-        u2 = new User("boblast123", "bob", "last", "10 lol cres.", 2, false);
+        try{
+            u1 = new User("username", "john", "smith", "55 road dr.", 44, false);
+            u2 = new User("boblast123", "bob", "last", "10 lol cres.", 2, false);
+        }
+		catch (Exception e){
+            fail();
+        }
     }
 
     public void testAddBid() {
