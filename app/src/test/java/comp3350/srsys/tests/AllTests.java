@@ -5,7 +5,6 @@ import junit.framework.TestSuite;
 
 
 import comp3350.srsys.tests.business.AuctionManagerTest;
-import comp3350.srsys.tests.business.PingChatTest;
 import comp3350.srsys.tests.objects.BidTest;
 import comp3350.srsys.tests.business.BotLogicTest;
 import comp3350.srsys.tests.business.PingChatTest;

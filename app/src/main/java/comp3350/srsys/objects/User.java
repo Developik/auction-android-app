@@ -1,7 +1,6 @@
 package comp3350.srsys.objects;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class User
 {

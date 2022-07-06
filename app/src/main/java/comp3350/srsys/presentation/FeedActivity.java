@@ -13,11 +13,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import comp3350.srsys.R;
@@ -59,8 +56,8 @@ public class FeedActivity extends Activity {
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
 
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text1 = (TextView) view.findViewById(android.R.id.text2);
+                    TextView text2 = view.findViewById(android.R.id.text1);
+                    TextView text1 = view.findViewById(android.R.id.text2);
                     //TextView text3 = (TextView) view.findViewById(android.R.id.text3);
 
                     text2.setText("Category: " + productList.get(position).getCategory());
@@ -71,7 +68,7 @@ public class FeedActivity extends Activity {
                 }
             };
 
-            final ListView listView = (ListView)findViewById(R.id.listItems);
+            final ListView listView = findViewById(R.id.listItems);
 
             // go to Item Activity
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -117,7 +114,7 @@ public class FeedActivity extends Activity {
     }
 
     private HashMap<String, String> getFilters(){
-        HashMap<String, String> map = new HashMap<String, String>();
+        HashMap<String, String> map = new HashMap<>();
         String query = ((SearchView) findViewById(R.id.search_query)).getQuery().toString();
         String minBid = ((TextView) findViewById(R.id.min_bid)).getText().toString();
         String maxBid = ((TextView) findViewById(R.id.max_bid)).getText().toString();
@@ -129,7 +126,7 @@ public class FeedActivity extends Activity {
     private void update_feed(Map<String, String> filters){
         accessProducts = new AccessProducts();
 
-        productList = new ArrayList<Product>();
+        productList = new ArrayList<>();
         String result = accessProducts.getProducts(productList);
         productList = ProductLogic.filterFeed(filters, productList);
 
@@ -143,9 +140,9 @@ public class FeedActivity extends Activity {
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
 
-                    TextView text1 = (TextView) view.findViewById(R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(R.id.text2);
-                    TextView text3 = (TextView) view.findViewById(R.id.text3);
+                    TextView text1 = view.findViewById(R.id.text1);
+                    TextView text2 = view.findViewById(R.id.text2);
+                    TextView text3 = view.findViewById(R.id.text3);
 
                     text1.setText("Category: " + productList.get(position).getCategory());
                     text2.setText("Title: " + productList.get(position).getName());
@@ -156,7 +153,7 @@ public class FeedActivity extends Activity {
                 }
             };
 
-            final ListView listView = (ListView) findViewById(R.id.listItems);
+            final ListView listView = findViewById(R.id.listItems);
 
             // go to Item Activity
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

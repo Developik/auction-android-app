@@ -8,7 +8,6 @@
     tools:context="comp3350.srsys.presentation.FeedActivity">
 
     <LinearLayout
-        android:id="@+id/Filters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -52,7 +51,6 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/search_feed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -76,12 +74,10 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#000000"
-        android:id="@+id/separator"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp" />
 
     <Button
-        android:id="@+id/wallet_button"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="0.1"

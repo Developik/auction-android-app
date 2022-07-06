@@ -18,7 +18,7 @@ public class ProductLogic
     }
 
     public static ArrayList<Product> filterFeed(Map<String, String> filters, ArrayList<Product> productList){
-        ArrayList<Product> newProductList = new ArrayList<Product>(productList);
+        ArrayList<Product> newProductList = new ArrayList<>(productList);
         if (filters != null){
             Iterator it = filters.entrySet().iterator();
             while (it.hasNext()) {
@@ -35,7 +35,7 @@ public class ProductLogic
     }
 
     private static ArrayList<Product> filterFeedBy(String key, String value, ArrayList<Product> productList){
-        ArrayList<Product> filteredList = new ArrayList<Product>();
+        ArrayList<Product> filteredList = new ArrayList<>();
 
         switch(key) {
             case "query":
@@ -49,7 +49,7 @@ public class ProductLogic
     }
 
     private static ArrayList<Product> filterByQuery(ArrayList<Product> productList, String value) {
-        ArrayList<Product> filteredList = new ArrayList<Product>();
+        ArrayList<Product> filteredList = new ArrayList<>();
         for (Product product : productList) {
             if ((product.getName().contains(value))) {
                 filteredList.add(product);
@@ -59,12 +59,12 @@ public class ProductLogic
     }
 
     private static ArrayList<Product>  filterByBid(ArrayList<Product> productList, String value){
-        ArrayList<Product> filteredList = new ArrayList<Product>();
+        ArrayList<Product> filteredList = new ArrayList<>();
         String [] input = value.split(";");
         String minVal;
         String maxVal;
         double minValMum = 0;
-        double maxValNum = (double) Integer.MAX_VALUE;
+        double maxValNum = Integer.MAX_VALUE;
         try {
             minVal = input[0];
             minValMum = Double.parseDouble(minVal);
