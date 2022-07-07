@@ -20,7 +20,6 @@ public class BidTest extends TestCase {
         }
 
         Bid bid = new Bid(50, u);
-        assertNotNull(bid);
 
         System.out.println("with null user should throw exception");
         try{
