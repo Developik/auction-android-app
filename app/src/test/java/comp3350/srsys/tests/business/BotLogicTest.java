@@ -34,8 +34,14 @@ public class BotLogicTest extends TestCase {
 		address = "66 Chancellor Dr, Winnipeg, MB";
 		age = 25;
 		isBot = false;
-		user = new User(username, firstName, lastName, address, age, isBot);
-		users.add(user);
+		try {
+			user = new User(username, firstName, lastName, address, age, isBot);
+			users.add(user);
+		}
+		catch (Exception e){
+			fail();
+		}
+
 	}
 
 	@After

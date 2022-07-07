@@ -41,10 +41,15 @@ public class DataAccessStub {
 		List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
 		users = new ArrayList<>();
-		user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25, false);
-		users.add(user);
-		user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20, true);
-		users.add(user);
+		try {
+			user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25, false);
+			users.add(user);
+			user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20, true);
+			users.add(user);
+		}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
 
 		products = new ArrayList<>();
 		ArrayList pics = new ArrayList<String>();
@@ -62,7 +67,9 @@ public class DataAccessStub {
 			product = new Product("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(1));
 			products.add(product);
 		}
-		catch (Exception ignored){}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
 
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
@@ -72,7 +79,9 @@ public class DataAccessStub {
 			product = new Product("Garden Bucket", date, pictures, 5.0, 5.0, start, end, false, categories.get(2));
 			products.add(product);
 		}
-		catch (Exception ignored){}
+		catch (Exception e){
+			System.out.println(e.getMessage());
+		}
 
 		chatMessages = new ArrayList<>();
 
