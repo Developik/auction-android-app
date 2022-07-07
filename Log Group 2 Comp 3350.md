@@ -173,7 +173,14 @@ Developer Tasks, Iteration 1:
 
 
 ﻿Team Meetings, Iteration 2:
-May 30th:
+June 30th:
 * Andrii, Nikhil, Ryan
 * 7pm - 8pm
 * Reviewed Iteration 1 feedback. Created and assigned developer tasks to group members
+
+
+July 6th:
+* Andrii, Ryan
+* 7pm - 9pm
+* Fixed a few issues, added more issues and redistributed them between team members.
+Reviewed Iteration 1 feedback. Fixed Gradle 
