@@ -27,7 +27,7 @@ public class ProductLogic
                 String value = (String) pair.getValue();
                 if (value != null && !(value.trim().equals("")))
                     newProductList = filterFeedBy(key, value, newProductList);
-                it.remove(); // avoids a ConcurrentModificationException
+                it.remove();
             }
         }
 

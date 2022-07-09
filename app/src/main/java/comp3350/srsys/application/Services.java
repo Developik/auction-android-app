@@ -1,21 +1,33 @@
 package comp3350.srsys.application;
 
-import comp3350.srsys.persistence.DataAccessStub;
+import comp3350.srsys.persistence.DataAccess;
+import comp3350.srsys.persistence.DataAccessObject;
+//import comp3350.srsys.persistence.DataAccessStub;
 
 public class Services
 {
-	private static DataAccessStub dataAccessService = null;
+	private static DataAccess dataAccessService = null;
 
-	public static DataAccessStub createDataAccess(String dbName) throws Exception {
+	public static DataAccess createDataAccess(String dbName) throws Exception {
 		if (dataAccessService == null)
 		{
-			dataAccessService = new DataAccessStub(dbName);
-			dataAccessService.open(Main.dbName);
+			dataAccessService = new DataAccessObject(dbName);
+			dataAccessService.open(Main.getDBPathName());
 		}
 		return dataAccessService;
 	}
 
-	public static DataAccessStub getDataAccess(String dbName)
+
+	public static DataAccess createDataAccess(DataAccess alternateDataAccessService) throws Exception {
+		if (dataAccessService == null)
+		{
+			dataAccessService = alternateDataAccessService;
+			dataAccessService.open(Main.getDBPathName());
+		}
+		return dataAccessService;
+	}
+
+	public static DataAccess getDataAccess(String dbName)
 	{
 		if (dataAccessService == null)
 		{

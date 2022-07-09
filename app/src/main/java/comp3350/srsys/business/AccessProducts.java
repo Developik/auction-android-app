@@ -6,11 +6,12 @@ import java.util.List;
 import comp3350.srsys.application.Main;
 import comp3350.srsys.application.Services;
 import comp3350.srsys.objects.Product;
-import comp3350.srsys.persistence.DataAccessStub;
+import comp3350.srsys.persistence.DataAccess;
+//import comp3350.srsys.persistence.DataAccessStub;
 
 public class AccessProducts
 {
-	private DataAccessStub dataAccess;
+	private DataAccess dataAccess;
 	private List<Product> products;
 	private Product product;
 	private int currentItem;

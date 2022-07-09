@@ -11,7 +11,7 @@ public class User
 	private String address;
 	private Integer age;
 	private ArrayList<Bid> myBids;
-	private String[] messages; // expand more who will be working on this part
+	private String[] messages; // expand more who will be working on this part // Add MU
 	private Integer[] watchlist; // list of IDs or the person working on this part could create relation object
 	private Integer[] soldItems;
 	private Integer[] auctionsWon;
@@ -29,10 +29,11 @@ public class User
 		this.address = address;
 		this.age = age;
 		this.myBids = new ArrayList<>();
-		this.isBot = isBot;
 
 		if (!userObjectValidation()){
-			throw new Exception("Product Item parameters are incorrect!");
+			System.out.println(username + " " + firstName + " " + lastName + " " + address +
+					" " + age + " ");
+			throw new Exception("User parameters are incorrect!");
 		}
 }
 
@@ -62,9 +63,7 @@ public class User
 	}
 
 	public Integer getAge() { return (age); }
-
-	public boolean checkIsBot() { return (isBot); }
-
+	
 	public void setBid(Bid b){
 		if(b != null){
 			myBids.add(b);

@@ -13,6 +13,7 @@ public class PingChatTest extends TestCase {
 	public void testEmptyList()	{
 		System.out.println("\nStarting testPingChat: empty list");
 
+		// refactor
 		Main.startUp();
 
 		pingChat = new PingChat();

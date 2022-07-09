@@ -12,7 +12,7 @@ import comp3350.srsys.application.Services;
 import comp3350.srsys.objects.Bid;
 import comp3350.srsys.objects.Product;
 import comp3350.srsys.objects.User;
-import comp3350.srsys.persistence.DataAccessStub;
+import comp3350.srsys.persistence.DataAccess;
 
 public class BotLogic
 {
@@ -22,7 +22,7 @@ public class BotLogic
 
     public BotLogic() throws Exception {
         List<User> users = new ArrayList<>();
-        DataAccessStub dataAccess = Services.getDataAccess(Main.dbName);
+        DataAccess dataAccess = Services.getDataAccess(Main.dbName);
         dataAccess.open(Main.dbName);
         dataAccess.getUserSequential(users);
         dataAccess.close();
@@ -36,7 +36,7 @@ public class BotLogic
                 index = 0;
             user = users.get(index);
             String name = user.getUsername();
-            if (name.contains("bot") && user.checkIsBot() && rand.nextInt(3) == 0){
+            if (name.contains("bot") && rand.nextInt(3) == 0){
                 this.selectedUser = user;
                 found = true;
             }

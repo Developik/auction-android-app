@@ -16,10 +16,11 @@ import comp3350.srsys.application.Main;
 import comp3350.srsys.business.AccessProducts;
 import comp3350.srsys.business.ProductLogic;
 import comp3350.srsys.objects.Product;
+import comp3350.srsys.persistence.DataAccess;
+import comp3350.srsys.tests.persistence.DataAccessStub;
 
 public class ProductLogicTest extends TestCase {
 
-	private AccessProducts accessProducts;
 	private ArrayList<Product> productList;
 	private HashMap<String, String> filters;
 
@@ -33,29 +34,29 @@ public class ProductLogicTest extends TestCase {
 	private Date date;
 	private Date start;
 	private Date end;
-	private ArrayList<String> pictures;
+	private String picture;
 
 	private int productInitSize;
-
+	private DataAccess dataAccess;
 
 	@Before
 	public void setUp() throws Exception {
-		Main.startUp();
-		accessProducts = new AccessProducts();
+		dataAccess = new DataAccessStub();
+		dataAccess.open("Stub");
+		//accessProducts = new AccessProducts();
 		productList = new ArrayList<>();
-		accessProducts.getProducts(productList);
+		dataAccess.getProductSequential(productList);
 
 		productInitSize = productList.size();
 	}
 
 	@After
 	public void tearDown() {
-		Main.shutDown();
+
 	}
 
 	@Test
 	public void testBasicFilters(){
-		accessProducts = new AccessProducts();
 		productList = new ArrayList<>();
 
 		filters = new HashMap<>();
@@ -63,7 +64,7 @@ public class ProductLogicTest extends TestCase {
 		filters.put("query", query);
 		filters.put("minMaxBid", minBid + ";" + maxBid);
 
-		accessProducts.getProducts(productList);
+		dataAccess.getProductSequential(productList);
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
 		assertEquals(productList.size(), productInitSize);
@@ -72,22 +73,21 @@ public class ProductLogicTest extends TestCase {
 
 	@Test
 	public void testNullFilters(){
-		accessProducts = new AccessProducts();
 		productList = new ArrayList<>();
 
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		pictures = new ArrayList<>(Arrays.asList("3.png"));
+		picture = "3.png";
 		try{
-			product = new Product("Garden Bucket 2", date, pictures, 5.0, 5.0, start, end, false,
+			product = new Product("Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
 					"TestCategory");
-			accessProducts.insertProduct(product);
+			dataAccess.insertProduct(product);
 		}
 		catch (Exception ignored){}
 
 		filters = null;
-		accessProducts.getProducts(productList);
+		dataAccess.getProductSequential(productList);
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
 		assertEquals(productList.size(), productInitSize+1);
@@ -96,18 +96,17 @@ public class ProductLogicTest extends TestCase {
 
 	@Test
 	public void testQueryBidFilters(){
-		accessProducts = new AccessProducts();
 		productList = new ArrayList<>();
 
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		pictures = new ArrayList<>(Arrays.asList("3.png"));
+		picture = "3.png";
 		try{
 			product = new Product("Garden Bucket 1234125252423223253",
-					date, pictures, 5.0, 14241, start, end, false,
+					date, picture, 5.0, 14241, start, end, false,
 					"TestCategory");
-			accessProducts.insertProduct(product);
+			dataAccess.insertProduct(product);
 		}
 		catch (Exception ignored){}
 
@@ -116,7 +115,7 @@ public class ProductLogicTest extends TestCase {
 		filters.put("query", query);
 		filters.put("minMaxBid", minBid + ";" + maxBid);
 
-		accessProducts.getProducts(productList);
+		dataAccess.getProductSequential(productList);
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
 		assertEquals(productList.size(), productInitSize+1);
