@@ -6,7 +6,7 @@ Comp 3350 Android App | Team 2
 ![image](https://user-images.githubusercontent.com/54965144/174135143-8b5d4798-4a37-46e2-80c7-78fe659305af.png)
 
 ## Requirements
-* **Gradle version 6.1.1**
+* **Gradle version 7.2.1**
 
 ## How to Run Tests:
 
