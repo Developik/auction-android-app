@@ -3,6 +3,7 @@ package comp3350.srsys.presentation;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,8 @@ import comp3350.srsys.business.AccessUsers;
 import comp3350.srsys.objects.User;
 
 public class OnboardingActivity extends AppCompatActivity {
+
+    List<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +74,22 @@ public class OnboardingActivity extends AppCompatActivity {
 
     public void buttonFeedOnClick(View v) {
         Intent feedIntent = new Intent(OnboardingActivity.this, FeedActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("user", ((Spinner) findViewById(R.id.userSpinner)).getSelectedItem().toString());
-        feedIntent.putExtras(bundle);
+        String username = ((Spinner) findViewById(R.id.userSpinner)).getSelectedItem().toString();
+        User currUser = null;
+        System.out.println("Users Size Is: " + users.size());
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUsername().equals(username)) {
+                currUser = users.get(i);
+            }
+        }
+        if (currUser != null) {
+            feedIntent.putExtra("user", currUser);
+        }
         OnboardingActivity.this.startActivity(feedIntent);
     }
 
     private void updateSpinnerWithData(Spinner spinner) throws Exception {
-        List<User> users = new ArrayList<>();
+        users = new ArrayList<>();
         AccessUsers accessUsers = new AccessUsers();
         String result = accessUsers.getUsers(users);
 
@@ -95,7 +106,6 @@ public class OnboardingActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
-
 
 
     }

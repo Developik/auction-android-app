@@ -21,6 +21,7 @@ import comp3350.srsys.R;
 import comp3350.srsys.business.AccessProducts;
 import comp3350.srsys.business.ProductLogic;
 import comp3350.srsys.objects.Product;
+import comp3350.srsys.objects.User;
 
 public class FeedActivity extends Activity {
 
@@ -28,30 +29,24 @@ public class FeedActivity extends Activity {
     private ArrayList<Product> productList;
     private ArrayAdapter<Product> itemArrayAdapter;
     private int selectedProductPosition = -1;
+    private User currUser;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = getIntent().getExtras();
+        currUser = this.getIntent().getExtras().getParcelable("user");
         setContentView(R.layout.activity_feed);
-        if(bundle != null) {
-            String user = bundle.getString("user");
-        }
 
 
         AccessProducts accessItems = new AccessProducts();
 
         ArrayList<Product> itemList = new ArrayList<>();
         String result = accessItems.getProducts(itemList);
-        if (result != null)
-        {
-        	Messages.fatalError(this, result);
-        }
-        else
-        {
-            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList)
-            {
+        if (result != null) {
+            Messages.fatalError(this, result);
+        } else {
+            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
@@ -75,8 +70,9 @@ public class FeedActivity extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Object listItem = listView.getItemAtPosition(position);
-                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
-                    FeedActivity.this.startActivity(feedIntent);
+                    Intent productIntent = new Intent(FeedActivity.this, ProductActivity.class);
+                    productIntent.putExtra("user", currUser);
+                    FeedActivity.this.startActivity(productIntent);
                 }
             });
             listView.setAdapter(itemArrayAdapter);
@@ -113,7 +109,7 @@ public class FeedActivity extends Activity {
         FeedActivity.this.startActivity(walletIntent);
     }
 
-    private HashMap<String, String> getFilters(){
+    private HashMap<String, String> getFilters() {
         HashMap<String, String> map = new HashMap<>();
         String query = ((SearchView) findViewById(R.id.search_query)).getQuery().toString();
         String minBid = ((TextView) findViewById(R.id.min_bid)).getText().toString();
@@ -123,18 +119,16 @@ public class FeedActivity extends Activity {
         return map;
     }
 
-    private void update_feed(Map<String, String> filters){
+    private void update_feed(Map<String, String> filters) {
         accessProducts = new AccessProducts();
 
         productList = new ArrayList<>();
         String result = accessProducts.getProducts(productList);
         productList = ProductLogic.filterFeed(filters, productList);
 
-        if (result != null)
-        {
+        if (result != null) {
             Messages.fatalError(this, result);
-        }
-        else {
+        } else {
             itemArrayAdapter = new ArrayAdapter<Product>(this, R.layout.feed_list_item, R.id.text1, productList) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -146,7 +140,7 @@ public class FeedActivity extends Activity {
 
                     text1.setText("Category: " + productList.get(position).getCategory());
                     text2.setText("Title: " + productList.get(position).getName());
-                    String curr_bid_str = ""+productList.get(position).getCurrentBid();
+                    String curr_bid_str = "" + productList.get(position).getCurrentBid();
                     text3.setText("Last Bid: " + curr_bid_str);
 
                     return view;
@@ -160,8 +154,9 @@ public class FeedActivity extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Object listItem = listView.getItemAtPosition(position);
-                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
-                    FeedActivity.this.startActivity(feedIntent);
+                    Intent productIntent = new Intent(FeedActivity.this, ProductActivity.class);
+                    productIntent.putExtra("user", currUser);
+                    FeedActivity.this.startActivity(productIntent);
                 }
             });
             listView.setAdapter(itemArrayAdapter);
