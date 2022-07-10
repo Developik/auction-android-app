@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import comp3350.srsys.application.Main;
 import comp3350.srsys.application.Services;
 import comp3350.srsys.objects.ChatMessages;
-import comp3350.srsys.persistence.DataAccessStub;
+import comp3350.srsys.persistence.DataAccess;
 
 public class PingChat {
-	private final DataAccessStub dataAccess;
+	private final DataAccess dataAccess;
 	private ArrayList<ChatMessages> allMessages;
 
 	public PingChat() {

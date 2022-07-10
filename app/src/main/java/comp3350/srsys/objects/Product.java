@@ -1,5 +1,6 @@
 package comp3350.srsys.objects;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,7 +10,7 @@ public class Product
 	private Long itemID;
 	private String name;
 	private Date datePosted;
-	private ArrayList<String> pictures;
+	private String picture;
 	private double startingBid;
 	private double currentBid;
 	private Date auctionStart;
@@ -20,13 +21,14 @@ public class Product
 	private String category;
 
 	// pre-generated Product
-	public Product(String name, Date datePosted, ArrayList<String> pictures, double startingBid,
+	public Product(String name, Date datePosted, String picture, double startingBid,
 						double currentBid, Date auctionStart, Date auctionEnd, boolean sold,
 						String category) throws Exception {
+		// separate productLogic later
 		this.itemID = ProductLogic.generateID();
 		this.name = name;
 		this.datePosted = datePosted;
-		this.pictures = pictures;
+		this.picture = picture;
 		this.startingBid = startingBid;
 		this.currentBid = currentBid;
 		this.auctionStart = auctionStart;
@@ -51,19 +53,20 @@ public class Product
 		return (category);
 	}
 
-	public Date getDatePosted() {
-		return (datePosted);
-	}
+	public Date getDatePosted() { return (datePosted); }
+	public Timestamp getDatePostedTimestamp() { return (new Timestamp(datePosted.getTime())); }
 
 	public double getCurrentBid() { return (currentBid); }
 
 	public double getStartingBid() { return (startingBid); }
 
 	public Date getAuctionStart() { return (auctionStart); }
+	public Timestamp getAuctionStartTimestamp() { return (new Timestamp(auctionStart.getTime())); }
 
 	public Date getAuctionEnd() { return (auctionEnd); }
+	public Timestamp getAuctionEndTimestamp() { return (new Timestamp(auctionEnd.getTime())); }
 
-	public ArrayList<String> getPictures() { return (pictures); }
+	public String getPicture() { return (picture); }
 
 	public boolean isSold() { return (sold); }
 

@@ -6,7 +6,6 @@ import junit.framework.TestSuite;
 
 import comp3350.srsys.tests.business.AuctionManagerTest;
 import comp3350.srsys.tests.objects.BidTest;
-import comp3350.srsys.tests.business.BotLogicTest;
 import comp3350.srsys.tests.business.PingChatTest;
 import comp3350.srsys.tests.business.ProductLogicTest;
 import comp3350.srsys.tests.objects.ChatMessagesTest;
@@ -30,7 +29,6 @@ public class AllTests
     }
 
     private static void testBusiness() {
-        suite.addTestSuite(BotLogicTest.class);
         suite.addTestSuite(ProductLogicTest.class);
         suite.addTestSuite(PingChatTest.class);
         suite.addTestSuite(AuctionManagerTest.class);

@@ -56,7 +56,6 @@ public class UserTest extends TestCase {
 
 		assertEquals(user.getAddress(), address);
 		assertEquals((int) user.getAge(), age);
-		assertEquals(user.checkIsBot(), isBot);
 	}
 
 	@Test

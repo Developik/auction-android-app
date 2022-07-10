@@ -3,6 +3,9 @@ package comp3350.srsys.objects;
 // Purpose: Simple object that contains a message, user pair.
 
 public class ChatMessages {
+
+    // add unique ID for the message
+
     private String message;
     private String user;
 
