@@ -144,4 +144,15 @@ public class DataAccessStub {
 		userResult.addAll(users);
 		return null;
 	}
+
+	public User getUser(String username){
+		User currUser = null;
+		for(int i = 0; i < users.size(); i++){
+			if(users.get(i).getUsername().equals(username)){
+				currUser = users.get(i);
+				i = users.size();
+			}
+		}
+		return currUser;
+	}
 }

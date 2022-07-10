@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -64,11 +65,15 @@ public class OnboardingActivity extends AppCompatActivity {
         Main.shutDown();
     }
 
-    public void buttonFeedOnClick(View v) {
+    public void buttonFeedOnClick(View v) throws Exception{
         Intent feedIntent = new Intent(OnboardingActivity.this, FeedActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("user", ((Spinner) findViewById(R.id.userSpinner)).getSelectedItem().toString());
-        feedIntent.putExtras(bundle);
+
+        String username = ((Spinner) findViewById(R.id.userSpinner)).getSelectedItem().toString();
+        DataAccessStub dataAccess = Services.getDataAccess(Main.dbName);
+        dataAccess.open(Main.dbName);
+        feedIntent.putExtra("user", dataAccess.getUser(username));
+        dataAccess.close();
+
         OnboardingActivity.this.startActivity(feedIntent);
     }
 

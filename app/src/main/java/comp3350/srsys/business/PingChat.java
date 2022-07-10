@@ -13,28 +13,31 @@ public class PingChat {
 	private final DataAccessStub dataAccess;
 	private ArrayList<ChatMessages> allMessages;
 
-	public PingChat() {
+	public PingChat(){
 		dataAccess = Services.getDataAccess(Main.dbName);
 		allMessages = new ArrayList<>();
 	}
 
-    public String getMessages() {
+    public String getMessages(){
         allMessages.clear();
         return dataAccess.getChatMessagesSequential(allMessages);
     }
 
-	public String getRandom() {
+	//function used at run time to call getRandomS(-1) for random message
+	public String getRandom(){
 		String message = "";
-		if (allMessages != null && allMessages.size() > 0) {
+		if (allMessages != null && allMessages.size() > 0){
 			message = getRandomS(-1);
 		}
 		return message;
 	}
 
-	public String getRandomS(int index) {//Index is used to test random function
+	//getRandomS is created to allow PingChatTest to test certain messages
+	//index is -1 during run time and is tested for other valid and invalid values
+	public String getRandomS(int index){//Index is used to test random function
 		String message = "Range {" + allMessages.size() + "}, Invalid Index";
-		if (index == -1) {
-			message = allMessages.get((int) (Math.random() * allMessages.size())).getMessage();
+		if (index == -1){
+			message = allMessages.get((int) (Math.random() * allMessages.size())).getMessageString();
 		}
 		else if (index < allMessages.size() && index > -1){
 			message = allMessages.get(index).getMessage();

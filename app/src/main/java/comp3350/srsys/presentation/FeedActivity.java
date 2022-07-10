@@ -21,6 +21,7 @@ import comp3350.srsys.R;
 import comp3350.srsys.business.AccessProducts;
 import comp3350.srsys.business.ProductLogic;
 import comp3350.srsys.objects.Product;
+import comp3350.srsys.objects.User;
 
 public class FeedActivity extends Activity {
 
@@ -28,17 +29,14 @@ public class FeedActivity extends Activity {
     private ArrayList<Product> productList;
     private ArrayAdapter<Product> itemArrayAdapter;
     private int selectedProductPosition = -1;
+    private User currUser;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = getIntent().getExtras();
+        currUser = (User) getIntent().getExtras().getParcelable("user");
         setContentView(R.layout.activity_feed);
-        if(bundle != null) {
-            String user = bundle.getString("user");
-        }
-
 
         AccessProducts accessItems = new AccessProducts();
 
@@ -75,8 +73,9 @@ public class FeedActivity extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Object listItem = listView.getItemAtPosition(position);
-                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
-                    FeedActivity.this.startActivity(feedIntent);
+                    Intent productIntent = new Intent(FeedActivity.this, ProductActivity.class);
+                    productIntent.putExtra("user", currUser);
+                    FeedActivity.this.startActivity(productIntent);
                 }
             });
             listView.setAdapter(itemArrayAdapter);
@@ -160,8 +159,9 @@ public class FeedActivity extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Object listItem = listView.getItemAtPosition(position);
-                    Intent feedIntent = new Intent(FeedActivity.this, ProductActivity.class);
-                    FeedActivity.this.startActivity(feedIntent);
+                    Intent productIntent = new Intent(FeedActivity.this, ProductActivity.class);
+                    productIntent.putExtra("user", currUser);
+                    FeedActivity.this.startActivity(productIntent);
                 }
             });
             listView.setAdapter(itemArrayAdapter);
