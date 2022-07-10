@@ -12,3 +12,4 @@ The below coding standards should be followed for all projects files.
              Use good variable names and functions (clean code) to limit need for excess commenting.
 7. Instance variables: Should not be public. Use getters and setters when required.
 8. Only include imports that are used.
+9. Add space after function declaration: (Ex: private void getSum() { .... } )
