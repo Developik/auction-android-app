@@ -178,9 +178,14 @@ June 30th:
 * 7pm - 8pm
 * Reviewed Iteration 1 feedback. Created and assigned developer tasks to group members
 
-
 July 6th:
 * Andrii, Ryan
 * 7pm - 9pm
 * Fixed a few issues, added more issues and redistributed them between team members.
 Reviewed Iteration 1 feedback. Fixed Gradle 
+
+July 9th:
+* Andrii, Hamdi, Nikhil, Ryan
+* 7pm - 8:30pm
+* Fixed a few issues, discussed further work. Closed completed issues.  
+Fixed Gradle 
