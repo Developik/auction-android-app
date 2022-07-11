@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="comp3350.srsys">
+    package="comp3350.bms">
 
     <application
         android:allowBackup="true"
@@ -9,11 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.WalletActivity"
+            android:name="comp3350.bms.presentation.WalletActivity"
             android:exported="false"
             android:label="Wallet" />
         <activity
-            android:name=".presentation.OnboardingActivity"
+            android:name="comp3350.bms.presentation.OnboardingActivity"
             android:exported="true"
             android:label="@string/biddingMarketSimulator">
             <intent-filter>
@@ -23,39 +23,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.FeedActivity"
+            android:name="comp3350.bms.presentation.FeedActivity"
             android:label="@string/itemTitle">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.OnboardingActivity" />
+                android:value="comp3350.bms.presentation.OnboardingActivity" />
         </activity>
         <activity
-            android:name=".presentation.ProductViewActivity"
+            android:name="comp3350.bms.presentation.ProductViewActivity"
             android:label="@string/prodViewPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.OnboardingActivity" />
+                android:value="comp3350.bms.presentation.OnboardingActivity" />
         </activity>
         <activity
-            android:name=".presentation.ProductReviewActivity"
+            android:name="comp3350.bms.presentation.ProductReviewActivity"
             android:label="@string/prodReviewPage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.ProductViewActivity" />
+                android:value="comp3350.bms.presentation.ProductViewActivity" />
         </activity>
         <activity
-            android:name=".presentation.ProfileViewActivity"
+            android:name="comp3350.bms.presentation.ProfileViewActivity"
             android:label="@string/profilePage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.ProductReviewActivity" />
-        </activity>
-        <activity
-            android:name=".presentation.ProductActivity"
-            android:label="@string/itemTitle">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="comp3350.srsys.presentation.FeedActivity" />
+                android:value="comp3350.bms.presentation.ProductReviewActivity" />
         </activity>
     </application>
 
