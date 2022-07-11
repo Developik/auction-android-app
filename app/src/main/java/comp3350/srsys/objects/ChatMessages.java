@@ -17,12 +17,16 @@ public class ChatMessages {
     public ChatMessages(String newMessage, String newUser) {
         this.message = newMessage;
         this.user = newUser;
-        if(newUser == null) {
+        if (newUser == null) {
             this.user = "Temp";
         }
     }
 
     public String getMessage() {
         return this.user + ": " + this.message;
+    }
+
+    public String getMessageString() {
+        return this.message;
     }
 }

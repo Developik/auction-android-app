@@ -30,4 +30,5 @@
     <string name="profilePage">profile page</string>
     <string name="selectCard">Select Card</string>
     <string name="topUpAmount">Top Up Amount</string>
+    <string name="login">Login</string>
 </resources>

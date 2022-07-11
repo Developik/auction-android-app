@@ -93,5 +93,62 @@
             android:backgroundTint="@android:color/holo_blue_dark"
             android:textColor="#ffffff"
             android:text="@string/bidButton"  />
+
+        <TextView
+            android:id="@+id/ChatLog4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ChatLog3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ChatLog2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ChatLog1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <EditText
+            android:id="@+id/chatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:shadowColor="#C0C0C0"
+            android:inputType="text" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:onClick="updateChat"
+            android:textColor="#ffffff"
+            android:text="@string/enterChat" />
     </LinearLayout>
 </ScrollView>

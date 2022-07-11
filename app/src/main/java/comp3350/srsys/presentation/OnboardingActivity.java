@@ -85,11 +85,6 @@ public class OnboardingActivity extends AppCompatActivity {
 
     }
 
-    public void buttonProductViewOnClick(View v) {
-        Intent productViewIntent = new Intent(OnboardingActivity.this, ProductViewActivity.class);
-        OnboardingActivity.this.startActivity(productViewIntent);
-    }
-
     private void copyDatabaseToDevice() {
         final String DB_PATH = "db";
 
@@ -99,7 +94,6 @@ public class OnboardingActivity extends AppCompatActivity {
         AssetManager assetManager = getAssets();
 
         try {
-
             assetNames = assetManager.list(DB_PATH);
             for (int i = 0; i < assetNames.length; i++) {
                 assetNames[i] = DB_PATH + "/" + assetNames[i];

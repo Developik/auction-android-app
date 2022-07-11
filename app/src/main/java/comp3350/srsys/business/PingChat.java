@@ -10,35 +10,34 @@ import comp3350.srsys.objects.ChatMessages;
 import comp3350.srsys.persistence.DataAccess;
 
 public class PingChat {
-	private final DataAccess dataAccess;
-	private ArrayList<ChatMessages> allMessages;
+    private final DataAccess dataAccess;
+    private ArrayList<ChatMessages> allMessages;
 
-	public PingChat() {
-		dataAccess = Services.getDataAccess(Main.dbName);
-		allMessages = new ArrayList<>();
-	}
+    public PingChat() {
+        dataAccess = Services.getDataAccess(Main.dbName);
+        allMessages = new ArrayList<>();
+    }
 
     public String getMessages() {
         allMessages.clear();
         return dataAccess.getChatMessagesSequential(allMessages);
     }
 
-	public String getRandom() {
-		String message = "";
-		if (allMessages != null && allMessages.size() > 0) {
-			message = getRandomS(-1);
-		}
-		return message;
-	}
+    public String getRandom() {
+        String message = "";
+        if (allMessages != null && allMessages.size() > 0) {
+            message = getRandomS(-1);
+        }
+        return message;
+    }
 
-	public String getRandomS(int index) {//Index is used to test random function
-		String message = "Range {" + allMessages.size() + "}, Invalid Index";
-		if (index == -1) {
-			message = allMessages.get((int) (Math.random() * allMessages.size())).getMessage();
-		}
-		else if (index < allMessages.size() && index > -1){
-			message = allMessages.get(index).getMessage();
-		}
-		return message;
-	}
+    public String getRandomS(int index) {//Index is used to test random function
+        String message = "Range {" + allMessages.size() + "}, Invalid Index";
+        if (index == -1) {
+            message = allMessages.get((int) (Math.random() * allMessages.size())).getMessageString();
+        } else if (index < allMessages.size() && index > -1) {
+            message = allMessages.get(index).getMessage();
+        }
+        return message;
+    }
 }
