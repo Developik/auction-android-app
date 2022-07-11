@@ -11,8 +11,7 @@ import comp3350.srsys.tests.business.ProductLogicTest;
 import comp3350.srsys.tests.objects.ChatMessagesTest;
 import comp3350.srsys.tests.objects.ProductTest;
 
-public class AllTests
-{
+public class AllTests {
     public static TestSuite suite;
 
     public static Test suite() {
