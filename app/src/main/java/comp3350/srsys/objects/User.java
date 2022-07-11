@@ -1,11 +1,9 @@
 package comp3350.srsys.objects;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User implements Parcelable {
+public class User implements Serializable {
     private String username;
     private String firstName;
     private String lastName;
@@ -40,34 +38,6 @@ public class User implements Parcelable {
             throw new Exception("User parameters are incorrect!");
         }
     }
-
-    protected User(Parcel in) {
-        username = in.readString();
-        firstName = in.readString();
-        lastName = in.readString();
-        wallet = in.readString();
-        address = in.readString();
-        if (in.readByte() == 0) {
-            age = null;
-        } else {
-            age = in.readInt();
-        }
-        messages = in.createStringArray();
-        isBot = in.readByte() != 0;
-        chatHistory = in.createStringArrayList();
-    }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 
     public String getUsername() {
         return (username);
@@ -142,32 +112,5 @@ public class User implements Parcelable {
             result = chatHistory.size() - 2;
         }
         return result;
-    }
-
-    public void setChatHistory(ArrayList<String> savedChatHistory) {
-        chatHistory = savedChatHistory;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(username);
-        parcel.writeString(firstName);
-        parcel.writeString(lastName);
-        parcel.writeString(wallet);
-        parcel.writeString(address);
-        if (age == null) {
-            parcel.writeByte((byte) 0);
-        } else {
-            parcel.writeByte((byte) 1);
-            parcel.writeInt(age);
-        }
-        parcel.writeStringArray(messages);
-        parcel.writeByte((byte) (isBot ? 1 : 0));
-        parcel.writeStringList(chatHistory);
     }
 }

@@ -35,7 +35,7 @@ public class FeedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        currUser = this.getIntent().getExtras().getParcelable("user");
+        currUser = (User) this.getIntent().getSerializableExtra("user");
         setContentView(R.layout.activity_feed);
 
 

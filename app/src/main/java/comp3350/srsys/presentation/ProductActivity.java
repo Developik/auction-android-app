@@ -25,7 +25,7 @@ public class ProductActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        currUser = this.getIntent().getExtras().getParcelable("user");
+        currUser = (User) this.getIntent().getSerializableExtra("user");
 
         //Main.startUp();
 
@@ -45,19 +45,6 @@ public class ProductActivity extends Activity {
         chatInput = findViewById(R.id.chatInput);
 
     }
-
-/*
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putParcelable("currUser", currUser);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        currUser.setChatHistory(savedInstanceState.getParcelable("currUser"));
-    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
