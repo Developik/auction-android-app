@@ -63,8 +63,6 @@ public class Product {
 		this.auction.addBid(bid);
 	}
 
-
-
 	public boolean itemObjectValidation(){
 		return itemID >= 1 && name != null && name.length() >= 1 && datePosted != null &&
 				category != null && category.length() >= 1;

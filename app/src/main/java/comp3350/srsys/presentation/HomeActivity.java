@@ -7,7 +7,9 @@ import comp3350.srsys.business.ProductLogic;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,11 +31,12 @@ public class HomeActivity extends Activity {
 
         // generate bids
         new Timer().scheduleAtFixedRate(new TimerTask() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void run() {
                 //your method
-                BotLogic.assignBidToRandomProduct();
-                System.out.println("Random bid was done!");
+//                BotLogic.assignBidToRandomProduct();
+//                System.out.println("Random bid was done!");
             }
         }, 0, 5000);//put here time 1000 milliseconds=1 second
 
