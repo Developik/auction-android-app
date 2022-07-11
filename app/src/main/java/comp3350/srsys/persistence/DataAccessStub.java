@@ -1,5 +1,8 @@
 package comp3350.srsys.persistence;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +10,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+
+import java.time.LocalDateTime;
 
 import comp3350.srsys.application.Main;
 import comp3350.srsys.objects.Student;
@@ -33,6 +38,7 @@ public class DataAccessStub {
 		this(Main.dbName);
 	}
 
+	@RequiresApi(api = Build.VERSION_CODES.O)
 	public void open(String dbName) throws Exception {
 		Student student;
 		Course course;
@@ -47,39 +53,34 @@ public class DataAccessStub {
 
 		List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
-		users = new ArrayList<User>();
+		users = new ArrayList<>();
 		user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25);
 		users.add(user);
 		user = new User("bot_user_1", "bot1", "user1", "67 Chancellor Dr, Winnipeg, MB", 20);
 		users.add(user);
 
-		products = new ArrayList<Product>();
-		ArrayList pics = new ArrayList<String>();
+		products = new ArrayList<>();
+		ArrayList<String> pics = new ArrayList<>();
 		pics.add("../../../res/drawable/mortarboard.png");
-		Date today = new Date();
-		Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
-		Product prod = new Product("test product", today, pics, 50.00, 75.00, today, tomorrow, false, "watches");
+		Long addOneDay = 1L;
+		LocalDateTime today = LocalDateTime.now();
+		LocalDateTime tomorrow = today.plusDays(addOneDay);
+		Product prod = new Product("test product", today, tomorrow, pics, "watches");
 		products.add(prod);
 
-
-		Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		ArrayList<String> pictures = new ArrayList<>(Arrays.asList("1.png", "2.png"));
 		try{
-			product = new Product("Rolex Watch", date, pictures, 10.0, 25.0, start, end, false, categories.get(1));
+			product = new Product("Rolex Watch", today, tomorrow, pictures,  categories.get(1));
 			products.add(product);
 		}
 		catch (Exception ignored){}
 
-		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
 		pictures = new ArrayList<>(Arrays.asList("3.png"));
 		try{
-			product = new Product("Garden Bucket", date, pictures, 5.0, 5.0, start, end, false, categories.get(2));
+			product = new Product("Garden Bucket", today, tomorrow, pictures, categories.get(2));
 			products.add(product);
 		}
+
 		catch (Exception ignored){}
 
 		chatMessages = new ArrayList<>();
@@ -124,7 +125,7 @@ public class DataAccessStub {
 		ArrayList<Product> newProducts;
 		int index;
 
-		newProducts = new ArrayList<Product>();
+		newProducts = new ArrayList<>();
 		index = products.indexOf(currentProduct);
 		if (index >= 0) {
 			newProducts.add(products.get(index));

@@ -2,7 +2,9 @@ package comp3350.srsys.presentation;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -89,6 +91,7 @@ public class FeedActivity extends Activity {
         }
         else {
             itemArrayAdapter = new ArrayAdapter<Product>(this, R.layout.feed_list_item, R.id.text1, productList) {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
@@ -99,9 +102,8 @@ public class FeedActivity extends Activity {
 
                     text1.setText("Category: " + productList.get(position).getCategory());
                     text2.setText("Title: " + productList.get(position).getName());
-                    String curr_bid_str = ""+productList.get(position).getCurrentBid();
-                    text3.setText("Last Bid: " + curr_bid_str);
-
+                    String curr_bid_str = " "+productList.get(position).getHighestBid().getBidAmount();
+                    text3.setText("Highest Bid: " + curr_bid_str);
                     return view;
                 }
             };

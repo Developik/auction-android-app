@@ -1,40 +1,32 @@
 package comp3350.srsys.objects;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import comp3350.srsys.business.ProductLogic;
-public class Product
-{
+public class Product {
 	private Long itemID;
 	private String name;
-	private Date datePosted;
+	private LocalDateTime datePosted;
 	private ArrayList<String> pictures;
-	private double startingBid;
-	private double currentBid;
-	private Date auctionStart;
-	private Date auctionEnd;
-	private boolean onGoingAuction;
 	private String description;
-	private boolean sold;
 	private String category;
+	private SealedBidAuction auction;
 
-	// pre-generated Product
-	public Product(String name, Date datePosted, ArrayList<String> pictures, double startingBid,
-						double currentBid, Date auctionStart, Date auctionEnd, boolean sold,
-						String category) throws Exception {
+	@RequiresApi(api = Build.VERSION_CODES.O)
+	public Product(String name, LocalDateTime start, LocalDateTime end, ArrayList<String> pictures,
+				   String category) throws Exception {
 		this.itemID = ProductLogic.generateID();
 		this.name = name;
-		this.datePosted = datePosted;
+		this.datePosted = LocalDateTime.now();
 		this.pictures = pictures;
-		this.startingBid = startingBid;
-		this.currentBid = currentBid;
-		this.auctionStart = auctionStart;
-		this.auctionEnd = auctionEnd;
-		this.sold = sold;
 		this.category = category;
+		this.auction = new SealedBidAuction(start, end);
 
-		if (!itemObjectValidation()){
+		if (!itemObjectValidation()) {
 			throw new Exception("Product Item parameters are incorrect!");
 		}
 	}
@@ -51,34 +43,31 @@ public class Product
 		return (category);
 	}
 
-	public Date getDatePosted() {
+	public LocalDateTime getDatePosted() {
 		return (datePosted);
 	}
 
-	public double getCurrentBid() { return (currentBid); }
+	@RequiresApi(api = Build.VERSION_CODES.O)
+	public Bid getHighestBid() { return (auction.getHighestBid()); }
 
-	public double getStartingBid() { return (startingBid); }
+	public LocalDateTime getAuctionStart() { return (auction.getAuctionStart()); }
 
-	public Date getAuctionStart() { return (auctionStart); }
+	public LocalDateTime getAuctionEnd() { return (auction.getAuctionEnd()); }
 
-	public Date getAuctionEnd() { return (auctionEnd); }
+	@RequiresApi(api = Build.VERSION_CODES.O)
+	public AuctionStatus getAuctionStatus() { return (auction.getAuctionStatus()); }
 
 	public ArrayList<String> getPictures() { return (pictures); }
 
-	public boolean isSold() { return (sold); }
+	public void addBid(Bid bid) {
+		this.auction.addBid(bid);
+	}
 
-	public void setNewBid(double newBid) { this.currentBid = newBid; }
+
 
 	public boolean itemObjectValidation(){
-		boolean result = true;
-
-		if (itemID < 1 || name == null || name.length() < 1 || datePosted == null ||
-				category == null || category.length() < 1 || startingBid < 0 || (currentBid < 0) ||
-				auctionStart == null || auctionEnd == null){
-			result = false;
-		}
-
-		return result;
+		return itemID >= 1 && name != null && name.length() >= 1 && datePosted != null &&
+				category != null && category.length() >= 1;
 	}
 
 }
