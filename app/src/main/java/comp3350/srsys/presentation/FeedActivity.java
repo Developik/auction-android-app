@@ -15,12 +15,15 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import comp3350.srsys.R;
 import comp3350.srsys.business.AccessProducts;
+import comp3350.srsys.business.AccessUsers;
 import comp3350.srsys.business.ProductLogic;
 import comp3350.srsys.objects.Product;
+import comp3350.srsys.objects.User;
 
 public class FeedActivity extends Activity {
 
@@ -28,6 +31,7 @@ public class FeedActivity extends Activity {
     private ArrayList<Product> productList;
     private ArrayAdapter<Product> itemArrayAdapter;
     private int selectedProductPosition = -1;
+    private User user;
 
 
     @Override
@@ -37,6 +41,18 @@ public class FeedActivity extends Activity {
         setContentView(R.layout.activity_feed);
         if(bundle != null) {
             String user = bundle.getString("user");
+            AccessUsers accessUsers = new AccessUsers();
+            List<User> users = new ArrayList<User>();
+            accessUsers.getUsers(users);
+            for(User u : users) {
+                if(u.getUsername().equals(user)) {
+                    this.user = u;
+                }
+            }
+        }
+
+        if(this.user == null) {
+            System.out.println("User is null! Shouldn't happen");
         }
 
 
@@ -110,6 +126,9 @@ public class FeedActivity extends Activity {
 
     public void buttonWalletOnClick(View v) {
         Intent walletIntent = new Intent(FeedActivity.this, WalletActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("user", this.user.getUsername());
+        walletIntent.putExtras(bundle);
         FeedActivity.this.startActivity(walletIntent);
     }
 

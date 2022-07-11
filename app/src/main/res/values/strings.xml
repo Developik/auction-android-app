@@ -1,21 +1,21 @@
 <resources>
-    <string name="app_name">Bidding Market Simulator</string>
+    <string name="appName">Bidding Market Simulator</string>
 
     <string name="fatalError">Fatal error</string>
     <string name="warning">Warning</string>
-    <string name="bidding_market_simulator">Bidding Market Simulator</string>
-    <string name="item_title">Item Page</string>
+    <string name="biddingMarketSimulator">Bidding Market Simulator</string>
+    <string name="itemTitle">Item Page</string>
     <string name="username">Username</string>
-    <string name="EnterChat">EnterChat</string>
-    <string name="welcome_onboarding">Welcome to Bidding Market Simulator!</string>
-    <string name="bidding_market_simulator_onboarding2">Let\'s get you started!</string>
-    <string name="search_feed">Search</string>
-    <string name="min_bid">Min Bid</string>
-    <string name="max_bid">Max Bid</string>
-    <string name="money_count">0.00</string>
-    <string name="current_balance_text">Your Balance</string>
-    <string name="button_top_up">Top Up</string>
-    <string name="your_transactions">Your Transactions</string>
+    <string name="enterChat">EnterChat</string>
+    <string name="welcomeOnboarding">Welcome to Bidding Market Simulator!</string>
+    <string name="biddingMarketSimulatorOnboarding2">Let\'s get you started!</string>
+    <string name="searchFeed">Search</string>
+    <string name="minBid">Min Bid</string>
+    <string name="maxBid">Max Bid</string>
+    <string name="moneyCount">0.00</string>
+    <string name="currentBalanceText">Your Balance</string>
+    <string name="buttonTopUp">Top Up</string>
+    <string name="yourTransactions">Your Transactions</string>
     <string name="wallet">Wallet</string>
     <string name="goToProductView">go to product view</string>
     <string name="prodImgDesc">product image</string>
@@ -28,4 +28,6 @@
     <string name="submitReview">submit</string>
     <string name="sellerProfileButton">view seller\'s profile</string>
     <string name="profilePage">profile page</string>
+    <string name="selectCard">Select Card</string>
+    <string name="topUpAmount">Top Up Amount</string>
 </resources>

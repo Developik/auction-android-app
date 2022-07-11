@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="72dp"
         android:layout_height="62dp"
-        android:contentDescription="@string/bidding_market_simulator"
+        android:contentDescription="@string/biddingMarketSimulator"
         android:src="@drawable/mortarboard" />
 
     <LinearLayout

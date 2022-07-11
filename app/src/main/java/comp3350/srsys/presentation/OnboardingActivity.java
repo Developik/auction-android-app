@@ -37,20 +37,6 @@ public class OnboardingActivity extends AppCompatActivity {
 
         // generate bids
 
-        /*
-        try {
-            final BotLogic newBot = new BotLogic();
-            new Timer().scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
-                    newBot.assignBidToRandomProduct();
-                }
-            }, 0, 5000);//put here time 1000 milliseconds=1 second
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        */
-
         setContentView(R.layout.activity_onboarding);
 
         // Update the spinner with the list of users from DataAccessStub
@@ -95,7 +81,6 @@ public class OnboardingActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
-
 
 
     }

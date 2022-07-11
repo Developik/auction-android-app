@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/item_title"
-        tools:text="@string/item_title" />
+        android:text="@string/itemTitle"
+        tools:text="@string/itemTitle" />
 
     <View
         android:layout_width="match_parent"
@@ -55,6 +55,6 @@
         android:layout_width="105dp"
         android:layout_height="48dp"
         android:onClick="updateChat"
-        android:text="@string/EnterChat" />
+        android:text="@string/enterChat" />
 
 </LinearLayout>
