@@ -13,6 +13,7 @@ import comp3350.bms.tests.objects.ChatMessagesTest;
 import comp3350.bms.tests.objects.ProductTest;
 import comp3350.bms.tests.objects.UserTest;
 import comp3350.bms.tests.objects.WalletTest;
+import comp3350.bms.tests.persistence.DataAccessStubTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
@@ -23,7 +24,8 @@ import comp3350.bms.tests.objects.WalletTest;
         ChatMessagesTest.class,
         ProductTest.class,
         UserTest.class,
-        WalletTest.class
+        WalletTest.class,
+        DataAccessStubTest.class
 })
 
 public class AllTests {
