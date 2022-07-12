@@ -27,16 +27,14 @@ July 12th:
 ________________
 
 Personal Logs:
-
-
 Andrii:
 * July 7: 2 pm - 5 pm: 
   * Added User tests / validations
-* 9 July: 10 am - 6pm;
+* 9 July: 10 am - 6pm:
   * Database implementation
-* 10 July: 9pm - 1 am;
+* 10 July: 9pm - 1 am:
   * Code review, pair programming, discussions, debugging gradle
-* 11 July: 12pm - 1am;
+* 11 July: 12pm - 1am:
   * (SQL redesigning) Redeveloping Wallet feature, redeveloping Auction feature (left for next iteration)
   * Wallet withdrawing money when bid is placed
   * Helping others with connecting objects to database
@@ -55,21 +53,33 @@ Ryan:
   * finalized user passing and chat updates with the tests for each new method and confirmed that the main branch was running correctly with and without my changes.
 
 Hamdi:
-- July 09: 7 pm - 8:30 pm 
-- Worked on Wallet activity further, had a meeting to discuss potential solutions for issues
-- July 10: 5 pm - 12 am 
-- Worked on Wallet object, fixed top up, link Wallet with user, will implement transactions in the future 
-- Fixed Gradle even further, added the wrapper files (which we needed apparently) to prevent markers from being unable to run the project right away.
-- July 11: 3 pm - 7 pm
-- Updated package naming, fixed layouts and sizes for items and made stuff clearer
-- July 11: 7 pm - 7:30 pm 
-- Worked on moving the testing framework to JUnit 4 and added new tests for several objects
-- 8 pm -10 pm
-- Created new wallet tests for the wallet object.
-- 11:30 pm - 12:40 am
-- Did code review and solve conflicts
-- July 12: 1:00 pm - 2:00 pm
-- Resolved dependencies and fixed imports
+* July 09: 7 pm - 8:30 pm 
+  * Worked on Wallet activity further, had a meeting to discuss potential solutions for issues
+* July 10: 5 pm - 12 am 
+  * Worked on Wallet object, fixed top up, link Wallet with user, will implement transactions in the future 
+  * Fixed Gradle even further, added the wrapper files (which we needed apparently) to prevent markers from being unable to run the project right away.
+* July 11: 3 pm - 7 pm
+  * Updated package naming, fixed layouts and sizes for items and made stuff clearer
+* July 11: 7 pm - 7:30 pm 
+  * Worked on moving the testing framework to JUnit 4 and added new tests for several objects
+* July 11: 8 pm -10 pm
+  * Created new wallet tests for the wallet object.
+* July 11: 11:30 pm - 12:40 am
+  * Did code review and solve conflicts
+* July 12: 1:00 pm - 2:00 pm
+  * Resolved dependencies and fixed imports
+
+Nikhil
+* July 8: 1 pm - 6 pm: 
+  * Fixing my work from iteration 1 (Product)
+* 9 July: 2pm - 6pm:
+  * Logic for a sealed bid auction
+  * Testing for stub db
+* 11 July: 4pm - 2am:
+  * Finished testing for stub db
+  * Lots of bug fixes, pair programming, discussions
+  * Fixed issue in chat
+  * Created SealedBidAuction, Bid, Product classes
 ________________
 
 Developer Tasks, Iteration 2:
