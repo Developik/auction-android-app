@@ -82,8 +82,7 @@ public class PingChatTest {
         //-1 should return a valid empty message
         try {
             message = pingChat.getRandomS(-1);
-            System.out.println("Should have thrown an out of bounds exception");
-            Assert.fail();
+            Assert.fail("Should have thrown an out of bounds exception");
         } catch (IndexOutOfBoundsException e) {
             //passed invalid input
         }

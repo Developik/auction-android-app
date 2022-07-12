@@ -55,7 +55,6 @@ public class ProductTest {
         Assert.assertEquals(product.getAuctionStart(), start);
         Assert.assertEquals(product.getAuctionEnd(), end);
         Assert.assertEquals(product.getPicture(), picture);
-
         Assert.assertEquals(product.getStartingBid(), startingBid, 0.00001);
         Assert.assertEquals(product.getCurrentBid(), currentBid, 0.00001);
         Assert.assertEquals(product.isSold(), sold);
@@ -73,7 +72,7 @@ public class ProductTest {
 
         name = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(null, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -93,7 +92,7 @@ public class ProductTest {
     public void testEndDate() {
         end = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(name, date, picture, startingBid, currentBid, start, null, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -103,7 +102,7 @@ public class ProductTest {
     public void testCreationDate() {
         date = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(name, null, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -147,7 +146,7 @@ public class ProductTest {
     public void testCategory() {
         category = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, null);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
