@@ -13,9 +13,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.ChatMessages;
+import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
+import comp3350.bms.objects.Wallet;
 
 public class DataAccessObject implements DataAccess {
     private Statement st1, st2, st3;
@@ -49,41 +52,6 @@ public class DataAccessObject implements DataAccess {
             st1 = c1.createStatement();
             st2 = c1.createStatement();
             st3 = c1.createStatement();
-
-            /*** Alternate setups for different DB engines, just given as examples. Don't use them. ***/
-
-            /*
-             * // Setup for SQLite. Note that this is undocumented and is not guaranteed to work.
-             * // See also: https://github.com/SQLDroid/SQLDroid
-             * dbType = "SQLite";
-             * Class.forName("SQLite.JDBCDriver").newInstance();
-             * url = "jdbc:sqlite:" + dbPath;
-             * c1 = DriverManager.getConnection(url);
-             *
-             * ... create statements
-             */
-
-            /*** The following two work on desktop builds: ***/
-
-            /*
-             * // Setup for Access
-             * dbType = "Access";
-             * Class.forName("sun.jdbc.odbc.JdbcOdbcDriver").newInstance();
-             * url = "jdbc:odbc:SC";
-             * c1 = DriverManager.getConnection(url,"userid","userpassword");
-             *
-             * ... create statements
-             */
-
-            /*
-             * //Setup for MySQL
-             * dbType = "MySQL";
-             * Class.forName("com.mysql.jdbc.Driver");
-             * url = "jdbc:mysql://localhost/database01";
-             * c1 = DriverManager.getConnection(url, "root", "");
-             *
-             * ... create statements
-             */
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -251,15 +219,16 @@ public class DataAccessObject implements DataAccess {
         result = null;
         try {
             // Should check for empty values and not update them
-            values = "name='" + currentProduct.getName()
-                    + "', datePosted='" + currentProduct.getDatePosted() + "'"
-                    + "', startingBid='" + currentProduct.getStartingBid() + "'"
-                    + ", currentBid='" + currentProduct.getCurrentBid() + "'"
-                    + ", auctionStart='" + currentProduct.getAuctionStart() + "'"
-                    + ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
-                    + ", isSold='" + currentProduct.isSold() + "'"
-                    + ", category='" + currentProduct.getCategory() + "'";
-            where = "where itemID=" + currentProduct.getItemID();
+			values = "name='" + currentProduct.getName()
+					+ "', datePosted='" + currentProduct.getDatePosted() + "'"
+					+ "', startingBid='" + currentProduct.getStartingBid() + "'"
+					+ ", currentBid='" + currentProduct.getCurrentBid() + "'"
+					+ ", auctionStart='" + currentProduct.getAuctionStart() + "'"
+					+ ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
+					+ ", isSold='" + currentProduct.isSold() + "'"
+					+ ", category='" + currentProduct.getCategory() + "'";
+            where = "where itemID=" +
+                    "'" + currentProduct.getItemID() + "'";
             cmdString = "Update Product " + " Set " + values + " " + where;
             //System.out.println(cmdString);
             updateCount = st1.executeUpdate(cmdString);
@@ -270,15 +239,35 @@ public class DataAccessObject implements DataAccess {
         return result;
     }
 
-    public String getUserSequential(List<User> userResult) {
-        User user;
-        String username = EOF;
-        String firstName = EOF;
-        String lastName = EOF;
-        String address = EOF;
-        int age = 0;
-        // ArrayList<Bid> myBids = new ArrayList<>(); // complete
-        // add remaining fields later
+    public String updateWallet(Wallet currentWallet) {
+        String values;
+        String where;
+
+        result = null;
+        try {
+            // Should check for empty values and not update them
+            values = "balance='" + currentWallet.getBalance() + "'";
+            where = "where walletID=" +
+                    "'" + currentWallet.getWalletID() + "'";
+            cmdString = "Update Wallet " + " Set " + values + " " + where;
+            System.out.println(cmdString);
+            updateCount = st1.executeUpdate(cmdString);
+            result = checkWarning(st1, updateCount);
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+        return result;
+    }
+
+	public String getUserSequential(List<User> userResult) {
+		User user;
+		String username = EOF;
+		String firstName = EOF;
+		String lastName = EOF;
+		String address = EOF;
+		int age = 0;
+		// ArrayList<Bid> myBids = new ArrayList<>(); // complete
+		// add remaining fields later
 
         result = null;
         try {
@@ -304,6 +293,106 @@ public class DataAccessObject implements DataAccess {
         }
 
         return result;
+    }
+
+    public String getWalletSequential(List<Wallet> walletResult) {
+        Wallet wallet;
+        int walletID;
+        int balance = 0;
+
+        result = null;
+        try {
+            cmdString = "Select * from Wallet";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+        try {
+            while (rs2.next()) {
+                walletID = rs2.getInt("walletID");
+                balance = rs2.getInt("balance");
+                wallet = new Wallet(walletID, balance);
+                walletResult.add(wallet);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
+        return result;
+    }
+
+    public String getPaymentcardsSequential(List<Paymentcard> paymentcards,
+                                           Wallet wallet) {
+        Paymentcard paymentcard;
+        int cardID;
+        String cardNumbers = EOF;
+
+        result = null;
+        try {
+            cmdString = "Select * from Paymentcard " +
+                    "JOIN PaymentcardWallet ON " +
+                    "PaymentcardWallet.cardID=Paymentcard.cardID " +
+                    "JOIN Wallet ON " +
+                    "Wallet.walletID=PaymentcardWallet.walletID " +
+                    "where Wallet.walletID=" +
+                    "'" + wallet.getWalletID() + "'";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+        try {
+            while (rs2.next()) {
+                cardID = rs2.getInt("cardID");
+                cardNumbers = rs2.getString("cardNumbers");
+                paymentcard = new Paymentcard(cardID, cardNumbers);
+                paymentcards.add(paymentcard);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
+        return result;
+    }
+
+    public Wallet getWalletFromUser(String username) {
+        Wallet wallet = null;
+        int walletID;
+        int balance = 0;
+
+        result = null;
+        try {
+            cmdString = "Select * from Wallet " +
+                    "JOIN WalletUser ON " +
+                    "WalletUser.walletID=Wallet.walletID " +
+                    "JOIN User ON " +
+                    "User.username=WalletUser.username " +
+                    "where User.username=" +
+                    "'" + username + "'";
+
+            System.out.println(cmdString);
+            //cmdString = "Select * from Wallet where username=" +
+            //        "'" + username + "'";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+        try {
+            while (rs2.next()) {
+                walletID = rs2.getInt("walletID");
+                balance = rs2.getInt("balance");
+                wallet = new Wallet(walletID, balance);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        return wallet;
     }
 
     public String checkWarning(Statement st, int updateCount) {

@@ -9,7 +9,6 @@ public class User {
     private String username;
     private String firstName;
     private String lastName;
-    private Wallet wallet;
     private String address;
     private Integer age;
     private ArrayList<Bid> myBids;
@@ -25,7 +24,6 @@ public class User {
         this.lastName = lastName;
         this.address = address;
         this.age = age;
-        this.wallet = new Wallet(this);
         this.myBids = new ArrayList<>();
         this.chatHistory = new ArrayList<>();
 
@@ -58,10 +56,6 @@ public class User {
 
     public Integer getAge() {
         return (age);
-    }
-
-    public Wallet getWallet() {
-        return (wallet);
     }
 
     public void setBid(Bid b) {
