@@ -3,6 +3,7 @@
 # Iteration 2
 
 Team Meetings, Iteration 2:
+
 June 30th:
 * Andrii, Nikhil, Ryan
 * 7pm - 8pm
@@ -27,6 +28,7 @@ July 12th:
 ________________
 
 Personal Logs:
+
 Andrii:
 * July 7: 2 pm - 5 pm: 
   * Added User tests / validations
@@ -83,6 +85,7 @@ Nikhil
 ________________
 
 Developer Tasks, Iteration 2:
+
 - Remove DataAccessStub from OnBoarding Activity (move code to logic) (Cost: 4 hours; Priority: High) - Andrii
 - Bot issues (Cost: 1 hour; Priority: High) - Andrii / Hamdi
 - Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High)
