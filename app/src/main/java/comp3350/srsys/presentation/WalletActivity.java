@@ -15,8 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comp3350.srsys.R;
+import comp3350.srsys.business.AccessPaymentcards;
 import comp3350.srsys.business.AccessUsers;
+import comp3350.srsys.business.AccessWallet;
+import comp3350.srsys.objects.Paymentcard;
 import comp3350.srsys.objects.User;
+import comp3350.srsys.objects.Wallet;
 
 public class WalletActivity extends AppCompatActivity {
 
@@ -44,7 +48,11 @@ public class WalletActivity extends AppCompatActivity {
             System.out.println("User is null! Shouldn't happen");
         }
         else{
-            walletBalance.setText(String.valueOf(this.user.getWallet().getBalance()));
+            AccessWallet accessWallet = new AccessWallet();
+            System.out.println("------"+ this.user.getUsername());
+            Wallet wallet = accessWallet.getWalletFromUser(this.user.getUsername());
+            System.out.println("------"+ wallet.getBalance());
+            walletBalance.setText(String.valueOf(wallet.getBalance()));
         }
     }
 
@@ -56,7 +64,21 @@ public class WalletActivity extends AppCompatActivity {
 
         builder.setView(dialogView);
         Spinner spinner = dialogView.findViewById(R.id.card_spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, user.getWallet().getCards());
+
+        AccessWallet accessWallet = new AccessWallet();
+        Wallet wallet = accessWallet.getWalletFromUser(this.user.getUsername());
+
+        ArrayList<Paymentcard> paymentcards = new ArrayList<>();
+        AccessPaymentcards accessPaymentcards = new AccessPaymentcards();
+        accessPaymentcards.getPaymentCards(paymentcards, wallet);
+
+        ArrayList<String> stringPaymentcards = new ArrayList<>();
+        for (int i=0; i < paymentcards.size(); i++){
+            stringPaymentcards.add(paymentcards.get(i).getCardNumbers());
+        }
+        //Paymentcard paymentcard = accessWallet.get(this.user.getUsername());
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, stringPaymentcards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         builder.setPositiveButton("Top Up", (dialog, which) -> {
@@ -71,8 +93,11 @@ public class WalletActivity extends AppCompatActivity {
             else {
                 double topUp = Double.parseDouble(amount);
                 topUp = Math.round(topUp * 100.0) / 100.0;
-                user.getWallet().topUp(topUp);
-                walletBalance.setText(String.valueOf(user.getWallet().getBalance()));
+                wallet.topUp(topUp);
+                // save topping up
+                accessWallet.updateWallet(wallet);
+
+                walletBalance.setText(String.valueOf(wallet.getBalance()));
             }
         });
 

@@ -19,6 +19,7 @@ import java.util.List;
 import comp3350.srsys.R;
 import comp3350.srsys.application.Main;
 import comp3350.srsys.business.AccessUsers;
+import comp3350.srsys.business.WalletLogic;
 import comp3350.srsys.objects.User;
 
 public class OnboardingActivity extends AppCompatActivity {

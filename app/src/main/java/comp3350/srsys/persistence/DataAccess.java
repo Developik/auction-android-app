@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import comp3350.srsys.objects.ChatMessages;
+import comp3350.srsys.objects.Paymentcard;
 import comp3350.srsys.objects.Product;
 import comp3350.srsys.objects.User;
+import comp3350.srsys.objects.Wallet;
 
 public interface DataAccess
 {
@@ -24,4 +26,13 @@ public interface DataAccess
 	String updateProduct(Product currentProduct);
 
 	String getUserSequential(List<User> userResult);
+
+    String updateWallet(Wallet currentWallet);
+
+	String getWalletSequential(List<Wallet> wallets);
+
+	Wallet getWalletFromUser(String username);
+
+	String getPaymentcardsSequential(List<Paymentcard> paymentcards,
+									 Wallet wallet);
 }
