@@ -3,6 +3,7 @@ package comp3350.srsys.tests.business;
 import junit.framework.TestCase;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +20,7 @@ import comp3350.srsys.objects.Product;
 import comp3350.srsys.persistence.DataAccess;
 import comp3350.srsys.tests.persistence.DataAccessStub;
 
-public class ProductLogicTest extends TestCase {
+public class ProductLogicTest {
 
 	private ArrayList<Product> productList;
 	private HashMap<String, String> filters;
@@ -67,8 +68,8 @@ public class ProductLogicTest extends TestCase {
 		dataAccess.getProductSequential(productList);
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
-		assertEquals(productList.size(), productInitSize);
-		assertEquals(filteredList.size(), productInitSize);
+		Assert.assertEquals(productList.size(), productInitSize);
+		Assert.assertEquals(filteredList.size(), productInitSize);
 	}
 
 	@Test
@@ -90,8 +91,8 @@ public class ProductLogicTest extends TestCase {
 		dataAccess.getProductSequential(productList);
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), productInitSize+1);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), productInitSize + 1);
 	}
 
 	@Test
@@ -118,8 +119,8 @@ public class ProductLogicTest extends TestCase {
 		dataAccess.getProductSequential(productList);
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 1);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 1);
 
 		query = "";
 		String minBid = "14241";
@@ -127,8 +128,8 @@ public class ProductLogicTest extends TestCase {
 		filters.put("query", query);
 		filters.put("minMaxBid", minBid + ";" + maxBid);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 1);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 1);
 
 		query = "";
 		minBid = "0";
@@ -138,8 +139,8 @@ public class ProductLogicTest extends TestCase {
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 0);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 0);
 
 		query = "";
 		minBid = "0";
@@ -149,8 +150,8 @@ public class ProductLogicTest extends TestCase {
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 0);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 0);
 
 		query = null;
 		minBid = "14241";
@@ -160,8 +161,8 @@ public class ProductLogicTest extends TestCase {
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 1);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 1);
 
 		minBid = "14241";
 		filters.put("query", query);
@@ -169,8 +170,8 @@ public class ProductLogicTest extends TestCase {
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 1);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 1);
 
 		query = null;
 		maxBid = null;
@@ -180,7 +181,7 @@ public class ProductLogicTest extends TestCase {
 
 		filteredList = ProductLogic.filterFeed(filters, productList);
 
-		assertEquals(productList.size(), productInitSize+1);
-		assertEquals(filteredList.size(), 0);
+		Assert.assertEquals(productList.size(), productInitSize + 1);
+		Assert.assertEquals(filteredList.size(), 0);
 	}
 }

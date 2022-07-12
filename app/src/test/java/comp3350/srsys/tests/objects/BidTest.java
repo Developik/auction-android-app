@@ -2,33 +2,34 @@ package comp3350.srsys.tests.objects;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import comp3350.srsys.objects.Bid;
 import comp3350.srsys.objects.User;
 
-public class BidTest extends TestCase {
+public class BidTest {
 
-    public void testConstructor(){
-        System.out.println("Testing Bid constructor");
+    @Test
+    public void testBid() {
+        System.out.println("Testing Bid class");
 
-        System.out.println("normal test");
-        User u = null;
         try {
+            User u = null;
             u = new User("username", "john", "smith", "55 road dr.", 44, false);
-        }
-        catch (Exception e){
-            fail();
+            Bid bid = new Bid(50, u);
+        } catch (Exception e) {
+            Assert.fail("Bid failed to create with valid User object");
         }
 
-        Bid bid = new Bid(50, u);
 
-        System.out.println("with null user should throw exception");
-        try{
+        try {
+            System.out.println("Bid with null user should not be created.");
             Bid badBid = new Bid(50, null);
-            assertEquals(1, 2);
-        }
-        catch(NullPointerException e){
+            Assert.fail("Bid was made despite having null user object"); // should not get here
+        } catch (NullPointerException e) {
             // should get here
-            assertEquals(1, 1);
+            System.out.println("Bid class works as expected.");
         }
 
     }
