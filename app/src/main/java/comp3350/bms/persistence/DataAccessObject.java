@@ -1,9 +1,7 @@
-/**
- * This code is not used in the first iteration. It is provided as
- * an example of usage of HSQLDB (for iteration 2).
- */
-
 package comp3350.bms.persistence;
+
+// Purpose: DataAccessObject interface for accessing the data directly from the database. Refer
+// to the DataAccessStub for the stub implementation.
 
 import java.sql.Statement;
 import java.sql.Connection;
@@ -27,9 +25,9 @@ public class DataAccessObject implements DataAccess {
     private String dbName;
     private String dbType;
 
-	private ArrayList<Product> products;
-	private ArrayList<User> users;
-	private ArrayList<ChatMessages> chatMessages;
+    private ArrayList<Product> products;
+    private ArrayList<User> users;
+    private ArrayList<ChatMessages> chatMessages;
 
     private String cmdString;
     private int updateCount;
@@ -229,14 +227,14 @@ public class DataAccessObject implements DataAccess {
 
             values = currentProduct.getItemID()
                     + ", '" + currentProduct.getName() + "'"
-					+ ", '" + datePosted + "'"
+                    + ", '" + datePosted + "'"
                     + ", '" + currentProduct.getStartingBid() + "'"
-					+ ", '" + currentProduct.getCurrentBid() + "'"
-					+ ", '" + auctionStart + "'"
-					+ ", '" + auctionEnd + "'"
-					+ ", '" + currentProduct.isSold() + "'"
-					+ ", '" + currentProduct.getCategory() + "'";
-			cmdString = "Insert into Product " + " Values(" + values + ")";
+                    + ", '" + currentProduct.getCurrentBid() + "'"
+                    + ", '" + auctionStart + "'"
+                    + ", '" + auctionEnd + "'"
+                    + ", '" + currentProduct.isSold() + "'"
+                    + ", '" + currentProduct.getCategory() + "'";
+            cmdString = "Insert into Product " + " Values(" + values + ")";
             //System.out.println(cmdString);
             updateCount = st1.executeUpdate(cmdString);
             result = checkWarning(st1, updateCount);
@@ -253,14 +251,14 @@ public class DataAccessObject implements DataAccess {
         result = null;
         try {
             // Should check for empty values and not update them
-			values = "name='" + currentProduct.getName()
-					+ "', datePosted='" + currentProduct.getDatePosted() + "'"
-					+ "', startingBid='" + currentProduct.getStartingBid() + "'"
-					+ ", currentBid='" + currentProduct.getCurrentBid() + "'"
-					+ ", auctionStart='" + currentProduct.getAuctionStart() + "'"
-					+ ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
-					+ ", isSold='" + currentProduct.isSold() + "'"
-					+ ", category='" + currentProduct.getCategory() + "'";
+            values = "name='" + currentProduct.getName()
+                    + "', datePosted='" + currentProduct.getDatePosted() + "'"
+                    + "', startingBid='" + currentProduct.getStartingBid() + "'"
+                    + ", currentBid='" + currentProduct.getCurrentBid() + "'"
+                    + ", auctionStart='" + currentProduct.getAuctionStart() + "'"
+                    + ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
+                    + ", isSold='" + currentProduct.isSold() + "'"
+                    + ", category='" + currentProduct.getCategory() + "'";
             where = "where itemID=" + currentProduct.getItemID();
             cmdString = "Update Product " + " Set " + values + " " + where;
             //System.out.println(cmdString);
@@ -272,41 +270,41 @@ public class DataAccessObject implements DataAccess {
         return result;
     }
 
-	public String getUserSequential(List<User> userResult) {
-		User user;
-		String username = EOF;
-		String firstName = EOF;
-		String lastName = EOF;
-		String address = EOF;
-		int age = 0;
-		// ArrayList<Bid> myBids = new ArrayList<>(); // complete
-		// add remaining fields later
+    public String getUserSequential(List<User> userResult) {
+        User user;
+        String username = EOF;
+        String firstName = EOF;
+        String lastName = EOF;
+        String address = EOF;
+        int age = 0;
+        // ArrayList<Bid> myBids = new ArrayList<>(); // complete
+        // add remaining fields later
 
-		result = null;
-		try {
-			cmdString = "Select * from User";
-			rs2 = st1.executeQuery(cmdString);
-			//ResultSetMetaData md2 = rs2.getMetaData();
-		} catch (Exception e) {
-			processSQLError(e);
-		}
-		try {
-			while (rs2.next()) {
-				username = rs2.getString("username");
-				firstName = rs2.getString("firstName");
-				lastName = rs2.getString("lastName");
-				address = rs2.getString("address");
-				age = rs2.getInt("age");
-				user = new User(username, firstName, lastName, address, age, false);
-				userResult.add(user);
-			}
-			rs2.close();
-		} catch (Exception e) {
-			result = processSQLError(e);
-		}
+        result = null;
+        try {
+            cmdString = "Select * from User";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+        try {
+            while (rs2.next()) {
+                username = rs2.getString("username");
+                firstName = rs2.getString("firstName");
+                lastName = rs2.getString("lastName");
+                address = rs2.getString("address");
+                age = rs2.getInt("age");
+                user = new User(username, firstName, lastName, address, age, false);
+                userResult.add(user);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
 
-		return result;
-	}
+        return result;
+    }
 
     public String checkWarning(Statement st, int updateCount) {
         String result;

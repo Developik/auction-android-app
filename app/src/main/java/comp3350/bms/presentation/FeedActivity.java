@@ -1,5 +1,7 @@
 package comp3350.bms.presentation;
 
+// Purpose: Presentation object that handles the Feed (page after login/onboarding) activity
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

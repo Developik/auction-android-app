@@ -1,5 +1,8 @@
 package comp3350.bms.objects;
 
+// Purpose: Wallet object that handles the user's cards, their balance, and their previous
+// transactions.
+
 import java.util.ArrayList;
 
 public class Wallet {

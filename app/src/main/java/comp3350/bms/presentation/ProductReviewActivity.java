@@ -1,5 +1,8 @@
 package comp3350.bms.presentation;
 
+// Purpose: Presentation object ProductReviewActivity handles the review page for the objects.
+// Currently does not work.
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;

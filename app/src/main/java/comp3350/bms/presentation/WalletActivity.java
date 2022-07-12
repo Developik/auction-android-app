@@ -1,5 +1,8 @@
 package comp3350.bms.presentation;
 
+// Purpose: WalletActivity handles the wallet page for the user, which allows them to top up and
+// view past transactions.
+
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,21 +32,20 @@ public class WalletActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         setContentView(R.layout.activity_wallet);
         walletBalance = findViewById(R.id.balance);
-        if(bundle != null) {
+        if (bundle != null) {
             String user = bundle.getString("user");
             AccessUsers accessUsers = new AccessUsers();
             List<User> users = new ArrayList<User>();
             accessUsers.getUsers(users);
-            for(User u : users) {
-                if(u.getUsername().equals(user)) {
+            for (User u : users) {
+                if (u.getUsername().equals(user)) {
                     this.user = u;
                 }
             }
         }
-        if(this.user == null) {
+        if (this.user == null) {
             System.out.println("User is null! Shouldn't happen");
-        }
-        else{
+        } else {
             walletBalance.setText(String.valueOf(this.user.getWallet().getBalance()));
         }
     }
@@ -62,13 +64,11 @@ public class WalletActivity extends AppCompatActivity {
         builder.setPositiveButton("Top Up", (dialog, which) -> {
             EditText topupAmount = dialogView.findViewById(R.id.topUpAmount);
             String amount = topupAmount.getText().toString();
-            if(amount.isEmpty()) {
+            if (amount.isEmpty()) {
                 Toast.makeText(this, "Please enter an amount", Toast.LENGTH_LONG).show();
-            }
-            else if (Double.parseDouble(amount) <= 0) {
+            } else if (Double.parseDouble(amount) <= 0) {
                 Toast.makeText(this, "Please enter a positive amount", Toast.LENGTH_LONG).show();
-            }
-            else {
+            } else {
                 double topUp = Double.parseDouble(amount);
                 topUp = Math.round(topUp * 100.0) / 100.0;
                 user.getWallet().topUp(topUp);

@@ -1,5 +1,8 @@
 package comp3350.bms.presentation;
 
+// Purpose: Presentation object OnboardingActivity handles the login page screen, this also copies
+// the database to the internal storage if it doesn't exist.
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;

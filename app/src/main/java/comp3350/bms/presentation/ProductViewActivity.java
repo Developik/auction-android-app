@@ -1,5 +1,7 @@
 package comp3350.bms.presentation;
 
+// Purpose: ProductViewActivity is a presentation object that handles the product page directly.
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
