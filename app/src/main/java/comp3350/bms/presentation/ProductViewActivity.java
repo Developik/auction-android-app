@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +16,11 @@ import java.util.List;
 import comp3350.bms.R;
 import comp3350.bms.business.AccessProducts;
 import comp3350.bms.business.AccessUsers;
+import comp3350.bms.business.AccessWallet;
 import comp3350.bms.business.PingChat;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
+import comp3350.bms.objects.Wallet;
 
 public class ProductViewActivity extends Activity {
 
@@ -101,6 +104,35 @@ public class ProductViewActivity extends Activity {
     public void buttonSellerProfileOnClick(View view) {
         Intent sellerProfileIntent = new Intent(ProductViewActivity.this, ProfileViewActivity.class);
         ProductViewActivity.this.startActivity(sellerProfileIntent);
+    }
+
+    public void buttonOnBidClick(View view) {
+        TextView withDrawTextBox = findViewById(R.id.withDrawAmount);
+        String withDrawAmount = withDrawTextBox.getText().toString();
+
+        if(withDrawAmount.isEmpty()) {
+            Messages.warning(this, "Please enter an amount");
+        }
+        else if (Double.parseDouble(withDrawAmount) <= 0) {
+            Messages.warning(this, "Please enter a positive amount");
+        }
+        else {
+            AccessWallet accessWallet = new AccessWallet();
+            Wallet wallet = accessWallet.getWalletFromUser(this.user.getUsername());
+
+            double amount = Double.parseDouble(withDrawAmount);
+            amount = Math.round(amount * 100.0) / 100.0;
+
+            if(wallet.getBalance() < amount) {
+                Messages.warning(this, "Can not withdraw that much!");
+            }
+
+            wallet.withdraw(amount);
+            // save withdraw
+            accessWallet.updateWallet(wallet);
+
+            withDrawTextBox.setText(String.valueOf(0));
+        }
     }
 
     public void updateChat(View view) {
