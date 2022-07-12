@@ -8,16 +8,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <ImageView
-            android:src="@drawable/mortarboard"
+            android:src="@drawable/garden_bucket"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:contentDescription="@string/prodImgDesc"
             tools:background="#999"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/garden_bucket" />
 
         <TextView
             android:id="@+id/productTitle"
@@ -38,29 +38,32 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            tools:text="@tools:sample/lorem/random" />
+            tools:text="@tools:sample/lorem" />
 
-        <Button
-            android:onClick="buttonProductReviewsOnClick"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="30dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginVertical="20dp"
-            android:layout_marginHorizontal="20dp"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:textColor="#ffffff"
-            android:text="@string/prodReviewButton"  />
+            android:orientation="horizontal">
 
-        <Button
-            android:onClick="buttonSellerProfileOnClick"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginVertical="20dp"
-            android:layout_marginHorizontal="20dp"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:textColor="#ffffff"
-            android:text="@string/sellerProfileButton"  />
+            <Button
+                android:layout_width="270dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:onClick="buttonProductReviewsOnClick"
+                android:text="@string/prodReviewButton"
+                android:textSize="20sp"
+                android:textColor="#212121" />
+
+            <Button
+                android:layout_width="270dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:onClick="buttonSellerProfileOnClick"
+                android:textSize="20sp"
+                android:text="@string/sellerProfileButton"
+                android:textColor="#212121" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/productPrice"
@@ -68,30 +71,105 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="5dp"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="10dp"
-            android:textSize="32sp"
+            android:textSize="24sp"
             tools:text="Current Bid: $1.99"
             android:textColor="#000000" />
 
         <EditText
-            android:ellipsize="start"
-            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:ellipsize="start"
+            android:gravity="center_horizontal"
             android:hint="@string/bidHint"
-            android:inputType="phone" />
+            android:inputType="numberDecimal"
+            android:textSize="20sp"
+            android:minHeight="48dp" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginVertical="20dp"
+            android:minHeight="60dp"
+            android:textSize="20sp"
             android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="20dp"
             android:backgroundTint="@android:color/holo_blue_dark"
-            android:textColor="#ffffff"
-            android:text="@string/bidButton"  />
+            android:text="@string/bidButton"
+            android:textColor="#212121" />
+
+        <TextView
+            android:id="@+id/chatLabelTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:text="@string/chat"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/ChatLog4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ChatLog3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ChatLog2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/ChatLog1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:text="" />
+
+        <EditText
+            android:id="@+id/chatInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="20dp"
+            android:shadowColor="#C0C0C0"
+            android:hint="@string/enterChatMessage"
+            android:inputType="text"
+            android:textSize="20sp"
+            android:minHeight="48dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:minHeight="60dp"
+            android:textSize="20sp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:onClick="updateChat"
+            android:text="@string/enterChat"
+            android:textColor="#212121" />
     </LinearLayout>
 </ScrollView>
