@@ -1,38 +1,31 @@
 package comp3350.bms.objects;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Bid {
+    private User bidder;
+    private double bidAmount;
+    private LocalDateTime bidDate;
 
-    // we need unique ID for bid
-
-    private double value;
-    private Date date;
-    private User user;
-
-    // refactor
-    public Bid(double value, User user){
-        if(user == null) throw new NullPointerException("user cannot be null");
-
-        if(value < 0){
-            this.value = 0;
-        }
-        else{
-            this.value = value;
-        }
-        this.date = new Date();
-        this.user = user;
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public Bid(User bidder, double bidAmount) {
+        this.bidder = bidder;
+        this.bidAmount = bidAmount;
+        this.bidDate = LocalDateTime.now();
     }
 
-    public double getValue(){
-        return value;
-    }
-    public Date getDate(){
-        return date;
-    }
-    public User getUser(){
-        return user;
+    public User getBidder() {
+        return this.bidder;
     }
 
+    public double getBidAmount() {
+        return this.bidAmount;
+    }
+
+    public LocalDateTime getBidDate() {
+        return this.bidDate;
+    }
 }
+

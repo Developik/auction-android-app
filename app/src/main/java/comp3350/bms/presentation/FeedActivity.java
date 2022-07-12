@@ -1,8 +1,11 @@
 package comp3350.bms.presentation;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -152,6 +155,8 @@ public class FeedActivity extends Activity {
             Messages.fatalError(this, result);
         } else {
             itemArrayAdapter = new ArrayAdapter<Product>(this, R.layout.feed_list_item, R.id.text1, productList) {
+                @SuppressLint("SetTextI18n")
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
@@ -162,8 +167,8 @@ public class FeedActivity extends Activity {
 
                     text1.setText("Category: " + productList.get(position).getCategory());
                     text2.setText("Title: " + productList.get(position).getName());
-                    String curr_bid_str = "" + productList.get(position).getCurrentBid();
-                    text3.setText("Last Bid: " + curr_bid_str);
+                    String highestBid_str = "" + productList.get(position).getHighestBid();
+                    text3.setText("Last Bid: " + highestBid_str);
 
                     return view;
                 }

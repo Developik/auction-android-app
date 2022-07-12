@@ -2,6 +2,7 @@ package comp3350.bms.tests.objects;
 
 import org.junit.*;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,29 +15,25 @@ public class ProductTest {
 
 	Product product;
 	Date date;
-	Date start;
-	Date end;
+	LocalDateTime start;
+	LocalDateTime end;
 	String picture;
-	double startingBid;
-	double currentBid;
-	boolean sold;
 	String name;
 	String category;
+	String description;
 	List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
 	@Before
 	public void setUp() {
 		name = "Garden Bucket";
 		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+		start = LocalDateTime.now().minusDays(1L);
+		end = LocalDateTime.now().minusHours(1L);
 		picture = "1.png";
-		startingBid = 5.0;
-		currentBid = 5.0;
-		sold = false;
 		category = categories.get(2);
+		description = "A bucket for gardening.";
 		try{
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(name, start, end, picture, description, category);
 		}
 		catch (Exception e){
 			Assert.fail("Creation of Item failed.");
@@ -55,9 +52,6 @@ public class ProductTest {
 		Assert.assertEquals(product.getAuctionEnd(), end);
 		Assert.assertEquals(product.getPicture(), picture);
 
-		Assert.assertEquals(product.getStartingBid(), startingBid, 0.00001);
-		Assert.assertEquals(product.getCurrentBid(), currentBid, 0.00001);
-		Assert.assertEquals(product.isSold(), sold);
 		Assert.assertEquals(product.getCategory(), category);
 	}
 
@@ -65,85 +59,42 @@ public class ProductTest {
 	public void testName() {
 		name = "";
 		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(name, start, end, picture, description, category);
 			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
 		} catch (Exception ignored) {}
 
-		name = null;
 		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(null, start, end, picture, description, category);
 			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
 		} catch (Exception ignored) {}
 	}
 
 	@Test
 	public void testStartDate() {
-		start = null;
 		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(name, null, end, picture, description, category);
 			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
 		} catch (Exception ignored) {}
 	}
 
 	@Test
 	public void testEndDate() {
-		end = null;
 		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
-			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
-		} catch (Exception ignored) {}
-	}
-
-	@Test
-	public void testCreationDate() {
-		date = null;
-		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
-			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
-		} catch (Exception ignored) {}
-	}
-
-	@Test
-	public void testCurrentBid() {
-		currentBid = -1;
-		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
-			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
-		} catch (Exception ignored) {}
-
-		currentBid = Integer.MIN_VALUE;
-		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
-			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
-		} catch (Exception ignored) {}
-	}
-
-	@Test
-	public void testStartingBid() {
-		startingBid = -1;
-		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
-			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
-		} catch (Exception ignored) {}
-
-		startingBid = Integer.MIN_VALUE;
-		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(name, start, null, picture, description, category);
 			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
 		} catch (Exception ignored) {}
 	}
 
 	@Test
 	public void testCategory() {
-		category = null;
 		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(name, start, end, picture, description, null);
 			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
 		} catch (Exception ignored) {}
 
 		category = "";
 		try {
-			product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+			product = new Product(name, start, end, picture, description, category);
 			Assert.fail("Creation of Item succeeded when it shouldn't have been.");
 		} catch (Exception ignored) {}
 	}

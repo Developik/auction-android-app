@@ -5,12 +5,16 @@
 
 package comp3350.bms.persistence;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
 import java.sql.SQLWarning;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -165,7 +169,7 @@ public class DataAccessObject implements DataAccess {
                 auctionEnd = rs2.getDate("auctionEnd");
                 sold = rs2.getBoolean("sold");
                 category = rs2.getString("category");
-                product = new Product(name, datePosted, picture, startingBid, currentBid, auctionStart, auctionEnd, sold, category);
+                product = new Product(name, start, end, picture, description, category);
                 productResult.add(product);
             }
             rs2.close();
@@ -218,23 +222,23 @@ public class DataAccessObject implements DataAccess {
         return result;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public String insertProduct(Product currentProduct) {
         String values;
 
         result = null;
         try {
-            Timestamp datePosted = currentProduct.getDatePostedTimestamp();
-            Timestamp auctionStart = currentProduct.getAuctionStartTimestamp();
-            Timestamp auctionEnd = currentProduct.getAuctionEndTimestamp();
+            LocalDateTime datePosted = currentProduct.getDatePosted();
+            LocalDateTime auctionStart = currentProduct.getAuctionStart();
+            LocalDateTime auctionEnd = currentProduct.getAuctionEnd();
 
             values = currentProduct.getItemID()
                     + ", '" + currentProduct.getName() + "'"
 					+ ", '" + datePosted + "'"
-                    + ", '" + currentProduct.getStartingBid() + "'"
-					+ ", '" + currentProduct.getCurrentBid() + "'"
+                    + ", '" + currentProduct.getHighestBid() + "'"
 					+ ", '" + auctionStart + "'"
 					+ ", '" + auctionEnd + "'"
-					+ ", '" + currentProduct.isSold() + "'"
+					+ ", '" + currentProduct.getAuctionStatus().toString() + "'"
 					+ ", '" + currentProduct.getCategory() + "'";
 			cmdString = "Insert into Product " + " Values(" + values + ")";
             //System.out.println(cmdString);
@@ -246,6 +250,7 @@ public class DataAccessObject implements DataAccess {
         return result;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public String updateProduct(Product currentProduct) {
         String values;
         String where;
@@ -255,11 +260,10 @@ public class DataAccessObject implements DataAccess {
             // Should check for empty values and not update them
 			values = "name='" + currentProduct.getName()
 					+ "', datePosted='" + currentProduct.getDatePosted() + "'"
-					+ "', startingBid='" + currentProduct.getStartingBid() + "'"
-					+ ", currentBid='" + currentProduct.getCurrentBid() + "'"
+					+ "', highestBid='" + currentProduct.getHighestBid() + "'"
 					+ ", auctionStart='" + currentProduct.getAuctionStart() + "'"
 					+ ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
-					+ ", isSold='" + currentProduct.isSold() + "'"
+					+ ", isSold='" + currentProduct.getAuctionStatus().toString() + "'"
 					+ ", category='" + currentProduct.getCategory() + "'";
             where = "where itemID=" + currentProduct.getItemID();
             cmdString = "Update Product " + " Set " + values + " " + where;

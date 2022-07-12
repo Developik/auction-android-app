@@ -2,7 +2,9 @@ package comp3350.bms.presentation;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,7 @@ import comp3350.bms.R;
 import comp3350.bms.business.AccessProducts;
 import comp3350.bms.business.AccessUsers;
 import comp3350.bms.business.PingChat;
+import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
 
@@ -29,6 +32,7 @@ public class ProductViewActivity extends Activity {
     private EditText chatInput;
     private User user;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +41,14 @@ public class ProductViewActivity extends Activity {
         ArrayList<Product> prodList = ap.getAllProducts();
         Product p = prodList.get(0);
         String name = p.getName();
-        double currBid = p.getCurrentBid();
+        Bid highestBid = p.getHighestBid();
         TextView tv = findViewById(R.id.productTitle);
         tv.setText(name);
         tv = findViewById(R.id.productDescription);
         String desc = "this is a test description. \nthis is a test description. \nthis is a test description.";
         tv.setText(desc);
         tv.findViewById(R.id.productPrice);
-        String currBidStr = "Current Bid: " + currBid;
+        String currBidStr = "Current Bid: " + highestBid.getBidAmount();
         tv.setText(currBidStr);
 
         Bundle bundle = getIntent().getExtras();

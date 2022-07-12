@@ -2,7 +2,9 @@ package comp3350.bms.presentation;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import comp3350.bms.business.AccessProducts;
 import comp3350.bms.objects.Product;
 
 public class ProductReviewActivity extends Activity {
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +24,7 @@ public class ProductReviewActivity extends Activity {
         ArrayList<Product> prodList = accessProducts.getAllProducts();
         Product thisProduct = prodList.get(0);
         String productName = thisProduct.getName();
-        double currBid = thisProduct.getCurrentBid();
+        double highestBid = thisProduct.getHighestBid().getBidAmount();
         TextView thisTextView = findViewById(R.id.productTitle);
         thisTextView.setText(productName);
     }

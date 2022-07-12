@@ -15,7 +15,7 @@ public class BidTest {
         try {
             User u = null;
             u = new User("username", "john", "smith", "55 road dr.", 44, false);
-            Bid bid = new Bid(50, u);
+            Bid bid = new Bid(u, null, 50);
         } catch (Exception e) {
             Assert.fail("Bid failed to create with valid User object");
         }
@@ -23,7 +23,7 @@ public class BidTest {
 
         try {
             System.out.println("Bid with null user should not be created.");
-            Bid badBid = new Bid(50, null);
+            Bid badBid = new Bid(null, null, 50);
             Assert.fail("Bid was made despite having null user object"); // should not get here
         } catch (NullPointerException e) {
             // should get here
