@@ -1,5 +1,7 @@
 package comp3350.bms.tests.objects;
 
+// Purpose: Tests the PaymentcardWallet object and its functions
+
 import org.junit.Test;
 
 import comp3350.bms.objects.PaymentcardWallet;
