@@ -19,7 +19,6 @@ import java.util.List;
 import comp3350.bms.R;
 import comp3350.bms.application.Main;
 import comp3350.bms.business.AccessUsers;
-import comp3350.bms.business.WalletLogic;
 import comp3350.bms.objects.User;
 
 public class OnboardingActivity extends AppCompatActivity {

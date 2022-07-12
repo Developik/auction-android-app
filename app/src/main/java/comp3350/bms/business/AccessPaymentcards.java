@@ -1,14 +1,14 @@
-package comp3350.srsys.business;
+package comp3350.bms.business;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import comp3350.srsys.application.Main;
-import comp3350.srsys.application.Services;
-import comp3350.srsys.objects.Paymentcard;
-import comp3350.srsys.objects.Product;
-import comp3350.srsys.objects.Wallet;
-import comp3350.srsys.persistence.DataAccess;
+import comp3350.bms.application.Main;
+import comp3350.bms.application.Services;
+import comp3350.bms.objects.Paymentcard;
+import comp3350.bms.objects.Product;
+import comp3350.bms.objects.Wallet;
+import comp3350.bms.persistence.DataAccess;
 
 public class AccessPaymentcards {
     private DataAccess dataAccess;

@@ -1,4 +1,4 @@
-package comp3350.srsys.objects;
+package comp3350.bms.objects;
 
 public class WalletUser {
     private int walletID;

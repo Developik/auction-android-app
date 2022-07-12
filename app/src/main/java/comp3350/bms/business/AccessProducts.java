@@ -7,7 +7,6 @@ import comp3350.bms.application.Main;
 import comp3350.bms.application.Services;
 import comp3350.bms.objects.Product;
 import comp3350.bms.persistence.DataAccess;
-//import comp3350.srsys.persistence.DataAccessStub;
 
 public class AccessProducts
 {

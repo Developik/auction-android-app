@@ -1,14 +1,11 @@
-package comp3350.srsys.business;
+package comp3350.bms.business;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import comp3350.srsys.application.Main;
-import comp3350.srsys.application.Services;
-import comp3350.srsys.objects.Product;
-import comp3350.srsys.objects.Wallet;
-import comp3350.srsys.persistence.DataAccess;
-//import comp3350.srsys.persistence.DataAccessStub;
+import comp3350.bms.application.Main;
+import comp3350.bms.application.Services;
+import comp3350.bms.objects.Wallet;
+import comp3350.bms.persistence.DataAccess;
 
 public class AccessWallet {
     private DataAccess dataAccess;
@@ -31,11 +28,6 @@ public class AccessWallet {
     public Wallet getWalletFromUser(String username) {
         return dataAccess.getWalletFromUser(username);
     }
-
-    // public String getUserWallet(String username) {
-    //    wallets.clear();
-    //    return dataAccess.getWallet(username);
-    // }
 
     public String updateWallet(Wallet currentWallet) {
         return dataAccess.updateWallet(currentWallet);
