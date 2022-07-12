@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -138,14 +139,18 @@ public class ProductViewActivity extends Activity {
     }
 
     public void updateChat(View view) {
-        final int MAX_NEW_CHATS = 3;
-        int numberOfChats = (int) (Math.random() * MAX_NEW_CHATS);
-        for (int i = 0; i < numberOfChats; i++) {
-            user.createMessage(pingChat.getRandom(), -1);
+        if (chatInput.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please enter a message", Toast.LENGTH_SHORT).show();
+        } else {
+            final int MAX_NEW_CHATS = 3;
+            int numberOfChats = (int) (Math.random() * MAX_NEW_CHATS);
+            for (int i = 0; i < numberOfChats; i++) {
+                user.createMessage(pingChat.getRandom(), -1);
+            }
+            user.createMessage(chatInput.getText().toString(), 0);
+            updateAllChat(); //updates all chat boxes
+            chatInput.getText().clear();
         }
-        user.createMessage(chatInput.getText().toString(), 0);
-        updateAllChat(); //updates all chat boxes
-        chatInput.getText().clear();
     }
 
     public void updateAllChat() {

@@ -70,6 +70,8 @@ Hamdi:
 - Did code review and solve conflicts
 - July 12: 1:00 pm - 2:00 pm
 - Resolved dependencies and fixed imports
+- 2:00 pm - 3:00 pm
+- Updated user stories and fixed tests, updated README as well.
 ________________
 
 Developer Tasks, Iteration 2:

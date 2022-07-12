@@ -1,5 +1,7 @@
 package comp3350.bms.tests.persistence;
 
+// Purpose: a unit test class to test the DataAccessStub class
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,9 @@ import comp3350.bms.objects.Wallet;
 
 public class DataAccessStubTest {
     private DataAccessStub dataAccessStub;
+    private ArrayList<User> users;
+    private ArrayList<Wallet> wallets;
+    private ArrayList<Product> products;
 
     public DataAccessStubTest() {}
 
@@ -26,12 +31,8 @@ public class DataAccessStubTest {
     public void tearDown() { System.out.println("Finished Persistence test DataAccess (using stub)"); }
 
     @Test
-    public void testDataAccessStub() throws Exception {
-        ArrayList<User> users;
-        ArrayList<Wallet> wallets;
-        ArrayList<Product> products;
-
-        User u; Wallet w; Product p;
+    public void testStubGetUsers() throws Exception {
+        User u;
 
         users = dataAccessStub.getUsers();
         assert(users.size() == 2);
@@ -43,6 +44,11 @@ public class DataAccessStubTest {
         users.add(u);
         u = users.get(2);
         assert("testUser".equals(u.getUsername()));
+    }
+
+    @Test
+    public void testStubGetProducts() throws Exception {
+        Product p;
 
         products = dataAccessStub.getAllProducts();
         assert(products.size() == 3);
