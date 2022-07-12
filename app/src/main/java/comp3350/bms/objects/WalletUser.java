@@ -7,6 +7,12 @@ public class WalletUser {
     private String username;
 
     public WalletUser(int walletID, String username) {
+        if (walletID < 0) {
+            throw new IllegalArgumentException("Invalid walletID");
+        }
+        if (username == null) {
+            throw new IllegalArgumentException("Invalid username");
+        }
         this.walletID = walletID;
         this.username = username;
     }

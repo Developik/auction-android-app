@@ -10,9 +10,12 @@ import comp3350.bms.tests.objects.BidTest;
 import comp3350.bms.tests.business.PingChatTest;
 import comp3350.bms.tests.business.ProductLogicTest;
 import comp3350.bms.tests.objects.ChatMessagesTest;
+import comp3350.bms.tests.objects.PaymentcardTest;
+import comp3350.bms.tests.objects.PaymentcardWalletTest;
 import comp3350.bms.tests.objects.ProductTest;
 import comp3350.bms.tests.objects.UserTest;
 import comp3350.bms.tests.objects.WalletTest;
+import comp3350.bms.tests.objects.WalletUserTest;
 import comp3350.bms.tests.persistence.DataAccessStubTest;
 
 @RunWith(Suite.class)
@@ -25,7 +28,10 @@ import comp3350.bms.tests.persistence.DataAccessStubTest;
         ProductTest.class,
         UserTest.class,
         WalletTest.class,
-        DataAccessStubTest.class
+        DataAccessStubTest.class,
+        PaymentcardTest.class,
+        PaymentcardWalletTest.class,
+        WalletUserTest.class
 })
 
 public class AllTests {
