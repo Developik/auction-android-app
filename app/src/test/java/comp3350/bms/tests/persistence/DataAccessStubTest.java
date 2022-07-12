@@ -1,6 +1,8 @@
 package comp3350.bms.tests.persistence;
 
-import org.testng.annotations.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,22 +10,23 @@ import java.util.Date;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
 import comp3350.bms.objects.Wallet;
-import comp3350.bms.objects.WalletUser;
 
 public class DataAccessStubTest {
     private DataAccessStub dataAccessStub;
 
     public DataAccessStubTest() {}
 
+    @Before
     public void setUp() throws Exception {
         dataAccessStub = new DataAccessStub();
         dataAccessStub.open("stub");
     }
 
+    @After
     public void tearDown() { System.out.println("Finished Persistence test DataAccess (using stub)"); }
 
     @Test
-    public void test1() throws Exception {
+    public void testDataAccessStub() throws Exception {
         ArrayList<User> users;
         ArrayList<Wallet> wallets;
         ArrayList<Product> products;

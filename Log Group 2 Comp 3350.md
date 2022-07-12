@@ -54,6 +54,22 @@ Ryan:
 * 11:00pm - 12:00pm, 1:00pm - 2:45pm, 7:00pm - 10:30pm, July 11:
   * finalized user passing and chat updates with the tests for each new method and confirmed that the main branch was running correctly with and without my changes.
 
+Hamdi:
+- July 09: 7 pm - 8:30 pm 
+- Worked on Wallet activity further, had a meeting to discuss potential solutions for issues
+- July 10: 5 pm - 12 am 
+- Worked on Wallet object, fixed top up, link Wallet with user, will implement transactions in the future 
+- Fixed Gradle even further, added the wrapper files (which we needed apparently) to prevent markers from being unable to run the project right away.
+- July 11: 3 pm - 7 pm
+- Updated package naming, fixed layouts and sizes for items and made stuff clearer
+- July 11: 7 pm - 7:30 pm 
+- Worked on moving the testing framework to JUnit 4 and added new tests for several objects
+- 8 pm -10 pm
+- Created new wallet tests for the wallet object.
+- 11:30 pm - 12:40 am
+- Did code review and solve conflicts
+- July 12: 1:00 pm - 2:00 pm
+- Resolved dependencies and fixed imports
 ________________
 
 Developer Tasks, Iteration 2:
