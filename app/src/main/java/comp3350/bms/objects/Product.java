@@ -1,86 +1,115 @@
 package comp3350.bms.objects;
 
+// Purpose: Product object that contains all details about the product such as the name, date,
+// when the auction ends for that product, the current bid, what category it is, and whether
+// it has been sold or not.
+
 import java.sql.Timestamp;
 import java.util.Date;
 
 import comp3350.bms.business.ProductLogic;
-public class Product
-{
-	private Long itemID;
-	private String name;
-	private Date datePosted;
-	private String picture;
-	private double startingBid;
-	private double currentBid;
-	private Date auctionStart;
-	private Date auctionEnd;
-	private boolean onGoingAuction;
-	private String description;
-	private boolean sold;
-	private String category;
 
-	// pre-generated Product
-	public Product(String name, Date datePosted, String picture, double startingBid,
-						double currentBid, Date auctionStart, Date auctionEnd, boolean sold,
-						String category) throws Exception {
-		// separate productLogic later
-		this.itemID = ProductLogic.generateID();
-		this.name = name;
-		this.datePosted = datePosted;
-		this.picture = picture;
-		this.startingBid = startingBid;
-		this.currentBid = currentBid;
-		this.auctionStart = auctionStart;
-		this.auctionEnd = auctionEnd;
-		this.sold = sold;
-		this.category = category;
+public class Product {
+    private Long itemID;
+    private String name;
+    private Date datePosted;
+    private String picture;
+    private double startingBid;
+    private double currentBid;
+    private Date auctionStart;
+    private Date auctionEnd;
+    private boolean onGoingAuction;
+    private String description;
+    private boolean sold;
+    private String category;
 
-		if (!itemObjectValidation()){
-			throw new Exception("Product Item parameters are incorrect!");
-		}
-	}
+    // pre-generated Product
+    public Product(String name, Date datePosted, String picture, double startingBid,
+                   double currentBid, Date auctionStart, Date auctionEnd, boolean sold,
+                   String category) throws Exception {
+        // separate productLogic later
+        this.itemID = ProductLogic.generateID();
+        this.name = name;
+        this.datePosted = datePosted;
+        this.picture = picture;
+        this.startingBid = startingBid;
+        this.currentBid = currentBid;
+        this.auctionStart = auctionStart;
+        this.auctionEnd = auctionEnd;
+        this.sold = sold;
+        this.category = category;
 
-	public Long getItemID() {
-		return (itemID);
-	}
+        if (!itemObjectValidation()) {
+            throw new Exception("Product Item parameters are incorrect!");
+        }
+    }
 
-	public String getName() {
-		return (name);
-	}
+    public Long getItemID() {
+        return (itemID);
+    }
 
-	public String getCategory() {
-		return (category);
-	}
+    public String getName() {
+        return (name);
+    }
 
-	public Date getDatePosted() { return (datePosted); }
-	public Timestamp getDatePostedTimestamp() { return (new Timestamp(datePosted.getTime())); }
+    public String getCategory() {
+        return (category);
+    }
 
-	public double getCurrentBid() { return (currentBid); }
+    public Date getDatePosted() {
+        return (datePosted);
+    }
 
-	public double getStartingBid() { return (startingBid); }
+    public Timestamp getDatePostedTimestamp() {
+        return (new Timestamp(datePosted.getTime()));
+    }
 
-	public Date getAuctionStart() { return (auctionStart); }
-	public Timestamp getAuctionStartTimestamp() { return (new Timestamp(auctionStart.getTime())); }
+    public double getCurrentBid() {
+        return (currentBid);
+    }
 
-	public Date getAuctionEnd() { return (auctionEnd); }
-	public Timestamp getAuctionEndTimestamp() { return (new Timestamp(auctionEnd.getTime())); }
+    public double getStartingBid() {
+        return (startingBid);
+    }
 
-	public String getPicture() { return (picture); }
+    public Date getAuctionStart() {
+        return (auctionStart);
+    }
 
-	public boolean isSold() { return (sold); }
+    public Timestamp getAuctionStartTimestamp() {
+        return (new Timestamp(auctionStart.getTime()));
+    }
 
-	public void setNewBid(double newBid) { this.currentBid = newBid; }
+    public Date getAuctionEnd() {
+        return (auctionEnd);
+    }
 
-	public boolean itemObjectValidation(){
-		boolean result = true;
+    public Timestamp getAuctionEndTimestamp() {
+        return (new Timestamp(auctionEnd.getTime()));
+    }
 
-		if (itemID < 1 || name == null || name.length() < 1 || datePosted == null ||
-				category == null || category.length() < 1 || startingBid < 0 || (currentBid < 0) ||
-				auctionStart == null || auctionEnd == null){
-			result = false;
-		}
+    public String getPicture() {
+        return (picture);
+    }
 
-		return result;
-	}
+    public boolean isSold() {
+        return (sold);
+    }
+
+    public void setNewBid(double newBid) {
+        this.currentBid = newBid;
+    }
+
+    public boolean itemObjectValidation() {
+        boolean result = true;
+
+        if (itemID < 1 || name == null || name.length() < 1 || datePosted == null ||
+                category == null || category.length() < 1 || startingBid < 0 || (currentBid < 0) ||
+                auctionStart == null || auctionEnd == null) {
+            result = false;
+        }
+
+        return result;
+    }
 
 }

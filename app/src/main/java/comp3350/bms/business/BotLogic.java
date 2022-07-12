@@ -1,5 +1,7 @@
 package comp3350.bms.business;
 
+// Purpose: BotLogic handles the business logic for the bot, which generates random bids to simulate.
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,9 +16,7 @@ import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
 import comp3350.bms.persistence.DataAccess;
 
-public class BotLogic
-{
-    // Purpose: Generate bids on Products
+public class BotLogic {
 
     private User selectedUser;
 
@@ -31,12 +31,12 @@ public class BotLogic
         boolean found = false;
         int index = 0;
         User user;
-        while (!found){
+        while (!found) {
             if (index >= users.size())
                 index = 0;
             user = users.get(index);
             String name = user.getUsername();
-            if (name.contains("bot") && rand.nextInt(3) == 0){
+            if (name.contains("bot") && rand.nextInt(3) == 0) {
                 this.selectedUser = user;
                 found = true;
             }
@@ -44,9 +44,13 @@ public class BotLogic
         }
     }
 
-    public Long generateID() { return new Date().getTime(); }
+    public Long generateID() {
+        return new Date().getTime();
+    }
 
-    public User getSelectedUser() { return selectedUser; }
+    public User getSelectedUser() {
+        return selectedUser;
+    }
 
     public boolean assignBidToRandomProduct() {
         System.out.println("Attempt to bid rand Started!");
@@ -67,7 +71,7 @@ public class BotLogic
 
         int maxBid = 100;
 
-        if (lastBid >= maxBid){
+        if (lastBid >= maxBid) {
             return false;
         }
 
@@ -75,7 +79,7 @@ public class BotLogic
         DecimalFormat df = new DecimalFormat("#.##");
         rndBid = Double.parseDouble(df.format(rndBid));
 
-        if (!(rndBid > randProduct.getCurrentBid())){
+        if (!(rndBid > randProduct.getCurrentBid())) {
             return false;
         }
         System.out.println("NEW BID : " + rndBid);

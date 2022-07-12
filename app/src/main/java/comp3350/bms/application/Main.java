@@ -1,5 +1,7 @@
 package comp3350.bms.application;
 
+// Purpose: Starter code for the BMS application.
+
 public class Main
 {
 	public static final String dbName="SC";
