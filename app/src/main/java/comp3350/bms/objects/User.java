@@ -1,5 +1,8 @@
 package comp3350.bms.objects;
 
+// Purpose: User object that contains all details about the user such as the username, their name
+// the Wallet object the User owns, their age, and their current bids and message history.
+
 import java.util.ArrayList;
 
 public class User {
@@ -9,12 +12,6 @@ public class User {
     private String address;
     private Integer age;
     private ArrayList<Bid> myBids;
-    private String[] messages; // expand more who will be working on this part // Add MU
-    private Integer[] watchlist; // list of IDs or the person working on this part could create relation object
-    private Integer[] soldItems;
-    private Integer[] auctionsWon;
-    private Integer[] itemsListed;
-    private boolean isBot;
     private ArrayList<String> chatHistory;
 
 

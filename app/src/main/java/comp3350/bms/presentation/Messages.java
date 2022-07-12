@@ -1,8 +1,12 @@
 package comp3350.bms.presentation;
 
+// Purpose: Simple object that allows to alert the user with errors, this just shows alert dialogs
+// to stop the program or to warn the user.
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+
 import comp3350.bms.R;
 
 public class Messages {
@@ -13,7 +17,7 @@ public class Messages {
         alertDialog.setMessage(message);
         alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             public void onCancel(DialogInterface dialog) {
-            	owner.finish();
+                owner.finish();
             }
         });
 

@@ -1,5 +1,7 @@
 package comp3350.bms.business;
 
+// Purpose: AccessProducts handles the business logic for the products, which accesses them from the database.
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,19 +10,18 @@ import comp3350.bms.application.Services;
 import comp3350.bms.objects.Product;
 import comp3350.bms.persistence.DataAccess;
 
-public class AccessProducts
-{
-	private DataAccess dataAccess;
-	private List<Product> products;
-	private Product product;
-	private int currentItem;
+public class AccessProducts {
+    private DataAccess dataAccess;
+    private List<Product> products;
+    private Product product;
+    private int currentItem;
 
-	public AccessProducts() {
-		dataAccess = Services.getDataAccess(Main.dbName);
+    public AccessProducts() {
+        dataAccess = Services.getDataAccess(Main.dbName);
         products = null;
         product = null;
-		currentItem = 0;
-	}
+        currentItem = 0;
+    }
 
     public ArrayList<Product> getAllProducts() {
         return dataAccess.getAllProducts();
@@ -41,8 +42,7 @@ public class AccessProducts
         if (currentItem < products.size()) {
             product = products.get(currentItem);
             currentItem++;
-        }
-        else {
+        } else {
             products = null;
             product = null;
             currentItem = 0;
@@ -50,12 +50,12 @@ public class AccessProducts
         return product;
     }
 
-	public String insertProduct(Product currentProduct) {
-		return dataAccess.insertProduct(currentProduct);
-	}
+    public String insertProduct(Product currentProduct) {
+        return dataAccess.insertProduct(currentProduct);
+    }
 
-	public String updateProduct(Product currentProduct) {
-		return dataAccess.updateProduct(currentProduct);
-	}
+    public String updateProduct(Product currentProduct) {
+        return dataAccess.updateProduct(currentProduct);
+    }
 
 }

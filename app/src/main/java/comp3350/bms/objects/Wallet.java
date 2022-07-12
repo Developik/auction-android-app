@@ -1,5 +1,8 @@
 package comp3350.bms.objects;
 
+// Purpose: Wallet object that handles the user's cards, their balance, and their previous
+// transactions.
+
 public class Wallet {
     private int walletID;
     private double balance;

@@ -1,8 +1,9 @@
 package comp3350.bms.application;
 
+// Purpose: Services object is to handle with either the stub database or the real database.
+
 import comp3350.bms.persistence.DataAccess;
 import comp3350.bms.persistence.DataAccessObject;
-//import comp3350.srsys.persistence.DataAccessStub;
 
 public class Services
 {

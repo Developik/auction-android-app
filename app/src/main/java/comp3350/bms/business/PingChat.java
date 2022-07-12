@@ -1,6 +1,6 @@
 package comp3350.bms.business;
 
-// Purpose: Manages the databases ChatMessages
+// Purpose: Manages the database's ChatMessages
 
 import java.util.ArrayList;
 

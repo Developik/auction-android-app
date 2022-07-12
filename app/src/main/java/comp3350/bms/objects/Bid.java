@@ -1,5 +1,8 @@
 package comp3350.bms.objects;
 
+// Purpose: Object to handle a "Bid" that contains the value (double) and the User (User) for
+// that bid.
+
 import java.util.Date;
 
 public class Bid {
@@ -11,13 +14,12 @@ public class Bid {
     private User user;
 
     // refactor
-    public Bid(double value, User user){
-        if(user == null) throw new NullPointerException("user cannot be null");
+    public Bid(double value, User user) {
+        if (user == null) throw new NullPointerException("user cannot be null");
 
-        if(value < 0){
+        if (value < 0) {
             this.value = 0;
-        }
-        else{
+        } else {
             this.value = value;
         }
         this.date = new Date();
@@ -25,13 +27,15 @@ public class Bid {
 
     }
 
-    public double getValue(){
+    public double getValue() {
         return value;
     }
-    public Date getDate(){
+
+    public Date getDate() {
         return date;
     }
-    public User getUser(){
+
+    public User getUser() {
         return user;
     }
 
