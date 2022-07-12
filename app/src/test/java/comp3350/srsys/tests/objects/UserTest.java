@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import comp3350.srsys.objects.User;
+import comp3350.bms.objects.User;
 
 public class UserTest extends TestCase {
 
