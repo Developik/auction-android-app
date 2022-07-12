@@ -84,6 +84,17 @@ Ryan:
   * Implemented test classes for ChatMessages and PingChat and merged conflicts.
 * 8:00am - 9:30am, June 16:
   * Cleaned up test classes and code standards. Tested Main, failed locally with debug java with Javac error. Origin was tested and declared fine.
+* 8:30am - 9:00am, 10:15am - 10:50am, July 7:
+  * Cleaned up code and implementations
+* 4:00pm - 7:00pm, July 8:
+  * researched how to pass objects between activities and how to save them
+  * implemented users passed to other pages using serializable and started work on onSavedInstance override
+* 3:00pm - 7:00pm, July 9:
+  * Moved product view page from onboarding page to product page (under feed page) and adjusted user implementation based on comments in pull request
+* 10:00pm - 12:00pm, 12:30 - 3:00pm, July 10:
+  * rewrote user passing imlpementation based on different the groups decision to change how objects are acquired
+* 11:00pm - 12:00pm, 1:00pm - 2:45pm, 7:00pm - 10:30pm, July 11:
+  * finalized user passing and chat updates with the tests for each new method and confirmed that the main branch was running correctly with and without my changes.
 
 
 Brett:
