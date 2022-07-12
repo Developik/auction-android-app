@@ -112,23 +112,20 @@ public class ProductViewActivity extends Activity {
         TextView withDrawTextBox = findViewById(R.id.withDrawAmount);
         String withDrawAmount = withDrawTextBox.getText().toString();
 
-        if(withDrawAmount.isEmpty()) {
+        if (withDrawAmount.isEmpty()) {
             Messages.warning(this, "Please enter an amount");
-        }
-        else if (Double.parseDouble(withDrawAmount) <= 0) {
+        } else if (Double.parseDouble(withDrawAmount) <= 0) {
             Messages.warning(this, "Please enter a positive amount");
-        }
-        else {
+        } else {
             AccessWallet accessWallet = new AccessWallet();
             Wallet wallet = accessWallet.getWalletFromUser(this.user.getUsername());
 
             double amount = Double.parseDouble(withDrawAmount);
             amount = Math.round(amount * 100.0) / 100.0;
 
-            if(wallet.getBalance() < amount) {
+            if (wallet.getBalance() < amount) {
                 Messages.warning(this, "Can not withdraw that much!");
-            }
-            else{
+            } else {
                 wallet.withdraw(amount);
                 // save withdraw
                 accessWallet.updateWallet(wallet);
