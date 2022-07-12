@@ -1,5 +1,7 @@
 package comp3350.bms.tests.objects;
 
+// Purpose: Tests the Wallet object and its functions
+
 import org.junit.Test;
 
 import comp3350.bms.objects.Wallet;
@@ -9,9 +11,9 @@ public class WalletTest {
     public void testWalletArithmetic() {
         Wallet wallet = new Wallet(9999, 100.0);
         wallet.topUp(100.0);
-        assert(wallet.getBalance() == 200.0);
+        assert (wallet.getBalance() == 200.0);
         wallet.withdraw(50.0);
-        assert(wallet.getBalance() == 150.0);
+        assert (wallet.getBalance() == 150.0);
     }
 
     @Test(expected = IllegalArgumentException.class)

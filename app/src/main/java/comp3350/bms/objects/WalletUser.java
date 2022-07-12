@@ -1,5 +1,7 @@
 package comp3350.bms.objects;
 
+// Purpose: a connection object between User and Wallet objects
+
 public class WalletUser {
     private int walletID;
     private String username;

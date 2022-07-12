@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,6 +145,7 @@ public class ProductViewActivity extends Activity {
         }
         user.createMessage(chatInput.getText().toString(), 0);
         updateAllChat(); //updates all chat boxes
+        chatInput.getText().clear();
     }
 
     public void updateAllChat() {

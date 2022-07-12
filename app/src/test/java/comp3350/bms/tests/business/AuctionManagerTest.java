@@ -1,5 +1,7 @@
 package comp3350.bms.tests.business;
 
+// Purpose: Tests the AuctionManager business object and its functions
+
 import org.junit.*;
 
 import comp3350.bms.business.AuctionManager;
@@ -14,11 +16,10 @@ public class AuctionManagerTest {
     @Before
     public void setUp() {
         am = new AuctionManager(3);
-        try{
+        try {
             u1 = new User("username", "john", "smith", "55 road dr.", 44, false);
             u2 = new User("boblast123", "bob", "last", "10 lol cres.", 2, false);
-        }
-		catch (Exception e){
+        } catch (Exception e) {
             Assert.fail();
         }
     }

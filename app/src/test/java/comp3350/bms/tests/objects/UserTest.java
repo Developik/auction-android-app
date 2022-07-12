@@ -1,5 +1,7 @@
 package comp3350.bms.tests.objects;
 
+// Purpose: Tests the User object and its functions
+
 import org.junit.*;
 
 import java.util.Arrays;
@@ -159,7 +161,7 @@ public class UserTest {
             //passed null tests with some history
         } catch (Exception ignored) {
             System.out.println("Creation of User failed.");
-            Assert.assertEquals(0,1);
+            Assert.assertEquals(0, 1);
         }
         System.out.println("Finished testGetMessageInitializedUser");
     }

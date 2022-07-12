@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
@@ -219,14 +218,14 @@ public class DataAccessObject implements DataAccess {
         result = null;
         try {
             // Should check for empty values and not update them
-			values = "name='" + currentProduct.getName()
-					+ "', datePosted='" + currentProduct.getDatePosted() + "'"
-					+ "', startingBid='" + currentProduct.getStartingBid() + "'"
-					+ ", currentBid='" + currentProduct.getCurrentBid() + "'"
-					+ ", auctionStart='" + currentProduct.getAuctionStart() + "'"
-					+ ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
-					+ ", isSold='" + currentProduct.isSold() + "'"
-					+ ", category='" + currentProduct.getCategory() + "'";
+            values = "name='" + currentProduct.getName()
+                    + "', datePosted='" + currentProduct.getDatePosted() + "'"
+                    + "', startingBid='" + currentProduct.getStartingBid() + "'"
+                    + ", currentBid='" + currentProduct.getCurrentBid() + "'"
+                    + ", auctionStart='" + currentProduct.getAuctionStart() + "'"
+                    + ", auctionEnd='" + currentProduct.getAuctionEnd() + "'"
+                    + ", isSold='" + currentProduct.isSold() + "'"
+                    + ", category='" + currentProduct.getCategory() + "'";
             where = "where itemID=" +
                     "'" + currentProduct.getItemID() + "'";
             cmdString = "Update Product " + " Set " + values + " " + where;
@@ -259,15 +258,15 @@ public class DataAccessObject implements DataAccess {
         return result;
     }
 
-	public String getUserSequential(List<User> userResult) {
-		User user;
-		String username = EOF;
-		String firstName = EOF;
-		String lastName = EOF;
-		String address = EOF;
-		int age = 0;
-		// ArrayList<Bid> myBids = new ArrayList<>(); // complete
-		// add remaining fields later
+    public String getUserSequential(List<User> userResult) {
+        User user;
+        String username = EOF;
+        String firstName = EOF;
+        String lastName = EOF;
+        String address = EOF;
+        int age = 0;
+        // ArrayList<Bid> myBids = new ArrayList<>(); // complete
+        // add remaining fields later
 
         result = null;
         try {
@@ -324,7 +323,7 @@ public class DataAccessObject implements DataAccess {
     }
 
     public String getPaymentcardsSequential(List<Paymentcard> paymentcards,
-                                           Wallet wallet) {
+                                            Wallet wallet) {
         Paymentcard paymentcard;
         int cardID;
         String cardNumbers = EOF;

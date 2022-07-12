@@ -26,14 +26,14 @@ public interface DataAccess {
 
     String updateProduct(Product currentProduct);
 
-	String getUserSequential(List<User> userResult);
+    String getUserSequential(List<User> userResult);
 
     String updateWallet(Wallet currentWallet);
 
-	String getWalletSequential(List<Wallet> wallets);
+    String getWalletSequential(List<Wallet> wallets);
 
-	Wallet getWalletFromUser(String username);
+    Wallet getWalletFromUser(String username);
 
-	String getPaymentcardsSequential(List<Paymentcard> paymentcards,
-									 Wallet wallet);
+    String getPaymentcardsSequential(List<Paymentcard> paymentcards,
+                                     Wallet wallet);
 }
