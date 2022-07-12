@@ -132,4 +132,35 @@ public class UserTest {
         } catch (Exception ignored) {
         }
     }
+
+    @Test
+    public void testGetMessageInitializedUser() {
+        try {
+            User user = new User("RyanL", "Ryan", "L", "82 Place", 0, false);
+            Assert.assertEquals(null, user.getChatMessage(0));
+            Assert.assertEquals(null, user.getChatMessage(1));
+            Assert.assertEquals(null, user.getChatMessage(-1));
+            //passed null tests with empty history
+            user.createMessage("", 0);
+            //Tests a valid message
+            Assert.assertEquals("RyanL: ", user.getChatMessage(0));
+            //Tests expected null values
+            Assert.assertEquals(null, user.getChatMessage(-1));
+            Assert.assertEquals(null, user.getChatMessage(1));
+            //passed null tests with some history
+            user.createMessage("", -1);
+            //Tests a valid message that uses the Temp user instead
+            Assert.assertEquals("Ryan: ", user.getChatMessage(0));
+            //Tests a valid message in the second position
+            Assert.assertEquals("RyanL: ", user.getChatMessage(1));
+            //Tests expected null values
+            Assert.assertEquals(null, user.getChatMessage(-1));
+            Assert.assertEquals(null, user.getChatMessage(2));
+            //passed null tests with some history
+        } catch (Exception ignored) {
+            System.out.println("Creation of User failed.");
+            Assert.assertEquals(0,1);
+        }
+        System.out.println("Finished testGetMessageInitializedUser");
+    }
 }
