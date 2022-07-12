@@ -2,16 +2,18 @@ package comp3350.bms.objects;
 
 // Purpose: Simple object that contains a message, user pair.
 
-public class ChatMessages {
+import java.util.Date;
 
-    // add unique ID for the message
+public class ChatMessages {
 
     private String message;
     private String user;
+    private long time;
 
     public ChatMessages() {
         message = "";
         user = "Temp";
+        time = System.currentTimeMillis();
     }
 
     public ChatMessages(String newMessage, String newUser) {
@@ -20,6 +22,7 @@ public class ChatMessages {
         if (newUser == null) {
             this.user = "Temp";
         }
+        time = System.currentTimeMillis();
     }
 
     public String getMessage() {
@@ -28,5 +31,9 @@ public class ChatMessages {
 
     public String getMessageString() {
         return this.message;
+    }
+
+    public long getTimeOfMesage() {
+        return time;
     }
 }
