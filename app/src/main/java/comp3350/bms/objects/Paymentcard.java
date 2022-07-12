@@ -1,6 +1,6 @@
 package comp3350.bms.objects;
 
-import java.util.Date;
+// Purpose: an object that contains a cardID and the number of the card
 
 public class Paymentcard {
 

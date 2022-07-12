@@ -25,7 +25,6 @@ import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.User;
 import comp3350.bms.objects.Wallet;
 
-
 public class WalletActivity extends AppCompatActivity {
 
     public TextView walletBalance;
@@ -50,12 +49,11 @@ public class WalletActivity extends AppCompatActivity {
         }
         if (this.user == null) {
             System.out.println("User is null! Shouldn't happen");
-        }
-        else{
+        } else {
             AccessWallet accessWallet = new AccessWallet();
-            System.out.println("------"+ this.user.getUsername());
+            System.out.println("------" + this.user.getUsername());
             Wallet wallet = accessWallet.getWalletFromUser(this.user.getUsername());
-            System.out.println("------"+ wallet.getBalance());
+            System.out.println("------" + wallet.getBalance());
             walletBalance.setText(String.valueOf(wallet.getBalance()));
         }
     }
@@ -77,7 +75,7 @@ public class WalletActivity extends AppCompatActivity {
         accessPaymentcards.getPaymentCards(paymentcards, wallet);
 
         ArrayList<String> stringPaymentcards = new ArrayList<>();
-        for (int i=0; i < paymentcards.size(); i++){
+        for (int i = 0; i < paymentcards.size(); i++) {
             stringPaymentcards.add(paymentcards.get(i).getCardNumbers());
         }
         //Paymentcard paymentcard = accessWallet.get(this.user.getUsername());
