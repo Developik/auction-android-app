@@ -126,12 +126,13 @@ public class ProductViewActivity extends Activity {
             if(wallet.getBalance() < amount) {
                 Messages.warning(this, "Can not withdraw that much!");
             }
+            else{
+                wallet.withdraw(amount);
+                // save withdraw
+                accessWallet.updateWallet(wallet);
 
-            wallet.withdraw(amount);
-            // save withdraw
-            accessWallet.updateWallet(wallet);
-
-            withDrawTextBox.setText(String.valueOf(0));
+                withDrawTextBox.setText(String.valueOf(0));
+            }
         }
     }
 
