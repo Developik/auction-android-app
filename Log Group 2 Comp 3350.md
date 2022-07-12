@@ -85,20 +85,30 @@ Nikhil
   * Lots of bug fixes, pair programming, discussions
   * Fixed issue in chat
   * Created SealedBidAuction, Bid, Product classes
+
+Brett
+* July 7: 5 - 6:30 pm:
+  * Reviewed iteration 1 feedback and developed corrections.
+* July 10: 8 pm - 10 pm: 
+  * Reviewed project architecture and updated code to follow programming standards
+* July 11: 8 pm - 12:30 am:
+  * Updated AuctionManager according to iter 1 feedback, and added functionality.
+  * Updated AuctionManagerTest to follow correct testing organization and perform testing without using sleep()
+
 ________________
 
 Developer Tasks, Iteration 2:
 
 - Remove DataAccessStub from OnBoarding Activity (move code to logic) (Cost: 4 hours; Priority: High) - Andrii
 - Bot issues (Cost: 1 hour; Priority: High) - Andrii / Hamdi
-- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High)
+- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High) - Brett
 - Connect Wallet with User (Cost: 8 hours; Priority: High) - Andrii / Hamdi
 - Move Product page (Cost: 8 hours; Priority: High) - Ryan
 - Restructure Persistence Layer for it to work with Database (HSQLDB)e (Cost: 2 days; Priority: High) - Andrii
 - Fix Wallet (Cost: 4 hours; Priority: High) - Hamdi
 - Rename Project name and folders from SRSYS to BMS (Cost: 2 hours; Priority: High) - Hamdi
 - Correct Architecture Image (Cost: 1 hour; Priority: High) - Nikhil
-- Auction System (Cost: 8 hours; Priority: High) // partially completed - Nikhil
+- Auction System (Cost: 8 hours; Priority: High) // partially completed - Nikhil / Brett
 - Persistence storage for chat (Cost: 8 hours; Priority: High) // partially completed - Ryan
 - Create exception handling PingChat test (Cost: 4 hour; Priority: High)- Ryan 
 - Add new Tests for communication between Presentation and DB layers (Cost: 8 hours; Priority: High) - Ryan / Nikhil / Hamdi
