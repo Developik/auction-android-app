@@ -1,4 +1,57 @@
-﻿Team Meetings, Iteration 1:
+
+
+# Iteration 2
+
+Team Meetings, Iteration 2:
+June 30th:
+* Andrii, Nikhil, Ryan
+* 7pm - 8pm
+* Reviewed Iteration 1 feedback. Created and assigned developer tasks to group members
+
+July 6th:
+* Andrii, Ryan
+* 7pm - 9pm
+* Fixed a few issues, added more issues and redistributed them between team members.
+Reviewed Iteration 1 feedback. Fixed Gradle 
+
+July 9th:
+* Andrii, Hamdi, Nikhil, Ryan
+* 7pm - 8:30pm
+* Fixed a few issues, discussed further work. Closed completed issues.  
+Fixed Gradle 
+
+July 12th:
+* Andrii, Hamdi, Nikhil, Ryan
+* 7pm - 1am
+* Fixing issues, restructuring from only objects to SQL interactions.
+
+
+Personal Logs:
+
+
+Andrii:
+* July 7: 2 pm - 5 pm: 
+  * Added User tests / validations
+* 9 July: 10 am - 6pm;
+  * Database implementation
+* 10 July: 9pm - 1 am;
+  * Code review, pair programming, discussions, debugging gradle
+* 11 July: 12pm - 1am;
+  * (SQL redesigning) Redeveloping Wallet feature, redeveloping Auction feature (left for next iteration)
+  * Wallet withdrawing money when bid is placed
+  * Helping others with connecting objects to database
+
+
+
+
+Developer Tasks, Iteration 2:
+
+
+
+# Iteration 1
+
+
+Team Meetings, Iteration 1:
 
 May 30th:
 * Everyone is present
@@ -41,10 +94,6 @@ June 15nd:
 
 
 ________________
-
-
-
-
 
 
 Personal Logs:
@@ -149,11 +198,6 @@ Nikhil
 
 ________________
 
-
-
-
-
-
 Developer Tasks, Iteration 1:
 
 
@@ -170,22 +214,3 @@ Developer Tasks, Iteration 1:
 - Display product description and image - Nikhil
 
 
-
-
-﻿Team Meetings, Iteration 2:
-June 30th:
-* Andrii, Nikhil, Ryan
-* 7pm - 8pm
-* Reviewed Iteration 1 feedback. Created and assigned developer tasks to group members
-
-July 6th:
-* Andrii, Ryan
-* 7pm - 9pm
-* Fixed a few issues, added more issues and redistributed them between team members.
-Reviewed Iteration 1 feedback. Fixed Gradle 
-
-July 9th:
-* Andrii, Hamdi, Nikhil, Ryan
-* 7pm - 8:30pm
-* Fixed a few issues, discussed further work. Closed completed issues.  
-Fixed Gradle 
