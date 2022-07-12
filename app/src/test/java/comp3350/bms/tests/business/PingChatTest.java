@@ -3,6 +3,7 @@ package comp3350.bms.tests.business;
 import org.junit.*;
 
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 
 import comp3350.bms.application.Main;
 import comp3350.bms.application.Services;
@@ -21,7 +22,7 @@ public class PingChatTest {
         try {
             Services.createDataAccess(testAccess);
         } catch (Exception e) {
-            fail();
+            Assert.assertEquals(0,1);
         }
         pingChat = new PingChat();
     }
@@ -49,7 +50,8 @@ public class PingChatTest {
         //-1 should return a valid empty message
         try {
             message = pingChat.getRandomS(-1);
-            fail("Should have thrown an out of bounds exception");
+            System.out.println("Should have thrown an out of bounds exception");
+            Assert.assertEquals(0,1);
         } catch (IndexOutOfBoundsException e) {
             //passed invalid input
         }
@@ -79,7 +81,8 @@ public class PingChatTest {
         //-1 should return a valid empty message
         try {
             message = pingChat.getRandomS(-1);
-            fail("Should have thrown an out of bounds exception");
+            System.out.println("Should have thrown an out of bounds exception");
+            Assert.assertEquals(0,1);
         } catch (IndexOutOfBoundsException e) {
             //passed invalid input
         }
