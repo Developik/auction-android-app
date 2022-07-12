@@ -72,6 +72,7 @@ Hamdi:
   * Resolved dependencies and fixed imports
 * July 12: 2:00 pm - 3:00 pm
   * Updated user stories and fixed tests, updated README as well.
+  * Added new tests.
 
 Nikhil
 * July 8: 1 pm - 6 pm: 

@@ -11,7 +11,7 @@ public class Paymentcard {
         if (cardNumbers == null)
             throw new NullPointerException("cardNumbers cannot be null");
         if (cardID < 0)
-            throw new NullPointerException("cardNumbers cannot be less than 0");
+            throw new NullPointerException("cardID cannot be less than 0");
 
         this.cardID = cardID;
         this.cardNumbers = cardNumbers;
