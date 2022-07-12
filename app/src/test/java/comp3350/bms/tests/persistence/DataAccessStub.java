@@ -9,8 +9,11 @@ import java.util.List;
 
 import comp3350.bms.application.Main;
 import comp3350.bms.objects.ChatMessages;
+import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
+import comp3350.bms.objects.Wallet;
+import comp3350.bms.objects.WalletUser;
 import comp3350.bms.persistence.DataAccess;
 
 
@@ -21,6 +24,8 @@ public class DataAccessStub implements DataAccess {
 	private ArrayList<Product> products;
 	private ArrayList<User> users;
 	private ArrayList<ChatMessages> chatMessages;
+	private ArrayList<Wallet> wallets;
+	private ArrayList<WalletUser> walletUsers;
 
 	public DataAccessStub(String dbName) {
 		this.dbName = dbName;
@@ -97,10 +102,6 @@ public class DataAccessStub implements DataAccess {
 		newMessage = new ChatMessages("Users will be generated randomly in later iterations.", "Ryan");
 		chatMessages.add(newMessage);
 
-		// SAMPLE PROJECT OBJECTS :
-		//
-		//
-
 		System.out.println("Opened " + dbType + " database " + dbName);
 	}
 
@@ -111,6 +112,10 @@ public class DataAccessStub implements DataAccess {
 	public String getChatMessagesSequential(List<ChatMessages> ChatMessagesResult) {
 		ChatMessagesResult.addAll(chatMessages);
 		return null;
+	}
+
+	public ArrayList<User> getUsers() {
+		return this.users;
 	}
 
 	public ArrayList<Product> getAllProducts() {
@@ -140,6 +145,24 @@ public class DataAccessStub implements DataAccess {
 
 	public String getUserSequential(List<User> userResult) {
 		userResult.addAll(users);
+		return null;
+	}
+
+	public String updateWallet(Wallet currentWallet) {
+		return null;
+	}
+
+	public String getWalletSequential(List<Wallet> wallets) {
+		wallets.addAll(this.wallets);
+		return null;
+	}
+
+	public Wallet getWalletFromUser(String username) {
+
+		return null;
+	}
+
+	public String getPaymentcardsSequential(List<Paymentcard> paymentcards, Wallet wallet) {
 		return null;
 	}
 }
