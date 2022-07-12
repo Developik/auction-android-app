@@ -51,7 +51,7 @@ public class DataAccessStub implements DataAccess {
             user = new User("easyUser", "easy", "User", "67 Chancellor Dr, Winnipeg, MB", 20, false);
             users.add(user);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new NumberFormatException("Objects have not been created");
         }
 
         products = new ArrayList<>();
@@ -69,7 +69,7 @@ public class DataAccessStub implements DataAccess {
             product = new Product("Rolex Watch", date, picture, 10.0, 25.0, start, end, false, categories.get(1));
             products.add(product);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new NumberFormatException("Objects have not been created");
         }
 
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
@@ -80,7 +80,7 @@ public class DataAccessStub implements DataAccess {
             product = new Product("Garden Bucket", date, picture, 5.0, 5.0, start, end, false, categories.get(2));
             products.add(product);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new NumberFormatException("Objects have not been created");
         }
 
         chatMessages = new ArrayList<>();

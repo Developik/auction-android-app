@@ -19,7 +19,9 @@ public class Main
 		try {
 			Services.createDataAccess(dbName);
 		}
-		catch (Exception e){}
+		catch (Exception e){
+			throw new RuntimeException("DB can not be accessed!");
+		}
 	}
 
 	public static void shutDown()
