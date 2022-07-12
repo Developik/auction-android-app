@@ -61,12 +61,15 @@ Developer Tasks, Iteration 2:
 - Bot issues (Cost: 1 hour; Priority: High) - Andrii / Hamdi
 - Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High)
 - Connect Wallet with User (Cost: 8 hours; Priority: High) - Andrii / Hamdi
-- Move Product page (Cost: 8 hours; Priority: High) - Nikhil
+- Move Product page (Cost: 8 hours; Priority: High) - Ryan
 - Restructure Persistence Layer for it to work with Database (HSQLDB)e (Cost: 2 days; Priority: High) - Andrii
 - Fix Wallet (Cost: 4 hours; Priority: High) - Hamdi
 - Rename Project name and folders from SRSYS to BMS (Cost: 2 hours; Priority: High) - Hamdi
 - Correct Architecture Image (Cost: 1 hour; Priority: High) - Nikhil
-- 
+- Auction System (Cost: 8 hours; Priority: High) // partially completed - Nikhil
+- Persistence storage for chat (Cost: 8 hours; Priority: High) // partially completed - Ryan
+- Create exception handling PingChat test (Cost: 4 hour; Priority: High)- Ryan 
+- Add new Tests for communication between Presentation and DB layers (Cost: 8 hours; Priority: High) - Ryan / Nikhil / Hamdi
 
 # Iteration 1
 
