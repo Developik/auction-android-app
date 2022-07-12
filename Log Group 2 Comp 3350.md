@@ -24,7 +24,7 @@ July 12th:
 * Andrii, Hamdi, Nikhil, Ryan
 * 7pm - 1am
 * Fixing issues, restructuring from only objects to SQL interactions.
-
+________________
 
 Personal Logs:
 
@@ -53,6 +53,8 @@ Ryan:
   * rewrote user passing imlpementation based on different the groups decision to change how objects are acquired
 * 11:00pm - 12:00pm, 1:00pm - 2:45pm, 7:00pm - 10:30pm, July 11:
   * finalized user passing and chat updates with the tests for each new method and confirmed that the main branch was running correctly with and without my changes.
+
+________________
 
 Developer Tasks, Iteration 2:
 - Remove DataAccessStub from OnBoarding Activity (move code to logic) (Cost: 4 hours; Priority: High) - Andrii
