@@ -2,6 +2,7 @@ package comp3350.bms.tests.objects;
 
 // Purpose: Tests WalletUser object and its functions
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import comp3350.bms.objects.WalletUser;
@@ -11,8 +12,8 @@ public class WalletUserTest {
     @Test
     public void testWalletUser() {
         WalletUser walletUser = new WalletUser(1, "test");
-        assert(walletUser.getWalletID() == 1);
-        assert(walletUser.getUsername().equals("test"));
+        Assert.assertEquals(1, walletUser.getWalletID());
+        Assert.assertEquals("test", walletUser.getUsername());
     }
 
     @Test(expected = IllegalArgumentException.class)
