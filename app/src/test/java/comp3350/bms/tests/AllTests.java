@@ -4,12 +4,16 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 
+import org.junit.runner.*;
+import org.junit.runners.*;
+
 import comp3350.bms.tests.business.AuctionManagerTest;
 import comp3350.bms.tests.objects.BidTest;
 import comp3350.bms.tests.business.PingChatTest;
 import comp3350.bms.tests.business.ProductLogicTest;
 import comp3350.bms.tests.objects.ChatMessagesTest;
 import comp3350.bms.tests.objects.ProductTest;
+import comp3350.bms.tests.objects.UserTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

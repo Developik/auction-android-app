@@ -1,4 +1,4 @@
-package comp3350.srsys.tests.objects;
+package comp3350.bms.tests.objects;
 
 public class WalletTest {
 

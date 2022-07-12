@@ -1,6 +1,6 @@
 package comp3350.bms.tests.business;
 
-import junit.framework.TestCase;
+import org.junit.*;
 
 import comp3350.bms.business.AuctionManager;
 import comp3350.bms.objects.User;

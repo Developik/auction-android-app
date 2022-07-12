@@ -1,6 +1,7 @@
 package comp3350.bms.tests.objects;
 
-import junit.framework.TestCase;
+
+import org.junit.*;
 
 import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.User;
