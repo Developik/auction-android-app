@@ -43,10 +43,6 @@ public class DataAccessStub implements DataAccess {
         ChatMessages newMessage;
         String picture;
 
-        // OUR OBJECTS:
-        //
-        // Add corrections later
-
         List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
         users = new ArrayList<>();
