@@ -15,7 +15,7 @@ public class AuctionManager {
 
     public AuctionManager(int durationSeconds) {
         if (durationSeconds <= 0) {
-            throw new RuntimeException("Cannot have Auction of <= 0 minutes!");
+            throw new NumberFormatException("Cannot have Auction of <= 0 minutes!");
         }
         this.startTimeSec = getTimeSec();
         this.endTimeSec = startTimeSec + durationSeconds;
@@ -57,6 +57,10 @@ public class AuctionManager {
             }
         }
         return highestBid;
+    }
+
+    public void endAuction() {
+        endTimeSec = 0;
     }
 
     public int getSecondsRemaining() {
