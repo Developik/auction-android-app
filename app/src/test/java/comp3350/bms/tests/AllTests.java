@@ -14,16 +14,18 @@ import comp3350.bms.tests.business.ProductLogicTest;
 import comp3350.bms.tests.objects.ChatMessagesTest;
 import comp3350.bms.tests.objects.ProductTest;
 import comp3350.bms.tests.objects.UserTest;
+import comp3350.bms.tests.objects.WalletTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-    AuctionManagerTest.class,
-    BidTest.class,
-    PingChatTest.class,
-    ProductLogicTest.class,
-    ChatMessagesTest.class,
-    ProductTest.class,
-    UserTest.class
+        AuctionManagerTest.class,
+        BidTest.class,
+        PingChatTest.class,
+        ProductLogicTest.class,
+        ChatMessagesTest.class,
+        ProductTest.class,
+        UserTest.class,
+        WalletTest.class
 })
 public class AllTests {
     public static void main(String[] args) {
