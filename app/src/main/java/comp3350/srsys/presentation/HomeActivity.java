@@ -77,12 +77,4 @@ public class HomeActivity extends Activity {
         Intent productViewIntent = new Intent(HomeActivity.this, ProductViewActivity.class);
         HomeActivity.this.startActivity(productViewIntent);
     }
-
-    /*
-    public void buttonCoursesOnClick(View v) {
-        Intent coursesIntent = new Intent(HomeActivity.this, CoursesActivity.class);
-        HomeActivity.this.startActivity(coursesIntent);
-    }
-    */
-
 }

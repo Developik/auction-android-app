@@ -25,7 +25,8 @@ public class ProductViewActivity extends Activity {
         ArrayList<Product> prodList = ap.getAllProducts();
         Product p = prodList.get(0);
         String name = p.getName();
-        double highestBid = p.getHighestBid().getBidAmount();
+//        double highestBid = p.getHighestBid().getBidAmount();
+        double highestBid = 1.0;
         TextView tv = findViewById(R.id.productTitle);
         tv.setText(name);
         tv = findViewById(R.id.productDescription);
