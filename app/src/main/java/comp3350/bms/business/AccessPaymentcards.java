@@ -1,12 +1,12 @@
 package comp3350.bms.business;
 
-import java.util.ArrayList;
+// Purpose: AccessPaymentcards handles the business logic for the Paymentcards, which accesses them from the database.
+
 import java.util.List;
 
 import comp3350.bms.application.Main;
 import comp3350.bms.application.Services;
 import comp3350.bms.objects.Paymentcard;
-import comp3350.bms.objects.Product;
 import comp3350.bms.objects.Wallet;
 import comp3350.bms.persistence.DataAccess;
 

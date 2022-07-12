@@ -1,5 +1,7 @@
 package comp3350.bms.objects;
 
+// Purpose: a connection object between Paymentcard and Wallet objects
+
 public class PaymentcardWallet {
     private int cardID;
     private int walletID;

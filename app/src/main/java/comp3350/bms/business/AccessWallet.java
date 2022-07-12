@@ -1,5 +1,7 @@
 package comp3350.bms.business;
 
+// Purpose: AccessWallet handles the business logic for the wallets, which accesses them from the database.
+
 import java.util.List;
 
 import comp3350.bms.application.Main;

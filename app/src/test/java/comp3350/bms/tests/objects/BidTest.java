@@ -1,5 +1,6 @@
 package comp3350.bms.tests.objects;
 
+// Purpose: Tests the Bid object and its functions
 
 import org.junit.*;
 

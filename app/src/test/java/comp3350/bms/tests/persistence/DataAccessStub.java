@@ -1,5 +1,7 @@
 package comp3350.bms.tests.persistence;
 
+// Purpose: a dummy database that contains a base set of data
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -142,7 +144,7 @@ public class DataAccessStub implements DataAccess {
         return null;
     }
 
-    public String updateWallet(Wallet currentWallet){
+    public String updateWallet(Wallet currentWallet) {
         return null;
     }
 
@@ -151,12 +153,12 @@ public class DataAccessStub implements DataAccess {
         return null;
     }
 
-    public Wallet getWalletFromUser(String username){
+    public Wallet getWalletFromUser(String username) {
         return null;
     }
 
     public String getPaymentcardsSequential(List<Paymentcard> paymentcards,
                                             Wallet wallet) {
-		        return null;
+        return null;
     }
 }
