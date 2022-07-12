@@ -4,8 +4,6 @@ package comp3350.bms.objects;
 
 public class ChatMessages {
 
-    // add unique ID for the message
-
     private String message;
     private String user;
 

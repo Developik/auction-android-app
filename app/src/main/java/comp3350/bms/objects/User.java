@@ -94,7 +94,7 @@ public class User {
     }
 
     public String getChatMessage(int index) {
-        String result = "";
+        String result = null;
         if (index < chatHistory.size() && index >= 0 && chatHistory.get(index) != null) {
             result = (chatHistory.get(index));
         }

@@ -1,5 +1,7 @@
 package comp3350.bms.tests.persistence;
 
+// Purpose: a dummy database that contains a base set of data
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
