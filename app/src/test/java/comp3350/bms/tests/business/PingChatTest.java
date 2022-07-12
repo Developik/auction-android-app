@@ -23,7 +23,7 @@ public class PingChatTest {
         try {
             Services.createDataAccess(testAccess);
         } catch (Exception e) {
-            Assert.assertEquals(0, 1);
+            Assert.fail();
         }
         pingChat = new PingChat();
     }
@@ -52,7 +52,7 @@ public class PingChatTest {
         try {
             message = pingChat.getRandomS(-1);
             System.out.println("Should have thrown an out of bounds exception");
-            Assert.assertEquals(0, 1);
+            Assert.fail();
         } catch (IndexOutOfBoundsException e) {
             //passed invalid input
         }
@@ -83,7 +83,7 @@ public class PingChatTest {
         try {
             message = pingChat.getRandomS(-1);
             System.out.println("Should have thrown an out of bounds exception");
-            Assert.assertEquals(0, 1);
+            Assert.fail();
         } catch (IndexOutOfBoundsException e) {
             //passed invalid input
         }

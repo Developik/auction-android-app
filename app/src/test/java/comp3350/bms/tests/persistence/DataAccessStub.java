@@ -49,16 +49,16 @@ public class DataAccessStub implements DataAccess {
 
 		List<String> categories = Arrays.asList("Books", "Watches", "Garden");
 
-		users = new ArrayList<>();
-		try {
-			user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25, false);
-			users.add(user);
-			user = new User("easyUser", "easy", "User", "67 Chancellor Dr, Winnipeg, MB", 20, false);
-			users.add(user);
-		}
-		catch (Exception e){
-			System.out.println(e.getMessage());
-		}
+        users = new ArrayList<>();
+        try {
+            user = new User("joedoe", "Joe", "Doe", "66 Chancellor Dr, Winnipeg, MB", 25, false);
+            users.add(user);
+            user = new User("easyUser", "easy", "User", "67 Chancellor Dr, Winnipeg, MB", 20, false);
+            users.add(user);
+        } catch (Exception e) {
+            throw new NumberFormatException("Objects have not been created");
+        }
+
 
 		products = new ArrayList<>();
 		picture = "../../../res/drawable/mortarboard.png";
@@ -67,29 +67,27 @@ public class DataAccessStub implements DataAccess {
 		Product prod = new Product("test product", today, picture, 50.00, 75.00, today, tomorrow, false, "watches");
 		products.add(prod);
 
-		Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		picture = "2.png";
-		try{
-			product = new Product("Rolex Watch", date, picture, 10.0, 25.0, start, end, false, categories.get(1));
-			products.add(product);
-		}
-		catch (Exception e){
-			System.out.println(e.getMessage());
-		}
+        Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        picture = "2.png";
+        try {
+            product = new Product("Rolex Watch", date, picture, 10.0, 25.0, start, end, false, categories.get(1));
+            products.add(product);
+        } catch (Exception e) {
+            throw new NumberFormatException("Objects have not been created");
+        }
 
-		date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-		picture = "3.png";
-		try{
-			product = new Product("Garden Bucket", date, picture, 5.0, 5.0, start, end, false, categories.get(2));
-			products.add(product);
-		}
-		catch (Exception e){
-			System.out.println(e.getMessage());
-		}
+        date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        picture = "3.png";
+        try {
+            product = new Product("Garden Bucket", date, picture, 5.0, 5.0, start, end, false, categories.get(2));
+            products.add(product);
+        } catch (Exception e) {
+            throw new NumberFormatException("Objects have not been created");
+        }
 
 		chatMessages = new ArrayList<>();
 

@@ -14,12 +14,14 @@ public class Main {
         System.out.println("All done");
     }
 
-    public static void startUp() {
-        try {
-            Services.createDataAccess(dbName);
-        } catch (Exception e) {
-        }
-    }
+	public static void startUp(){
+		try {
+			Services.createDataAccess(dbName);
+		}
+		catch (Exception e){
+			throw new RuntimeException("DB can not be accessed!");
+		}
+	}
 
     public static void shutDown() {
         Services.closeDataAccess();
