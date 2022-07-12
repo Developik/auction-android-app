@@ -144,6 +144,7 @@ public class ProductViewActivity extends Activity {
         }
         user.createMessage(chatInput.getText().toString(), 0);
         updateAllChat(); //updates all chat boxes
+        chatInput.getText().clear();
     }
 
     public void updateAllChat() {
