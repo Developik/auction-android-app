@@ -16,6 +16,7 @@ public class User {
     private Integer[] auctionsWon;
     private Integer[] itemsListed;
     private boolean isBot;
+    private ArrayList<String> chatHistory;
 
 
     // pre-generated User
@@ -29,6 +30,7 @@ public class User {
         this.age = age;
         this.wallet = new Wallet(this);
         this.myBids = new ArrayList<>();
+        this.chatHistory = new ArrayList<>();
 
         if (!userObjectValidation()) {
             System.out.println(username + " " + firstName + " " + lastName + " " + address +
@@ -87,4 +89,32 @@ public class User {
         return result;
     }
 
+    public void createMessage(String newMessage, int userPing) {
+        ChatMessages message;
+        if (userPing == -1) {
+            message = new ChatMessages(newMessage, "Ryan");//sets Temp random chat user
+        } else {
+            message = new ChatMessages(newMessage, username);
+        }
+        chatHistory.add(0, message.getMessage());
+        if (chatHistory.size() > 5) {
+            chatHistory.remove(5);
+        }
+    }
+
+    public String getChatMessage(int index) {
+        String result = null;
+        if (index < chatHistory.size() && index >= 0 && chatHistory.get(index) != null) {
+            result = (chatHistory.get(index));
+        }
+        return result;
+    }
+
+    public int getNumberOfChats() {
+        int result = 0;
+        if (chatHistory != null) {
+            result = chatHistory.size() - 2;
+        }
+        return result;
+    }
 }
