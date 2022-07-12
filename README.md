@@ -3,7 +3,8 @@ Comp 3350 Android App | Team 2
 
 ## Architecture
 
-![image](https://user-images.githubusercontent.com/54965144/174135143-8b5d4798-4a37-46e2-80c7-78fe659305af.png)
+![image](https://user-images.githubusercontent.com/54965144/178541425-a6e18a5d-ba4f-46ac-809c-d32a321ade85.png)
+
 
 ## Requirements
 * **Gradle version 7.2.1**
