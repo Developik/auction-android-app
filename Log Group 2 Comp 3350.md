@@ -1,5 +1,12 @@
 
 
+# Iteration 3
+
+July 23th:
+* Andrii, Ryan
+* 7pm - 8pm
+* Discuss iteration 3 and split up the work
+
 # Iteration 2
 
 Team Meetings, Iteration 2:
