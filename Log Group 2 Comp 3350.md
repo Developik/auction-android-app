@@ -7,7 +7,7 @@ July 23th:
 * 7pm - 8pm
 * Discuss iteration 3 and split up the work
 
-July 23th:
+July 24th:
 * Andrii, Ryan
 * 7pm - 8pm
 * Completed retrospective activity
