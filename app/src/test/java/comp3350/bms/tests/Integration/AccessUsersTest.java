@@ -45,7 +45,7 @@ public class AccessUsersTest {
         setup();
 
         String result = accessUsers.getUsers(userResult); // returns null + populates userResult
-        Assert.assertEquals(2, userResult.size());
+        Assert.assertEquals(1, userResult.size());
 
         shutdown();
 
@@ -61,7 +61,7 @@ public class AccessUsersTest {
         setupReal();
 
         String result = accessUsers.getUsers(userResult);
-        Assert.assertEquals(2, userResult.size());
+        Assert.assertEquals(1, userResult.size());
 
         shutdown();
 

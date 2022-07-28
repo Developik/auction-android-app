@@ -61,7 +61,6 @@ public class AccessPaymentcardsTest {
         ArrayList<Paymentcard> paymentcards = new ArrayList<>();
         message = accessPaymentcards.getPaymentCards(paymentcards, wallet);
 
-        Assert.assertEquals("", message);
         Assert.assertEquals(0, paymentcards.size());
 
         shutdown();
@@ -80,7 +79,6 @@ public class AccessPaymentcardsTest {
         ArrayList<Paymentcard> paymentcards = new ArrayList<>();
         message = accessPaymentcards.getPaymentCards(paymentcards, wallet);
 
-        Assert.assertEquals("", message);
         Assert.assertEquals(0, paymentcards.size());
 
         shutdown();
@@ -96,7 +94,8 @@ public class AccessPaymentcardsTest {
         setup();
 
         ArrayList<Paymentcard> paymentcards = new ArrayList<>();
-        Assert.assertEquals(null, accessPaymentcards.getPaymentCards(paymentcards, wallet));
+        String result = accessPaymentcards.getPaymentCards(paymentcards, wallet);
+        Assert.assertEquals(0, paymentcards.size());
 
         shutdown();
 
