@@ -39,6 +39,8 @@ Hamdi:
   * Written Espresso tests for all user stories. Added new user stories and removed some that were redundant.
 * July 28: 12:00 am - 3:00 am
   * Updated Espresso tests to work with new UI changes. Fixed inconsistent search.
+* July 28: 3:00 am - 4:00 am
+  * Fixed inconsistency with the chat feature. Will now always respond to messages.
 
 # Iteration 2
 
