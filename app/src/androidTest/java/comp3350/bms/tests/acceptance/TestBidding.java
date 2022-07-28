@@ -84,7 +84,16 @@ public class TestBidding {
         // Check if the bid was failed
         onView(withText("Please enter an amount")).check(matches(isDisplayed()));
 
-        // Trying with negative bid amount wouldn't work as the text field doesn't allow negative values
+        Espresso.pressBack();
+
+        // Trying with negative bid amount
+        // The bid should work as the text input field doesn't allow negative values
+        onView(withId(R.id.withDrawAmount)).perform(typeText("-5"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.bidButton)).perform(click());
+
+        // Check if the bid was successful
+        onView(withText("Transaction was a success!")).check(matches(isDisplayed()));
     }
 
 

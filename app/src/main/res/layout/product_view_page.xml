@@ -11,11 +11,12 @@
         android:orientation="vertical">
 
         <ImageView
-            android:src="@drawable/garden_bucket"
+            android:id="@+id/product_image"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:scaleType="centerCrop"
             android:contentDescription="@string/prodImgDesc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/garden_bucket"
             tools:background="#999"
             tools:srcCompat="@drawable/garden_bucket" />
 
