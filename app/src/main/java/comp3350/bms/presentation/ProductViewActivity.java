@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -79,12 +80,10 @@ public class ProductViewActivity extends Activity {
 
         }
 
-        //AccessProducts ap = new AccessProducts();
-        //ArrayList<Product> prodList = ap.getAllProducts();
-        //Product p = prodList.get(0);
         String name = product.getName();
         double currBid = product.getCurrentBid();
         TextView tv = findViewById(R.id.productTitle);
+        ImageView iv = findViewById(R.id.product_image);
         tv.setText(name);
         tv = findViewById(R.id.productDescription);
         String desc = "this is a test description. \nthis is a test description. \nthis is a test description.";
@@ -92,6 +91,16 @@ public class ProductViewActivity extends Activity {
         tv.findViewById(R.id.productPrice);
         String currBidStr = "Current Bid: " + currBid;
         tv.setText(currBidStr);
+
+        if(product.getPicture().equals("garden_bucket")){
+            iv.setImageResource(R.drawable.garden_bucket);
+        }
+        else if(product.getPicture().equals("rolex_watch")){
+            iv.setImageResource(R.drawable.rolex_watch);
+        }
+        else {
+            iv.setImageResource(R.drawable.mortarboard);
+        }
 
         if (this.user == null) {
             System.out.println("User is null! Shouldn't happen");

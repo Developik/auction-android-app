@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -65,18 +65,17 @@ public class FeedActivity extends Activity {
         if (result != null) {
             Messages.fatalError(this, result);
         } else {
-            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, itemList) {
+            itemArrayAdapter = new ArrayAdapter<Product>(this, android.R.layout.simple_list_item_activated_2, itemList) {
+
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
 
                     TextView text2 = view.findViewById(android.R.id.text1);
                     TextView text1 = view.findViewById(android.R.id.text2);
-                    //TextView text3 = (TextView) view.findViewById(android.R.id.text3);
 
                     text2.setText("Category: " + productList.get(position).getCategory());
                     text1.setText("Title: " + productList.get(position).getName());
-                    //text3.setText("Date Posted: " + itemList.get(position).getDatePosted());
 
                     return view;
                 }
@@ -158,11 +157,22 @@ public class FeedActivity extends Activity {
                     TextView text1 = view.findViewById(R.id.text1);
                     TextView text2 = view.findViewById(R.id.text2);
                     TextView text3 = view.findViewById(R.id.text3);
+                    ImageView image = view.findViewById(R.id.picture_view);
 
                     text1.setText("Category: " + productList.get(position).getCategory());
                     text2.setText("Title: " + productList.get(position).getName());
                     String curr_bid_str = "" + productList.get(position).getCurrentBid();
                     text3.setText("Last Bid: " + curr_bid_str);
+
+                    if(productList.get(position).getPicture().equals("garden_bucket")) {
+                        image.setImageResource(R.drawable.garden_bucket);
+                    }
+                    else if(productList.get(position).getPicture().equals("rolex_watch")) {
+                        image.setImageResource(R.drawable.rolex_watch);
+                    }
+                    else {
+                        image.setImageResource(R.drawable.mortarboard);
+                    }
 
                     return view;
                 }
