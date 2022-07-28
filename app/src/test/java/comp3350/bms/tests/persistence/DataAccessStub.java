@@ -11,9 +11,12 @@ import java.util.List;
 
 import comp3350.bms.application.Main;
 import comp3350.bms.objects.Bid;
+import comp3350.bms.objects.BidUser;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
+import comp3350.bms.objects.ProductBid;
+import comp3350.bms.objects.ProductUser;
 import comp3350.bms.objects.User;
 import comp3350.bms.objects.Wallet;
 import comp3350.bms.objects.WalletUser;
@@ -29,6 +32,11 @@ public class DataAccessStub implements DataAccess {
     private ArrayList<ChatMessages> chatMessages;
     private ArrayList<Wallet> wallets;
     private ArrayList<WalletUser> walletUsers;
+    private ArrayList<Bid> bids = new ArrayList<>();
+    private ArrayList<ProductUser> productUsers = new ArrayList<>();
+    private ArrayList<ProductBid> productBids = new ArrayList<>();
+    private ArrayList<BidUser> bidUsers = new ArrayList<>();
+
 
     public DataAccessStub(String dbName) {
         this.dbName = dbName;
@@ -165,37 +173,95 @@ public class DataAccessStub implements DataAccess {
 
     @Override
     public String insertBid(Product product, Bid bid, User user) {
-        // TODO
-        return null;
+        String result = null;
+        if (product == null || bid == null || user == null)
+            result = "Null object Error";
+        else {
+            bids.add(bid);
+            ProductBid productBid = new ProductBid(product.getItemID(),
+                    bid.getBidID());
+            BidUser bidUser = new BidUser(bid.getBidID(),
+                    user.getUsername());
+
+            productBids.add(productBid);
+            bidUsers.add(bidUser);
+        }
+
+        return result;
     }
 
     @Override
     public int getBidsNumber() {
-        // TODO
-        return 0;
+        return bids.size();
     }
 
     @Override
     public Bid getHighestBid(Product product) {
-        // TODO
-        return null;
+        int bidID = 0;
+        double min = 0;
+        Bid res = null;
+        for (int j = 0; j < productBids.size(); j++) {
+            if (product.getItemID() == productBids.get(j).getProductID() &&
+                    bids.get(j).getValue() > min) {
+                bidID = productBids.get(j).getBidID();
+                min = bids.get(j).getValue();
+            }
+        }
+
+        for (int i = 0; i < bids.size(); i++) {
+            if (bidID == bids.get(i).getBidID()) {
+                res = bids.get(i);
+            }
+        }
+
+        return res;
     }
 
     @Override
     public User getOwnerOfBid(Bid bid) {
-        // TODO
-        return null;
+        String username = "";
+        User res = null;
+        for (int i = 0; i < bids.size(); i++) {
+            for (int j = 0; j < bidUsers.size(); j++) {
+                System.out.println("--- " + bids.get(i).getBidID() +
+                        "---" + bidUsers.get(j).getBidID());
+                if (bids.get(i).getBidID() == bidUsers.get(j).getBidID()) {
+                    username = bidUsers.get(j).getUsername();
+                }
+            }
+        }
+
+        System.out.println("--- " + username);
+
+        for (int i = 0; i < users.size(); i++) {
+            if (username.equals(users.get(i).getUsername()))
+                res = users.get(i);
+        }
+        return res;
     }
 
     @Override
     public String getBidSequential(List<Bid> bids) {
-        // TODO
+        bids.addAll(this.bids);
         return null;
     }
 
     @Override
     public String getAllBidsForProduct(ArrayList<Bid> bids, Product product) {
-        // TODO
+        ArrayList <Integer> bidTempIds = new ArrayList<Integer>();
+        for (int j = 0; j < productBids.size(); j++) {
+            if (product.getItemID() == productBids.get(j).getProductID())
+                bidTempIds.add(productBids.get(j).getBidID());
+        }
+
+        for (int i = 0; i < this.bids.size(); i++) {
+            for (int j = 0; j < bidTempIds.size(); j++) {
+                if (bidTempIds.get(j) == this.bids.get(i).getBidID()) {
+                    bids.add(this.bids.get(i));
+                }
+            }
+        }
+
         return null;
     }
 }
