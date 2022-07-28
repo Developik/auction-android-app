@@ -177,11 +177,8 @@ public class ProductViewActivity extends Activity {
         if (chatInput.getText().toString().isEmpty()) {
             Toast.makeText(this, "Please enter a message", Toast.LENGTH_SHORT).show();
         } else {
-            final int MAX_NEW_CHATS = 3;
-            int numberOfChats = (int) (Math.random() * MAX_NEW_CHATS);
-            for (int i = 0; i < numberOfChats; i++) {
-                user.createMessage(pingChat.getRandom(), -1);
-            }
+            user.createMessage(pingChat.getRandom(), -1);
+            updateAllChat();
             user.createMessage(chatInput.getText().toString(), 0);
             updateAllChat(); //updates all chat boxes
             chatInput.getText().clear();

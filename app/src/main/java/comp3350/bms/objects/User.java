@@ -104,7 +104,7 @@ public class User {
     public int getNumberOfChats() {
         int result = 0;
         if (chatHistory != null) {
-            result = chatHistory.size() - 2;
+            result = chatHistory.size();
         }
         return result;
     }
