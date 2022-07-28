@@ -155,7 +155,6 @@ public class DataAccessStub implements DataAccess {
     }
 
     public Wallet getWalletFromUser(String username) {
-
         return null;
     }
 
