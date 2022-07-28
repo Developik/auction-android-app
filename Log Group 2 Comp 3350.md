@@ -27,6 +27,19 @@ Andrii:
   * Multiple users 
   * Fixes to allow correct redirection to products
 
+Hamdi:
+* July 25: 12:00 pm - 3:00 pm
+  * Studied Espresso and ran the sample project to know how to work with it.
+  * Started adding the dependencies to the build.gradle file.
+* July 26: 3:00 pm - 8:00 pm
+  * Couldn't get the project to run, Espresso dependency was not working.
+  * Spent a lot of time figuring out what was wrong with the project.
+  * Fixed the dependencies and the project ran.
+* July 27: 1:00 pm - 11:59 pm
+  * Written Espresso tests for all user stories. Added new user stories and removed some that were redundant.
+* July 28: 12:00 am - 3:00 am
+  * Updated Espresso tests to work with new UI changes. Fixed inconsistent search.
+
 # Iteration 2
 
 Team Meetings, Iteration 2:
@@ -100,15 +113,6 @@ Hamdi:
 * July 12: 2:00 pm - 3:00 pm
   * Updated user stories and fixed tests, updated README as well.
   * Added new tests.
-* July 25: 12:00 pm - 3:00 pm
-  * Studied Espresso and ran the sample project to know how to work with it.
-  * Started adding the dependencies to the build.gradle file.
-* July 26: 3:00 pm - 8:00 pm
-  * Couldn't get the project to run, Espresso dependency was not working.
-  * Spent a lot of time figuring out what was wrong with the project.
-  * Fixed the dependencies and the project ran.
-* July 27: 1:00 pm - 12:00 am
-  * Written Espresso tests for all user stories. Added new user stories and removed some that were redundant.
 
 Nikhil
 * July 8: 1 pm - 6 pm: 
