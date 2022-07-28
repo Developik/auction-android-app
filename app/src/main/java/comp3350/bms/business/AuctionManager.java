@@ -58,10 +58,4 @@ public class AuctionManager {
         return id;
     }
 
-    public Timestamp getCurrTimestamp() {
-        long currTime = new Date(System.currentTimeMillis()).getTime();
-        return new Timestamp(currTime);
-    }
-
-
 }

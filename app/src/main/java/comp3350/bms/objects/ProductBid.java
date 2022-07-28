@@ -3,10 +3,10 @@ package comp3350.bms.objects;
 // Purpose: a connection object between Product and Bid objects
 
 public class ProductBid {
-    private int productID;
+    private long productID;
     private int bidID;
 
-    public ProductBid(int productID, int bidID) {
+    public ProductBid(long productID, int bidID) {
         if (productID < 0)
             throw new NullPointerException("productID cannot be less than 0");
         if (bidID < 0)
@@ -16,7 +16,7 @@ public class ProductBid {
         this.bidID = bidID;
     }
 
-    public int getProductID() {
+    public long getProductID() {
         return productID;
     }
 
