@@ -39,10 +39,10 @@ public class TestSearching {
     }
 
     @Test
-    public void testProductPage() {
+    public void testSearching() {
         // Verify feed page is displayed
         onView(withId(R.id.login_button)).perform(click());
-        onView(withId(R.id.search_query)).check(matches(isDisplayed()));
+        onView(withId(R.id.search_query)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.search_button)).check(matches(withText(containsString("Search"))));
         onView(withId(R.id.search_button)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.wallet_button)).check(matches(isDisplayed())).check(matches(isEnabled()));
@@ -58,18 +58,15 @@ public class TestSearching {
 
         // Item selected should be Garden Bucket, verify this is displayed, as well as the entire display.
         Espresso.closeSoftKeyboard();
-        // onView(withId(R.id.productTitle)).check(matches(withText(containsString("Garden Bucket")))); TODO: Andrii's PR to fix this
+        onView(withId(R.id.productTitle)).check(matches(withText(containsString("Garden Bucket"))));
         onView(withId(R.id.withDrawAmount)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.bidButton)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.chatLabelTitle)).check(matches(isDisplayed()));
-        onView(withId(R.id.chatInput)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.sendChat)).check(matches(isDisplayed())).check(matches(isEnabled()));
 
         // Go back and search for a different product
         Espresso.pressBack();
 
         // Search for a product
-        onView(withId(R.id.search_query)).perform(typeText("Rolex Watch"));
+        onView(withId(R.id.search_query)).perform(clearText(), typeText("Rolex Watch"));
         onView(withId(R.id.search_button)).perform(click());
         Espresso.closeSoftKeyboard();
 
@@ -77,7 +74,7 @@ public class TestSearching {
         onData(anything()).inAdapterView(withId(R.id.listItems)).atPosition(0).perform(click());
 
         // Item selected should be Rolex Watch, verify this is displayed
-        // onView(withId(R.id.productTitle)).check(matches(withText(containsString("Rolex Watch")))); TODO: Andrii's PR to fix this
+        onView(withId(R.id.productTitle)).check(matches(withText(containsString("Rolex Watch"))));
 
     }
 

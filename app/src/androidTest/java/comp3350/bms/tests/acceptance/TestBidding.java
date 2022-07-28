@@ -55,15 +55,36 @@ public class TestBidding {
         onView(withId(R.id.productTitle)).check(matches(isDisplayed()));
         onView(withId(R.id.withDrawAmount)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.bidButton)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.chatLabelTitle)).check(matches(isDisplayed()));
-        onView(withId(R.id.chatInput)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.sendChat)).check(matches(isDisplayed())).check(matches(isEnabled()));
 
         // Type a bid amount and send it
         onView(withId(R.id.withDrawAmount)).perform(typeText("100"));
+        Espresso.closeSoftKeyboard();
         onView(withId(R.id.bidButton)).perform(click());
-        // TODO: Implement a check for the feedback message
 
+        // Check if the bid was successful
+        onView(withText("Transaction was a success!")).check(matches(isDisplayed()));
+
+        Espresso.pressBack();
+
+        // Trying with exorbitant bid amount
+        onView(withId(R.id.withDrawAmount)).perform(clearText(), typeText("99999999999999999999"));
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.bidButton)).perform(click());
+
+        // Check if the bid was failed
+        onView(withText("Can not withdraw that much!")).check(matches(isDisplayed()));
+
+        Espresso.pressBack();
+
+        // Trying with no bid amount
+        onView(withId(R.id.withDrawAmount)).perform(clearText());
+        Espresso.closeSoftKeyboard();
+        onView(withId(R.id.bidButton)).perform(click());
+
+        // Check if the bid was failed
+        onView(withText("Please enter an amount")).check(matches(isDisplayed()));
+
+        // Trying with negative bid amount wouldn't work as the text field doesn't allow negative values
     }
 
 
