@@ -27,4 +27,6 @@ public class AccessPaymentcards {
                                   Wallet wallet) {
         return dataAccess.getPaymentcardsSequential(paymentcards, wallet);
     }
+
+
 }

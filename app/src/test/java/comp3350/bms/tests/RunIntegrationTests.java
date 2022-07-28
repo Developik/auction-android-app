@@ -8,9 +8,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 //import comp3350.bms.tests.business.AuctionManagerTest;
-import comp3350.bms.tests.Integration.AccessPaymentcardsTest;
 import comp3350.bms.tests.Integration.AccessProductTest;
-import comp3350.bms.tests.Integration.AccessUsersTest;
 import comp3350.bms.tests.Integration.AccessWalletTest;
 import comp3350.bms.tests.Integration.PingChatTest;
 import comp3350.bms.tests.Integration.ProductLogicTest;
@@ -21,9 +19,7 @@ import comp3350.bms.tests.Integration.ProductLogicTest;
         PingChatTest.class,
         AccessProductTest.class,
         AccessWalletTest.class,
-        ProductLogicTest.class,
-        AccessUsersTest.class,
-        AccessPaymentcardsTest.class
+        ProductLogicTest.class
 })
 
 public class RunIntegrationTests {
