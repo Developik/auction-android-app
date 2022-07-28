@@ -3,6 +3,7 @@ package comp3350.bms.tests.acceptance;
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -64,9 +65,9 @@ public class TestChatting {
         onView(withId(R.id.productTitle)).check(matches(isDisplayed()));
         onView(withId(R.id.withDrawAmount)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.bidButton)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.chatLabelTitle)).check(matches(isDisplayed()));
-        onView(withId(R.id.chatInput)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.sendChat)).check(matches(isDisplayed())).check(matches(isEnabled()));
+        onView(withId(R.id.chatLabelTitle)).perform(scrollTo()).check(matches(isDisplayed()));
+        onView(withId(R.id.chatInput)).perform(scrollTo()).check(matches(isDisplayed())).check(matches(isEnabled()));
+        onView(withId(R.id.sendChat)).perform(scrollTo()).check(matches(isDisplayed())).check(matches(isEnabled()));
 
         // Type a chat message and send it.
         onView(withId(R.id.chatInput)).perform(typeText("Hello testing!"));

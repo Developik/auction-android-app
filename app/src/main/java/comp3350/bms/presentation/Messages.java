@@ -32,4 +32,13 @@ public class Messages {
 
         alertDialog.show();
     }
+
+    public static void info(Activity owner, String message) {
+        AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
+
+        alertDialog.setTitle(owner.getString(R.string.info));
+        alertDialog.setMessage(message);
+
+        alertDialog.show();
+    }
 }

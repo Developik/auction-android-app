@@ -3,6 +3,8 @@ package comp3350.bms.tests.acceptance;
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeDown;
+import static androidx.test.espresso.action.ViewActions.swipeUp;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -59,12 +61,10 @@ public class TestProductPage {
 
         // Item selected should be Garden Bucket, verify this is displayed, as well as the entire display.
         Espresso.closeSoftKeyboard();
-        // onView(withId(R.id.productTitle)).check(matches(withText(containsString("Garden Bucket")))); TODO: Andrii's PR to fix this
+        onView(withId(R.id.productTitle)).check(matches(withText(containsString("Garden Bucket"))));
         onView(withId(R.id.withDrawAmount)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.bidButton)).check(matches(isDisplayed())).check(matches(isEnabled()));
         onView(withId(R.id.chatLabelTitle)).check(matches(isDisplayed()));
-        onView(withId(R.id.chatInput)).check(matches(isDisplayed())).check(matches(isEnabled()));
-        onView(withId(R.id.sendChat)).check(matches(isDisplayed())).check(matches(isEnabled()));
 
         // Go back and select a different product
         Espresso.pressBack();
@@ -74,7 +74,7 @@ public class TestProductPage {
         Espresso.closeSoftKeyboard();
 
         // Item selected should be Rolex Watch, verify this is displayed
-        // onView(withId(R.id.productTitle)).check(matches(withText(containsString("Rolex Watch")))); TODO: Andrii's PR to fix this
+        onView(withId(R.id.productTitle)).check(matches(withText(containsString("Rolex Watch"))));
 
     }
 
