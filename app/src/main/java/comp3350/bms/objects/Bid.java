@@ -11,19 +11,20 @@ public class Bid {
 
     private double value;
     private Date date;
-    private User user;
+    private int bidID;
+    //private User user;
 
     // refactor
-    public Bid(double value, User user) {
-        if (user == null) throw new NullPointerException("user cannot be null");
+    public Bid(int bidID, double value, Date date) {
+        //if (user == null) throw new NullPointerException("user cannot be null");
 
         if (value < 0) {
             this.value = 0;
         } else {
             this.value = value;
         }
-        this.date = new Date();
-        this.user = user;
+        this.date = date; // new Date()
+        this.bidID = bidID;
 
     }
 
@@ -35,8 +36,8 @@ public class Bid {
         return date;
     }
 
-    public User getUser() {
-        return user;
+    public int getBidID() {
+        return bidID;
     }
 
 }

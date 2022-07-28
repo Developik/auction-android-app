@@ -19,7 +19,9 @@ import comp3350.bms.R;
 import comp3350.bms.business.AccessProducts;
 import comp3350.bms.business.AccessUsers;
 import comp3350.bms.business.AccessWallet;
+import comp3350.bms.business.AuctionManager;
 import comp3350.bms.business.PingChat;
+import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
 import comp3350.bms.objects.Wallet;
@@ -31,26 +33,24 @@ public class ProductViewActivity extends Activity {
     private TextView chatLog2;
     private TextView chatLog3;
     private TextView chatLog4;
+    private TextView bidHistory1;
+    private TextView bidHistory2;
+    private TextView bidHistory3;
+    private TextView highestBid;
+
     private EditText chatInput;
-    private User user;
+    private User user = null;
+    private Product product = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_view_page);
-        AccessProducts ap = new AccessProducts();
-        ArrayList<Product> prodList = ap.getAllProducts();
-        Product p = prodList.get(0);
-        String name = p.getName();
-        double currBid = p.getCurrentBid();
-        TextView tv = findViewById(R.id.productTitle);
-        tv.setText(name);
-        tv = findViewById(R.id.productDescription);
-        String desc = "this is a test description. \nthis is a test description. \nthis is a test description.";
-        tv.setText(desc);
-        tv.findViewById(R.id.productPrice);
-        String currBidStr = "Current Bid: " + currBid;
-        tv.setText(currBidStr);
+
+        bidHistory1 = findViewById(R.id.bidHistory1);
+        bidHistory2 = findViewById(R.id.bidHistory2);
+        bidHistory3 = findViewById(R.id.bidHistory3);
+        highestBid = findViewById(R.id.highestBid);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -63,7 +63,35 @@ public class ProductViewActivity extends Activity {
                     this.user = u;
                 }
             }
+
+            Long itemID = bundle.getLong("itemID");
+            AccessProducts accessProducts = new AccessProducts();
+            List<Product> products = new ArrayList<Product>();
+            accessProducts.getProducts(products);
+            for (Product p : products) {
+                System.out.println("---" + p.getItemID().toString() +
+                        "---" + itemID.toString());
+                if (p.getItemID().equals(itemID)) {
+                    this.product = p;
+                    System.out.println("### CONFIRMED");
+                }
+            }
+
         }
+
+        //AccessProducts ap = new AccessProducts();
+        //ArrayList<Product> prodList = ap.getAllProducts();
+        //Product p = prodList.get(0);
+        String name = product.getName();
+        double currBid = product.getCurrentBid();
+        TextView tv = findViewById(R.id.productTitle);
+        tv.setText(name);
+        tv = findViewById(R.id.productDescription);
+        String desc = "this is a test description. \nthis is a test description. \nthis is a test description.";
+        tv.setText(desc);
+        tv.findViewById(R.id.productPrice);
+        String currBidStr = "Current Bid: " + currBid;
+        tv.setText(currBidStr);
 
         if (this.user == null) {
             System.out.println("User is null! Shouldn't happen");
@@ -81,6 +109,8 @@ public class ProductViewActivity extends Activity {
         chatLog3 = findViewById(R.id.ChatLog3);
         chatLog4 = findViewById(R.id.ChatLog4);
         chatInput = findViewById(R.id.chatInput);
+
+        updateAllBidHistory();
     }
 
     @Override
@@ -130,7 +160,15 @@ public class ProductViewActivity extends Activity {
                 // save withdraw
                 accessWallet.updateWallet(wallet);
 
+                AuctionManager auctionManager = new AuctionManager();
+                auctionManager.addBid(amount, product, user);
+
                 withDrawTextBox.setText(String.valueOf(0));
+
+                updateAllBidHistory();
+
+                Messages.warning(this, "Transaction was a success!");
+
             }
         }
     }
@@ -164,5 +202,45 @@ public class ProductViewActivity extends Activity {
         if (numberOfChats >= 3) {
             chatLog4.setText(user.getChatMessage(3));
         }
+    }
+
+
+    public void updateAllBidHistory() {
+        AuctionManager auctionManager = new AuctionManager();
+        ArrayList<Bid> bids = new ArrayList<Bid>();
+        auctionManager.getAllBidsForProduct(bids, product);
+
+        double value = 0;
+        User currUser;
+        Bid currBid;
+
+        if (bids.size() >= 3) {
+            currBid = bids.get(bids.size()-3);
+            value = currBid.getValue();
+            currUser = auctionManager.getOwnerOfBid(currBid);
+            bidHistory1.setText(String.format("Username: %s | Amount: %s",
+                    currUser.getUsername(), value));
+        }
+        if (bids.size() >= 2) {
+            currBid = bids.get(bids.size()-2);
+            value = currBid.getValue();
+            currUser = auctionManager.getOwnerOfBid(currBid);
+            bidHistory2.setText(String.format("Username: %s | Amount: %s",
+                    currUser.getUsername(), value));
+        }
+        if (bids.size() >= 1) {
+            currBid = bids.get(bids.size()-1);
+            value = currBid.getValue();
+            currUser = auctionManager.getOwnerOfBid(currBid);
+            bidHistory3.setText(String.format("Username: %s | Amount: %s",
+                    currUser.getUsername(), value));
+
+            Bid bid = auctionManager.getHighestBid(product);
+            currUser = auctionManager.getOwnerOfBid(bid);
+            highestBid.setText(String.format("Highest Bid: " +
+                            "Username: %s | Amount: %s",
+                    currUser.getUsername(), bid.getValue()));
+        }
+
     }
 }

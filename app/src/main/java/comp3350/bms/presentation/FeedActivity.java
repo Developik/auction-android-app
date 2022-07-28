@@ -178,6 +178,7 @@ public class FeedActivity extends Activity {
                     Intent productViewIntent = new Intent(FeedActivity.this, ProductViewActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("user", user.getUsername());
+                    bundle.putLong("itemID", productList.get(position).getItemID());
                     productViewIntent.putExtras(bundle);
                     FeedActivity.this.startActivity(productViewIntent);
                 }

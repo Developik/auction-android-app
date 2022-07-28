@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import comp3350.bms.business.AuctionManager;
+import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
@@ -101,6 +103,7 @@ public class DataAccessObject implements DataAccess {
         ArrayList<Product> productResult = new ArrayList<Product>();
 
         Product product;
+        Long itemID;
         String name = EOF;
         Date datePosted;
         String picture = EOF;
@@ -121,6 +124,7 @@ public class DataAccessObject implements DataAccess {
         }
         try {
             while (rs2.next()) {
+                itemID = rs2.getLong("itemID");
                 name = rs2.getString("name");
                 datePosted = rs2.getDate("datePosted");
                 //pictures = rs2.getString("pictures"); // implement later
@@ -130,7 +134,7 @@ public class DataAccessObject implements DataAccess {
                 auctionEnd = rs2.getDate("auctionEnd");
                 sold = rs2.getBoolean("sold");
                 category = rs2.getString("category");
-                product = new Product(name, datePosted, picture, startingBid, currentBid, auctionStart, auctionEnd, sold, category);
+                product = new Product(itemID, name, datePosted, picture, startingBid, currentBid, auctionStart, auctionEnd, sold, category);
                 productResult.add(product);
             }
             rs2.close();
@@ -143,6 +147,7 @@ public class DataAccessObject implements DataAccess {
 
     public String getProductSequential(List<Product> productResult) {
         Product product;
+        Long itemID;
         String name = EOF;
         Date datePosted;
         String picture = EOF;
@@ -163,6 +168,7 @@ public class DataAccessObject implements DataAccess {
         }
         try {
             while (rs2.next()) {
+                itemID = rs2.getLong("itemID");
                 name = rs2.getString("name");
                 datePosted = rs2.getDate("datePosted");
                 //pictures = rs2.getString("pictures"); // implement later
@@ -172,8 +178,184 @@ public class DataAccessObject implements DataAccess {
                 auctionEnd = rs2.getDate("auctionEnd");
                 sold = rs2.getBoolean("sold");
                 category = rs2.getString("category");
-                product = new Product(name, datePosted, picture, startingBid, currentBid, auctionStart, auctionEnd, sold, category);
+                product = new Product(itemID, name, datePosted, picture, startingBid, currentBid, auctionStart, auctionEnd, sold, category);
                 productResult.add(product);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
+        return result;
+    }
+
+    @Override
+    public int getBidsNumber() {
+        int count = 0;
+        try {
+            cmdString = "Select COUNT(bidID) as num from Bid";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+        try {
+            while (rs2.next()) {
+                count = rs2.getInt("num");
+            }
+            rs2.close();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        return count;
+    }
+
+
+    @Override
+    public Bid getHighestBid(Product product) {
+        Bid bid = null;
+        Date date;
+        double value;
+        int bidID;
+
+        int count = 0;
+        try {
+            //cmdString = "Select Max(value) as maxVal from Bid";
+            cmdString = "Select * from Bid " +
+                    "JOIN ProductBid ON " +
+                    "ProductBid.bidID=Bid.bidID " +
+                    "JOIN Product ON " +
+                    "Product.itemID=ProductBid.itemID " +
+                    "where Product.itemID=" +
+                    "'" + product.getItemID() + "' " +
+                    "ORDER BY value DESC " +
+                    "LIMIT 1";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        try {
+            while (rs2.next()) {
+                bidID = rs2.getInt("bidID");
+                value = rs2.getInt("value");
+                date = rs2.getDate("date");
+                bid = new Bid(bidID, value, date);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        return bid;
+    }
+
+
+    public User getOwnerOfBid(Bid bid) {
+        User user = null;
+        String username = EOF;
+        String firstName = EOF;
+        String lastName = EOF;
+        String address = EOF;
+        int age = 0;
+
+        try {
+            //cmdString = "Select * from Bid";
+
+            // max at this product
+            cmdString = "Select * from User " +
+                    "JOIN BidUser ON " +
+                    "BidUser.username=User.username " +
+                    "JOIN Bid ON " +
+                    "Bid.bidID=BidUser.bidID " +
+                    "where Bid.bidID=" +
+                    "'" + bid.getBidID() + "'";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        try {
+            while (rs2.next()) {
+                username = rs2.getString("username");
+                firstName = rs2.getString("firstName");
+                lastName = rs2.getString("lastName");
+                address = rs2.getString("address");
+                age = rs2.getInt("age");
+                user = new User(username, firstName, lastName, address, age, false);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        return user;
+    }
+
+    @Override
+    public String getBidSequential(List<Bid> bids) {
+        Bid bid = null;
+        Date date;
+        double value;
+        int bidID;
+
+        result = null;
+        try {
+            cmdString = "Select * from Bid";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        try {
+            while (rs2.next()) {
+                bidID = rs2.getInt("bidID");
+                value = rs2.getInt("value");
+                date = rs2.getDate("date");
+                bid = new Bid(bidID, value, date);
+                bids.add(bid);
+            }
+            rs2.close();
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
+        return result;
+    }
+
+    @Override
+    public String getAllBidsForProduct(ArrayList<Bid> bids, Product product) {
+        Bid bid = null;
+        Date date;
+        double value;
+        int bidID;
+
+        result = null;
+        try {
+            cmdString = "Select * from Bid " +
+                    "JOIN ProductBid ON " +
+                    "ProductBid.bidID=Bid.bidID " +
+                    "JOIN Product ON " +
+                    "Product.itemID=ProductBid.itemID " +
+                    "where Product.itemID=" +
+                    "'" + product.getItemID() + "'";
+            rs2 = st1.executeQuery(cmdString);
+            //ResultSetMetaData md2 = rs2.getMetaData();
+        } catch (Exception e) {
+            processSQLError(e);
+        }
+
+        try {
+            while (rs2.next()) {
+                bidID = rs2.getInt("bidID");
+                value = rs2.getInt("value");
+                date = rs2.getDate("date");
+                bid = new Bid(bidID, value, date);
+                bids.add(bid);
             }
             rs2.close();
         } catch (Exception e) {
@@ -208,6 +390,48 @@ public class DataAccessObject implements DataAccess {
         } catch (Exception e) {
             result = processSQLError(e);
         }
+        return result;
+    }
+
+    public String insertBid(Product currentProduct, Bid newBid, User user) {
+        String values;
+
+        result = null;
+        try {
+            Timestamp date = new Timestamp(newBid.getDate().getTime());
+            values = newBid.getBidID()
+                    + ", '" + newBid.getValue() + "'"
+                    + ", '" + date + "'";
+            cmdString = "Insert into Bid " + " Values(" + values + ")";
+            //System.out.println(cmdString);
+            updateCount = st1.executeUpdate(cmdString);
+            result = checkWarning(st1, updateCount);
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
+        try {
+            values = currentProduct.getItemID()
+                    + ", '" + newBid.getBidID() + "'";
+            cmdString = "Insert into ProductBid " + " Values(" + values + ")";
+            //System.out.println(cmdString);
+            updateCount = st1.executeUpdate(cmdString);
+            result = checkWarning(st1, updateCount);
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
+        try {
+            values = newBid.getBidID()
+                    + ", '" + user.getUsername()+ "'";
+            cmdString = "Insert into BidUser " + " Values(" + values + ")";
+            //System.out.println(cmdString);
+            updateCount = st1.executeUpdate(cmdString);
+            result = checkWarning(st1, updateCount);
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+
         return result;
     }
 
