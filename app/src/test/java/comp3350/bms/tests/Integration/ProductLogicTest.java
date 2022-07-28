@@ -96,7 +96,8 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
+            long id = 101;
+            product = new Product(id, "Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);
         } catch (Exception ignored) {
@@ -123,7 +124,8 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket 1234125252423223253",
+            long id = 101;
+            product = new Product(id, "Garden Bucket 1234125252423223253",
                     date, picture, 5.0, 14241, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);
@@ -217,7 +219,8 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
+            long id = 101;
+            product = new Product(id, "Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);
         } catch (Exception ignored) {
@@ -227,8 +230,8 @@ public class ProductLogicTest {
         dataAccess.getProductSequential(productList);
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(productInitSize + 1, filteredList.size());
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(productInitSize, filteredList.size());
 
         shutdown();//close Database
     }
@@ -244,7 +247,8 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket 1234125252423223253",
+            long id = 101;
+            product = new Product(id, "Garden Bucket 1234125252423223253",
                     date, picture, 5.0, 14241, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);
@@ -259,7 +263,7 @@ public class ProductLogicTest {
         dataAccess.getProductSequential(productList);
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(3, filteredList.size());
 
         query = "";
@@ -268,7 +272,7 @@ public class ProductLogicTest {
         filters.put("query", query);
         filters.put("minMaxBid", minBid + ";" + maxBid);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(3, filteredList.size());
 
         query = "";
@@ -279,7 +283,7 @@ public class ProductLogicTest {
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(0, filteredList.size());
 
         query = "";
@@ -290,7 +294,7 @@ public class ProductLogicTest {
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(0, filteredList.size());
 
         query = null;
@@ -301,7 +305,7 @@ public class ProductLogicTest {
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(3, filteredList.size());
 
         minBid = "14241";
@@ -310,7 +314,7 @@ public class ProductLogicTest {
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(3, filteredList.size());
 
         query = null;
@@ -321,7 +325,7 @@ public class ProductLogicTest {
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 
-        Assert.assertEquals(productInitSize + 1, productList.size());
+        Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(0, filteredList.size());
 
         shutdown();//close Database
