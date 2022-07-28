@@ -52,6 +52,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/search_button"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:textSize="20sp"
@@ -80,11 +81,12 @@
         android:layout_marginBottom="10dp" />
 
     <Button
+        android:id="@+id/wallet_button"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:textSize="20sp"
         android:layout_weight="0.1"
         android:onClick="buttonWalletOnClick"
-        android:text="@string/wallet" />
+        android:text="@string/wallet"
+        android:textSize="20sp" />
 
 </LinearLayout>

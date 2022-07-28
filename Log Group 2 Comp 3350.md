@@ -91,7 +91,7 @@ Developer Tasks, Iteration 2:
 
 - Remove DataAccessStub from OnBoarding Activity (move code to logic) (Cost: 4 hours; Priority: High) - Andrii
 - Bot issues (Cost: 1 hour; Priority: High) - Andrii / Hamdi
-- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High)
+- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High) - Hamdi
 - Connect Wallet with User (Cost: 8 hours; Priority: High) - Andrii / Hamdi
 - Move Product page (Cost: 8 hours; Priority: High) - Ryan
 - Restructure Persistence Layer for it to work with Database (HSQLDB)e (Cost: 2 days; Priority: High) - Andrii
