@@ -76,7 +76,7 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
+            product = new Product(1L, "Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);
         } catch (Exception ignored) {
@@ -99,7 +99,7 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket 1234125252423223253",
+            product = new Product(2L,"Garden Bucket 1234125252423223253",
                     date, picture, 5.0, 14241, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);

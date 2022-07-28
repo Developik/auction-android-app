@@ -33,4 +33,6 @@
     <string name="selectCard">Select Card</string>
     <string name="topUpAmount">Top Up Amount</string>
     <string name="login">Login</string>
+    <string name="historyBid">Bid History</string>
+
 </resources>
