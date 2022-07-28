@@ -5,6 +5,7 @@ package comp3350.bms.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
@@ -36,4 +37,16 @@ public interface DataAccess {
 
     String getPaymentcardsSequential(List<Paymentcard> paymentcards,
                                      Wallet wallet);
+
+    String insertBid(Product product, Bid bid, User user);
+
+    int getBidsNumber();
+
+    Bid getHighestBid(Product product);
+
+    User getOwnerOfBid(Bid bid);
+
+    String getBidSequential(List<Bid> bids);
+
+    String getAllBidsForProduct(ArrayList<Bid> bids, Product product);
 }

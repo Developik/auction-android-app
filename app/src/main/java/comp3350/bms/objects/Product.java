@@ -18,17 +18,15 @@ public class Product {
     private double currentBid;
     private Date auctionStart;
     private Date auctionEnd;
-    private boolean onGoingAuction;
-    private String description;
     private boolean sold;
     private String category;
 
     // pre-generated Product
-    public Product(String name, Date datePosted, String picture, double startingBid,
+    public Product(Long itemID, String name, Date datePosted, String picture, double startingBid,
                    double currentBid, Date auctionStart, Date auctionEnd, boolean sold,
                    String category) throws Exception {
         // separate productLogic later
-        this.itemID = ProductLogic.generateID();
+        this.itemID = itemID;
         this.name = name;
         this.datePosted = datePosted;
         this.picture = picture;
@@ -94,10 +92,6 @@ public class Product {
 
     public boolean isSold() {
         return (sold);
-    }
-
-    public void setNewBid(double newBid) {
-        this.currentBid = newBid;
     }
 
     public boolean itemObjectValidation() {

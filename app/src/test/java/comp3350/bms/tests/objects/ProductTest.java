@@ -38,7 +38,7 @@ public class ProductTest {
         sold = false;
         category = categories.get(2);
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
         } catch (Exception e) {
             Assert.fail("Creation of Item failed.");
         }
@@ -65,14 +65,14 @@ public class ProductTest {
     public void testName() {
         name = "";
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
 
         name = null;
         try {
-            product = new Product(null, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, null, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -82,7 +82,7 @@ public class ProductTest {
     public void testStartDate() {
         start = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -92,7 +92,7 @@ public class ProductTest {
     public void testEndDate() {
         end = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, null, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, null, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -102,7 +102,7 @@ public class ProductTest {
     public void testCreationDate() {
         date = null;
         try {
-            product = new Product(name, null, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, null, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -112,14 +112,14 @@ public class ProductTest {
     public void testCurrentBid() {
         currentBid = -1;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
 
         currentBid = Integer.MIN_VALUE;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -129,14 +129,14 @@ public class ProductTest {
     public void testStartingBid() {
         startingBid = -1;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
 
         startingBid = Integer.MIN_VALUE;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
@@ -146,14 +146,14 @@ public class ProductTest {
     public void testCategory() {
         category = null;
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, null);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, null);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }
 
         category = "";
         try {
-            product = new Product(name, date, picture, startingBid, currentBid, start, end, sold, category);
+            product = new Product(1L, name, date, picture, startingBid, currentBid, start, end, sold, category);
             Assert.fail("Creation of Item succeeded when it shouldn't have been.");
         } catch (Exception ignored) {
         }

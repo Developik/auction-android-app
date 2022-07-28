@@ -3,53 +3,65 @@ package comp3350.bms.business;
 // Purpose: AuctionManager handles the business logic for the auctions; the auctions will be
 // sealed so the bidders do not know the highest bid.
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
+import comp3350.bms.application.Main;
+import comp3350.bms.application.Services;
 import comp3350.bms.objects.Bid;
+import comp3350.bms.objects.Product;
 import comp3350.bms.objects.User;
+import comp3350.bms.persistence.DataAccess;
 
 public class AuctionManager {
-    private ArrayList<Bid> bids;
+    DataAccess dataAccess;
 
-    public AuctionManager(int durationSeconds) {
-        if (durationSeconds <= 0) {
-            throw new RuntimeException("Cannot have Auction of <= 0 minutes!");
-        }
-        this.bids = new ArrayList<>();
+    public AuctionManager() {
+        dataAccess = Services.getDataAccess(Main.dbName);
     }
 
-    public boolean addBid(double value, User user) {
-        if (value > 0 && user != null) {
-            // duplicate bids from same user not allowed
-            for (int i = 0; i < bids.size(); i++) {
-                if (bids.get(i).getUser().equals(user) && bids.get(i).getValue() == value) {
-                    return false;
-                }
-            }
-            // add bid
-            Bid b = new Bid(value, user);
-            bids.add(b);
-            user.setBid(b);
-            return true;
-        }
-        return false;
+    public String getAllBids(ArrayList<Bid> bids){
+        return dataAccess.getBidSequential(bids);
+    }
+
+    public String getAllBidsForProduct(ArrayList<Bid> bids, Product product){
+        return dataAccess.getAllBidsForProduct(bids, product);
+    }
+
+    public void addBid(double value, Product product, User user) {
+        // add bid getCurrTimestamp
+        int bidID = generateBidID();
+        Date date = new Date(System.currentTimeMillis());
+        Bid bid = new Bid(bidID, value, date);
+        dataAccess.insertBid(product, bid, user);
     }
 
     public int getBidCount() {
-        return bids.size();
+        int bidsNum = dataAccess.getBidsNumber();
+        return bidsNum;
     }
 
-    public Bid getWinner() {
-        if (bids == null || bids.size() == 0) return null;
-
-        Bid highestBid = bids.get(0);
-        for (int i = 1; i < bids.size(); i++) {
-            Bid curBid = bids.get(i);
-            if (curBid.getValue() > highestBid.getValue()) {
-                highestBid = curBid;
-            }
-        }
-        return highestBid;
+    public Bid getHighestBid(Product product) {
+        Bid highest = dataAccess.getHighestBid(product);
+        return highest;
     }
+
+    public User getOwnerOfBid(Bid bid) {
+        User winner = dataAccess.getOwnerOfBid(bid);
+        return winner;
+    }
+
+    public int generateBidID() {
+        //getBidsSequential
+        int id = dataAccess.getBidsNumber() + 1;
+        return id;
+    }
+
+    public Timestamp getCurrTimestamp() {
+        long currTime = new Date(System.currentTimeMillis()).getTime();
+        return new Timestamp(currTime);
+    }
+
 
 }

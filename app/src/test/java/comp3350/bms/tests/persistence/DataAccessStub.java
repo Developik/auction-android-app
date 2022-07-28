@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import comp3350.bms.application.Main;
+import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
 import comp3350.bms.objects.Product;
@@ -60,7 +61,7 @@ public class DataAccessStub implements DataAccess {
         picture = "../../../res/drawable/mortarboard.png";
         Date today = new Date();
         Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
-        Product prod = new Product("test product", today, picture, 50.00, 75.00, today, tomorrow, false, "watches");
+        Product prod = new Product(1L, "test product", today, picture, 50.00, 75.00, today, tomorrow, false, "watches");
         products.add(prod);
 
         Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
@@ -68,7 +69,7 @@ public class DataAccessStub implements DataAccess {
         Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "2.png";
         try {
-            product = new Product("Rolex Watch", date, picture, 10.0, 25.0, start, end, false, categories.get(1));
+            product = new Product(2L, "Rolex Watch", date, picture, 10.0, 25.0, start, end, false, categories.get(1));
             products.add(product);
         } catch (Exception e) {
             throw new NumberFormatException("Objects have not been created");
@@ -79,7 +80,7 @@ public class DataAccessStub implements DataAccess {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product("Garden Bucket", date, picture, 5.0, 5.0, start, end, false, categories.get(2));
+            product = new Product(3L, "Garden Bucket", date, picture, 5.0, 5.0, start, end, false, categories.get(2));
             products.add(product);
         } catch (Exception e) {
             throw new NumberFormatException("Objects have not been created");
@@ -159,6 +160,42 @@ public class DataAccessStub implements DataAccess {
     }
 
     public String getPaymentcardsSequential(List<Paymentcard> paymentcards, Wallet wallet) {
+        return null;
+    }
+
+    @Override
+    public String insertBid(Product product, Bid bid, User user) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public int getBidsNumber() {
+        // TODO
+        return 0;
+    }
+
+    @Override
+    public Bid getHighestBid(Product product) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public User getOwnerOfBid(Bid bid) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public String getBidSequential(List<Bid> bids) {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public String getAllBidsForProduct(ArrayList<Bid> bids, Product product) {
+        // TODO
         return null;
     }
 }
