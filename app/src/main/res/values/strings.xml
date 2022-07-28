@@ -3,6 +3,7 @@
 
     <string name="fatalError">Fatal error</string>
     <string name="warning">Warning</string>
+    <string name="info">Notice</string>
     <string name="biddingMarketSimulator">Bidding Market Simulator</string>
     <string name="itemTitle">Item Page</string>
     <string name="username">Username</string>
@@ -33,4 +34,6 @@
     <string name="selectCard">Select Card</string>
     <string name="topUpAmount">Top Up Amount</string>
     <string name="login">Login</string>
+    <string name="historyBid">Bid History</string>
+
 </resources>

@@ -135,11 +135,8 @@ public class FeedActivity extends Activity {
 
     private HashMap<String, String> getFilters() {
         HashMap<String, String> map = new HashMap<>();
-        String query = ((SearchView) findViewById(R.id.search_query)).getQuery().toString();
-        String minBid = ((TextView) findViewById(R.id.min_bid)).getText().toString();
-        String maxBid = ((TextView) findViewById(R.id.max_bid)).getText().toString();
+        String query = ((TextView) findViewById(R.id.search_query)).getText().toString();
         map.put("query", query);
-        map.put("minMaxBid", minBid + ";" + maxBid);
         return map;
     }
 
@@ -181,6 +178,7 @@ public class FeedActivity extends Activity {
                     Intent productViewIntent = new Intent(FeedActivity.this, ProductViewActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("user", user.getUsername());
+                    bundle.putLong("itemID", productList.get(position).getItemID());
                     productViewIntent.putExtras(bundle);
                     FeedActivity.this.startActivity(productViewIntent);
                 }

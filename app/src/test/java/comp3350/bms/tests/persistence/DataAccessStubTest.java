@@ -59,7 +59,7 @@ public class DataAccessStubTest {
         assert ("Rolex Watch".equals(p.getName()));
         p = products.get(2);
         assert ("Garden Bucket".equals(p.getName()));
-        p = new Product("new product", new Date(), "pic", 45.00, 0.00, new Date(), new Date(), false, "random");
+        p = new Product(4L,"new product", new Date(), "pic", 45.00, 0.00, new Date(), new Date(), false, "random");
         dataAccessStub.insertProduct(p);
         p = products.get(3);
         assert ("new product".equals(p.getName()));

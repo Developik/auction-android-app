@@ -5,12 +5,42 @@
 July 23th:
 * Andrii, Hamdi, Ryan
 * 7pm - 8pm
-* Discuss iteration 3 and split up the work
+* Discuss iteration 3 and split up the work, started work on the retrospective activity.
 
 July 24th:
 * Andrii, Ryan
 * 7pm - 8pm
 * Completed retrospective activity
+
+July 27-28th:
+* Andrii, Ryan, Hamdi
+* 6pm - 1am
+* Completing iteration and fixing bugs
+
+## Personal Logs:
+
+Andrii:
+* 24 July: 4pm - 6pm:
+  * Features review, preparing new DB design for auction system 
+* 27-28 July: 12pm - 1am:
+  * Bidding feature
+  * Multiple users 
+  * Fixes to allow correct redirection to products
+
+Hamdi:
+* July 25: 12:00 pm - 3:00 pm
+  * Studied Espresso and ran the sample project to know how to work with it.
+  * Started adding the dependencies to the build.gradle file.
+* July 26: 3:00 pm - 8:00 pm
+  * Couldn't get the project to run, Espresso dependency was not working.
+  * Spent a lot of time figuring out what was wrong with the project.
+  * Fixed the dependencies and the project ran.
+* July 27: 1:00 pm - 11:59 pm
+  * Written Espresso tests for all user stories. Added new user stories and removed some that were redundant.
+* July 28: 12:00 am - 3:00 am
+  * Updated Espresso tests to work with new UI changes. Fixed inconsistent search.
+* July 28: 3:00 am - 4:00 am
+  * Fixed inconsistency with the chat feature. Will now always respond to messages.
 
 # Iteration 2
 
@@ -103,7 +133,7 @@ Developer Tasks, Iteration 2:
 
 - Remove DataAccessStub from OnBoarding Activity (move code to logic) (Cost: 4 hours; Priority: High) - Andrii
 - Bot issues (Cost: 1 hour; Priority: High) - Andrii / Hamdi
-- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High)
+- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High) - Hamdi
 - Connect Wallet with User (Cost: 8 hours; Priority: High) - Andrii / Hamdi
 - Move Product page (Cost: 8 hours; Priority: High) - Ryan
 - Restructure Persistence Layer for it to work with Database (HSQLDB)e (Cost: 2 days; Priority: High) - Andrii

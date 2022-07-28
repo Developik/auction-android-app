@@ -41,22 +41,17 @@
             android:layout_margin="16dp"
             tools:text="@tools:sample/lorem" />
 
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginHorizontal="30dp"
             android:orientation="horizontal">
-
-            <Button
-                android:layout_width="270dp"
-                android:layout_height="70dp"
-                android:backgroundTint="@android:color/holo_blue_dark"
-                android:clickable="false"
-                android:enabled="false"
-                android:onClick="buttonProductReviewsOnClick"
-                android:text="@string/prodReviewButton"
-                android:textColor="#212121"
-                android:textSize="20sp" />
 
             <Button
                 android:layout_width="270dp"
@@ -71,16 +66,61 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/bidHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/historyBid"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/productPrice"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginStart="5dp"
+            android:textColor="#000000"
             android:textSize="24sp"
-            tools:text="Current Bid: $1.99"
-            android:textColor="#000000" />
+            tools:text="Current Bid: $1.99" />
+
+        <TextView
+            android:id="@+id/bidHistory1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/bidHistory2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/bidHistory3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/highestBid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="5dp"
+            android:text="" />
 
         <EditText
             android:id="@+id/withDrawAmount"
@@ -96,6 +136,7 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/bidButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -107,6 +148,12 @@
             android:text="@string/bidButton"
             android:textColor="#212121"
             android:textSize="20sp" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
 
         <TextView
             android:id="@+id/chatLabelTitle"
@@ -167,16 +214,17 @@
             android:minHeight="48dp"/>
 
         <Button
+            android:id="@+id/sendChat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginHorizontal="20dp"
             android:layout_marginVertical="5dp"
-            android:minHeight="60dp"
-            android:textSize="20sp"
             android:backgroundTint="@android:color/holo_blue_dark"
+            android:minHeight="60dp"
             android:onClick="updateChat"
             android:text="@string/enterChat"
-            android:textColor="#212121" />
+            android:textColor="#212121"
+            android:textSize="20sp" />
     </LinearLayout>
 </ScrollView>
