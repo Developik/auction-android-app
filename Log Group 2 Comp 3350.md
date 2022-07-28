@@ -42,6 +42,32 @@ Hamdi:
 * July 28: 3:00 am - 4:00 am
   * Fixed inconsistency with the chat feature. Will now always respond to messages.
 
+Nikhil:
+* July 26: 3pm - 6pm
+  * Worked on AccessPaymentcardsTest
+* July 27: 1pm - 7pm
+  * Worked on AccessUsersTest
+* July 27: 9pm - 4am
+  * Worked on AccessPaymentcardsTest & AccessUsersTest
+  * Reviewed PRs
+* July 28: 10am - 6pm
+  * Edited architecture diagram
+  
+Ryan:
+* 7:00pm - 8:00pm, July 23
+  * worked on completing the iteration 2 retrospective
+* 7:00pm - 8:00pm, July 24
+  * completed the iteratiob 2 retrospective
+* 3:00pm - 5:00pm, July 25
+  * reviewed and researched integration testing
+* 2:00pm - 4:00pm, July 26
+  * worked on creating integration tests for ProductLogic, AccessProduct, AccessWallet, PingChat
+* 3:30pm - 8:00pm, 9:30pm - 10:50pm, July 27
+  * completed integration tests from previous day
+* 10:20am - 10:45am, 1:00pm - 3:30pm, July 28
+  * ensured that tests were working and cleaned up code
+  * ensured formating and code standards
+
 # Iteration 2
 
 Team Meetings, Iteration 2:

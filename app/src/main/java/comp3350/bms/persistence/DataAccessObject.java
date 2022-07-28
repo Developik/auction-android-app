@@ -127,7 +127,7 @@ public class DataAccessObject implements DataAccess {
                 itemID = rs2.getLong("itemID");
                 name = rs2.getString("name");
                 datePosted = rs2.getDate("datePosted");
-                //pictures = rs2.getString("pictures"); // implement later
+                picture = rs2.getString("picture");
                 startingBid = rs2.getDouble("startingBid");
                 currentBid = rs2.getDouble("currentBid");
                 auctionStart = rs2.getDate("auctionStart");
@@ -171,7 +171,7 @@ public class DataAccessObject implements DataAccess {
                 itemID = rs2.getLong("itemID");
                 name = rs2.getString("name");
                 datePosted = rs2.getDate("datePosted");
-                //pictures = rs2.getString("pictures"); // implement later
+                picture = rs2.getString("picture"); // implement later
                 startingBid = rs2.getDouble("startingBid");
                 currentBid = rs2.getDouble("currentBid");
                 auctionStart = rs2.getDate("auctionStart");
