@@ -84,7 +84,7 @@ public class TestBidding {
         // Check if the bid was failed
         onView(withText("Please enter an amount")).check(matches(isDisplayed()));
 
-
+        Espresso.pressBack();
 
         // Trying with negative bid amount
         // The bid should work as the text input field doesn't allow negative values
