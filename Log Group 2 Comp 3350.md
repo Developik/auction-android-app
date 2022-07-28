@@ -12,6 +12,21 @@ July 24th:
 * 7pm - 8pm
 * Completed retrospective activity
 
+July 27-28th:
+* Andrii, Ryan, Hamdi
+* 6pm - 1am
+* Completing iteration and fixing bugs
+
+## Personal Logs:
+
+Andrii:
+* 24 July: 4pm - 6pm:
+  * Features review, preparing new DB design for auction system 
+* 27-28 July: 12pm - 1am:
+  * Bidding feature
+  * Multiple users 
+  * Fixes to allow correct redirection to products
+
 # Iteration 2
 
 Team Meetings, Iteration 2:
