@@ -5,7 +5,7 @@
 July 23th:
 * Andrii, Hamdi, Ryan
 * 7pm - 8pm
-* Discuss iteration 3 and split up the work
+* Discuss iteration 3 and split up the work, started work on the retrospective activity.
 
 July 24th:
 * Andrii, Ryan
@@ -85,6 +85,15 @@ Hamdi:
 * July 12: 2:00 pm - 3:00 pm
   * Updated user stories and fixed tests, updated README as well.
   * Added new tests.
+* July 25: 12:00 pm - 3:00 pm
+  * Studied Espresso and ran the sample project to know how to work with it.
+  * Started adding the dependencies to the build.gradle file.
+* July 26: 3:00 pm - 8:00 pm
+  * Couldn't get the project to run, Espresso dependency was not working.
+  * Spent a lot of time figuring out what was wrong with the project.
+  * Fixed the dependencies and the project ran.
+* July 27: 1:00 pm - 12:00 am
+  * Written Espresso tests for all user stories. Added new user stories and removed some that were redundant.
 
 Nikhil
 * July 8: 1 pm - 6 pm: 
@@ -103,7 +112,7 @@ Developer Tasks, Iteration 2:
 
 - Remove DataAccessStub from OnBoarding Activity (move code to logic) (Cost: 4 hours; Priority: High) - Andrii
 - Bot issues (Cost: 1 hour; Priority: High) - Andrii / Hamdi
-- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High)
+- Remove/Review "sleep" in Tests (Cost: 4 hours; Priority: High) - Hamdi
 - Connect Wallet with User (Cost: 8 hours; Priority: High) - Andrii / Hamdi
 - Move Product page (Cost: 8 hours; Priority: High) - Ryan
 - Restructure Persistence Layer for it to work with Database (HSQLDB)e (Cost: 2 days; Priority: High) - Andrii

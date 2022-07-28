@@ -17,7 +17,7 @@ Comp 3350 Android App | Team 2
   * Cost: 1 day Priority: Medium
 * As a user, I want to be able to bid on a product so that I can purchase it.
   * Cost: 2 days Priority: High
-* As a user, I want to be able to see my balance so that I know I have enough to bid.
+* As a user, I want to be able to chat with others on a product's page.
   * Cost: 0.5 days Priority: Medium
 * As a user, I want to be able to top up my balance so that I can bid on products.
   * Cost: 2 days Priority: High
@@ -25,6 +25,8 @@ Comp 3350 Android App | Team 2
   * Cost: 4 days Priority: High
 * As a user, I would like to see a picture of what I am buying.
   * Cost: 2 days Priority: Low
+* As a user, I would like to search for my products by name.
+  * Cost: 0.5 days Priority: Medium
 
 ## Developer Tasks
 * The Developer Tasks are written in the Log file.
@@ -41,10 +43,13 @@ Comp 3350 Android App | Team 2
 
 ## How to Run Tests:
 
-- Go to ../tests directory
+- **For Unit Tests**:
 - We are running JUnit 4 across all tests, this should automatically download with the launch of the project.
-- Right click AllTests and click on "Run 'AllTests'" option
-- ![image](https://user-images.githubusercontent.com/54965144/173991106-a248b1aa-91f6-4f12-b60d-09938458ef2e.png)
+- This is under `test`
+- Right click RunUnitTests and click on "Run 'RunUnitTests'" option
+- **For Acceptance Tests**:
+- This is under `androidTest`
+- Right click RunAcceptanceTests and click on "Run 'RunAcceptanceTests'" option
 
 ## How to Run Project 
 

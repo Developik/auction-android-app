@@ -34,9 +34,9 @@ import comp3350.bms.tests.persistence.DataAccessStubTest;
         WalletUserTest.class
 })
 
-public class AllTests {
+public class RunUnitTests {
     public static void main(String[] args) {
-        Result result = org.junit.runner.JUnitCore.runClasses(AllTests.class);
+        Result result = org.junit.runner.JUnitCore.runClasses(RunUnitTests.class);
         System.out.println("Tests run: " + result.getRunCount());
         System.out.println("Tests failed: " + result.getFailureCount());
         System.out.println("Tests ignored: " + result.getIgnoreCount());
