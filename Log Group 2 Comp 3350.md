@@ -42,6 +42,17 @@ Hamdi:
 * July 28: 3:00 am - 4:00 am
   * Fixed inconsistency with the chat feature. Will now always respond to messages.
 
+Nikhil:
+* July 26: 3pm - 6pm
+  * Worked on AccessPaymentcardsTest
+* July 27: 1pm - 7pm
+  * Worked on AccessUsersTest
+* July 27: 9pm - 4am
+  * Worked on AccessPaymentcardsTest & AccessUsersTest
+  * Reviewed PRs
+* July 28: 10am - 6pm
+  * Edited architecture diagram
+
 # Iteration 2
 
 Team Meetings, Iteration 2:
