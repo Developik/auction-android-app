@@ -1,5 +1,17 @@
 
 
+# Iteration 3
+
+July 23th:
+* Andrii, Hamdi, Ryan
+* 7pm - 8pm
+* Discuss iteration 3 and split up the work
+
+July 24th:
+* Andrii, Ryan
+* 7pm - 8pm
+* Completed retrospective activity
+
 # Iteration 2
 
 Team Meetings, Iteration 2:
