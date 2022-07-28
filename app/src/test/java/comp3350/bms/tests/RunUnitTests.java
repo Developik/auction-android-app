@@ -1,18 +1,16 @@
 package comp3350.bms.tests;
 
-// Purpose: a central suite that runs all tests for this project
+// Purpose: a central suite that runs all Unit tests for this project
 
 import org.junit.runner.*;
 import org.junit.runners.*;
 
-import comp3350.bms.tests.business.AuctionManagerTest;
 import comp3350.bms.tests.objects.BidTest;
-import comp3350.bms.tests.business.PingChatTest;
-import comp3350.bms.tests.business.ProductLogicTest;
 import comp3350.bms.tests.objects.ChatMessagesTest;
 import comp3350.bms.tests.objects.PaymentcardTest;
 import comp3350.bms.tests.objects.PaymentcardWalletTest;
 import comp3350.bms.tests.objects.ProductTest;
+import comp3350.bms.tests.business.ProductLogicTest;
 import comp3350.bms.tests.objects.UserTest;
 import comp3350.bms.tests.objects.WalletTest;
 import comp3350.bms.tests.objects.WalletUserTest;
@@ -20,12 +18,10 @@ import comp3350.bms.tests.persistence.DataAccessStubTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        AuctionManagerTest.class,
         BidTest.class,
-        PingChatTest.class,
-        ProductLogicTest.class,
         ChatMessagesTest.class,
         ProductTest.class,
+        ProductLogicTest.class,
         UserTest.class,
         WalletTest.class,
         DataAccessStubTest.class,
