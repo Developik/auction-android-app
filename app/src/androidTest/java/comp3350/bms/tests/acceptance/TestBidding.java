@@ -1,5 +1,7 @@
 package comp3350.bms.tests.acceptance;
 
+// Purpose: Runs through the bidding process in the app and makes sure the bids are accepted/declined correctly.
+
 import static androidx.test.espresso.Espresso.*;
 import static androidx.test.espresso.action.ViewActions.*;
 import static androidx.test.espresso.assertion.ViewAssertions.*;

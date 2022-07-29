@@ -1,5 +1,7 @@
 package comp3350.bms.tests.acceptance;
 
+// Purpose: Run through the searching process in the application and verify results are shown correctly.
+
 import static androidx.test.espresso.Espresso.*;
 import static androidx.test.espresso.action.ViewActions.*;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;

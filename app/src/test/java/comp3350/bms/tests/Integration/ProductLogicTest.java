@@ -23,17 +23,9 @@ public class ProductLogicTest {
     private ArrayList<Product> productList;
     private HashMap<String, String> filters;
 
-    private Product product;
     private ArrayList<Product> filteredList;
 
     private String query;
-    private String minBid;
-    private String maxBid;
-
-    private Date date;
-    private Date start;
-    private Date end;
-    private String picture;
 
     private int productInitSize;
     DataAccess dataAccess;
@@ -66,7 +58,7 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testBasicFilters() {
+    public void testSearchQueryEmptyStub() {
         setup();
 
         productList = new ArrayList<>();
@@ -74,7 +66,6 @@ public class ProductLogicTest {
         filters = new HashMap<>();
         String query = "";
         filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
 
         dataAccess.getProductSequential(productList);
 
@@ -86,145 +77,10 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testNullFilters() {
+    public void testNullFiltersStub() {
         setup();//start test with stub Database
 
         productList = new ArrayList<>();
-
-        date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        picture = "3.png";
-        try {
-            long id = 101;
-            product = new Product(id, "Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
-                    "TestCategory");
-            dataAccess.insertProduct(product);
-        } catch (Exception ignored) {
-        }
-
-        filters = null;
-        dataAccess.getProductSequential(productList);
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(productInitSize + 1, filteredList.size());
-
-        shutdown();//close Database
-    }
-
-    @Test
-    public void testQueryBidFilters() {
-        setup();//start test with stubDatabase
-
-        productList = new ArrayList<>();
-
-        date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        picture = "3.png";
-        try {
-            long id = 101;
-            product = new Product(id, "Garden Bucket 1234125252423223253",
-                    date, picture, 5.0, 14241, start, end, false,
-                    "TestCategory");
-            dataAccess.insertProduct(product);
-        } catch (Exception ignored) {
-        }
-
-        filters = new HashMap<>();
-        query = "Garden Bucket 1234125252423223253";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        dataAccess.getProductSequential(productList);
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(1, filteredList.size());
-
-        query = "";
-        minBid = "14241";
-        maxBid = "14242";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(1, filteredList.size());
-
-        query = "";
-        minBid = "0";
-        maxBid = "1";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(0, filteredList.size());
-
-        query = "";
-        minBid = "0";
-        maxBid = "0";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(0, filteredList.size());
-
-        query = null;
-        minBid = "14241";
-        maxBid = "14241";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(1, filteredList.size());
-
-        minBid = "14241";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(1, filteredList.size());
-
-        query = null;
-        maxBid = null;
-        minBid = "14242";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize + 1, productList.size());
-        Assert.assertEquals(0, filteredList.size());
-
-        shutdown();//close Database
-    }
-
-    @Test
-    public void testNullFiltersRealDB() {
-        setupReal();//start test with real Database
-
-        productList = new ArrayList<>();
-
-        date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        picture = "3.png";
-        try {
-            long id = 101;
-            product = new Product(id, "Garden Bucket 2", date, picture, 5.0, 5.0, start, end, false,
-                    "TestCategory");
-            dataAccess.insertProduct(product);
-        } catch (Exception ignored) {
-        }
 
         filters = null;
         dataAccess.getProductSequential(productList);
@@ -237,28 +93,32 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testQueryBidFiltersRealDB() {
-        setupReal();//start test with real Database
+    public void testQueryBidFiltersStub() {
+        setup();//start test with stubDatabase
 
         productList = new ArrayList<>();
 
-        date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        picture = "3.png";
-        try {
-            long id = 101;
-            product = new Product(id, "Garden Bucket 1234125252423223253",
-                    date, picture, 5.0, 14241, start, end, false,
-                    "TestCategory");
-            dataAccess.insertProduct(product);
-        } catch (Exception ignored) {
-        }
+        filters = new HashMap<>();
+        query = "Garden Bucket";
+        filters.put("query", query);
+
+        dataAccess.getProductSequential(productList);
+        filteredList = ProductLogic.filterFeed(filters, productList);
+
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(1, filteredList.size());
+
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testNullQueryBidFiltersStub() {
+        setup();//start test with stubDatabase
+
+        productList = new ArrayList<>();
 
         filters = new HashMap<>();
-        query = "Garden Bucket 1234125252423223253";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
+        filters.put("query", null);
 
         dataAccess.getProductSequential(productList);
         filteredList = ProductLogic.filterFeed(filters, productList);
@@ -266,62 +126,208 @@ public class ProductLogicTest {
         Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(3, filteredList.size());
 
-        query = "";
-        minBid = "14241";
-        maxBid = "14242";
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testSearchQueryEmptyReal() {
+        setupReal();
+
+        productList = new ArrayList<>();
+
+        filters = new HashMap<>();
+        String query = "";
         filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
+
+        dataAccess.getProductSequential(productList);
+
+        filteredList = ProductLogic.filterFeed(filters, productList);
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(productInitSize, filteredList.size());
+
+        shutdown();
+    }
+
+    @Test
+    public void testNullFiltersReal() {
+        setupReal();
+
+        productList = new ArrayList<>();
+
+        filters = null;
+        dataAccess.getProductSequential(productList);
+        filteredList = ProductLogic.filterFeed(filters, productList);
 
         Assert.assertEquals(productInitSize, productList.size());
-        Assert.assertEquals(3, filteredList.size());
+        Assert.assertEquals(productInitSize, filteredList.size());
 
-        query = "";
-        minBid = "0";
-        maxBid = "1";
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testQueryBidFiltersReal() {
+        setupReal();
+
+        productList = new ArrayList<>();
+
+        filters = new HashMap<>();
+        query = "Garden Bucket";
         filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
+
+        dataAccess.getProductSequential(productList);
+        filteredList = ProductLogic.filterFeed(filters, productList);
+
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(5, filteredList.size());
+
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testNullQueryBidFiltersReal() {
+        setupReal();
+
+        productList = new ArrayList<>();
+
+        filters = new HashMap<>();
+        filters.put("query", null);
+
+        dataAccess.getProductSequential(productList);
+        filteredList = ProductLogic.filterFeed(filters, productList);
+
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(7, filteredList.size());
+
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testAddingProductStub(){
+        setup();
+
+        Product product;
+        Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        String picture = "nothing";
+
+        try {
+            long id = 101;
+            product = new Product(id, "Car", date, picture, 5.0, 5.0, start, end, false,
+                    "TestCategory");
+            dataAccess.insertProduct(product);
+        } catch (Exception ignored) {
+        }
+
+        // Reinitialize the product list
+        productList = new ArrayList<>();
+        dataAccess.getProductSequential(productList);
+        productInitSize = productList.size();
+
+        filters = new HashMap<>();
+        filters.put("query", "Car");
+
+        filteredList = ProductLogic.filterFeed(filters, productList);
+
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(1, filteredList.size());
+
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testAddingProductReal(){
+        setupReal();
+
+        Product product;
+        Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        String picture = "nothing";
+
+        try {
+            long id = 101;
+            product = new Product(id, "Car", date, picture, 5.0, 5.0, start, end, false,
+                    "TestCategory");
+            dataAccess.insertProduct(product);
+        } catch (Exception ignored) {
+        }
+
+        // Reinitialize the product list
+        productList = new ArrayList<>();
+        dataAccess.getProductSequential(productList);
+        productInitSize = productList.size();
+
+        filters = new HashMap<>();
+        filters.put("query", "Car");
+
+        filteredList = ProductLogic.filterFeed(filters, productList);
+
+        Assert.assertEquals(productInitSize, productList.size());
+        Assert.assertEquals(1, filteredList.size());
+
+        shutdown();//close Database
+    }
+
+    @Test
+    public void testRemovingProductStub(){
+        setup();
+
+        Product product;
+        Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        String picture = "nothing";
+
+        try {
+            long id = 101;
+            product = new Product(id, "Car", date, picture, 5.0, 5.0, start, end, false,
+                    "TestCategory");
+            dataAccess.removeProduct(product);
+        } catch (Exception ignored) {
+        }
+
+        // Reinitialize the product list
+        productList = new ArrayList<>();
+        dataAccess.getProductSequential(productList);
+        productInitSize = productList.size();
+
+        filters = new HashMap<>();
+        filters.put("query", "Car");
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 
         Assert.assertEquals(productInitSize, productList.size());
         Assert.assertEquals(0, filteredList.size());
 
-        query = "";
-        minBid = "0";
-        maxBid = "0";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
+        shutdown();//close Database
+    }
 
-        filteredList = ProductLogic.filterFeed(filters, productList);
+    @Test
+    public void testRemovingProductReal(){
+        setupReal();
 
-        Assert.assertEquals(productInitSize, productList.size());
-        Assert.assertEquals(0, filteredList.size());
+        Product product;
+        Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        String picture = "nothing";
 
-        query = null;
-        minBid = "14241";
-        maxBid = "14241";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
+        try {
+            long id = 101;
+            product = new Product(id, "Car", date, picture, 5.0, 5.0, start, end, false,
+                    "TestCategory");
+            dataAccess.removeProduct(product);
+        } catch (Exception ignored) {
+        }
 
-        filteredList = ProductLogic.filterFeed(filters, productList);
+        // Reinitialize the product list
+        productList = new ArrayList<>();
+        dataAccess.getProductSequential(productList);
+        productInitSize = productList.size();
 
-        Assert.assertEquals(productInitSize, productList.size());
-        Assert.assertEquals(3, filteredList.size());
-
-        minBid = "14241";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
-
-        filteredList = ProductLogic.filterFeed(filters, productList);
-
-        Assert.assertEquals(productInitSize, productList.size());
-        Assert.assertEquals(3, filteredList.size());
-
-        query = null;
-        maxBid = null;
-        minBid = "14242";
-        filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
+        filters = new HashMap<>();
+        filters.put("query", "Car");
 
         filteredList = ProductLogic.filterFeed(filters, productList);
 

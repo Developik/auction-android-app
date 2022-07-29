@@ -35,7 +35,6 @@ public class AccessWalletTest {
     //tests to make sure that accessWallet fails to get a wallet with an empty and null and non-existing usernames
     @Test
     public void testGetWalletFromUserEmptyList() {
-        System.out.println("\nStarting testAccessWallet: empty list");
 
         setup();
 
@@ -48,6 +47,5 @@ public class AccessWalletTest {
 
         shutdown();
 
-        System.out.println("Finished testAccessWallet: empty list");
     }
 }

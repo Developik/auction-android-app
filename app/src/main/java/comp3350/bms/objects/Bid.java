@@ -12,6 +12,7 @@ public class Bid {
     private int bidID;
 
     public Bid(int bidID, double value, Date date) {
+
         if (value < 0) {
             this.value = 0;
         } else {

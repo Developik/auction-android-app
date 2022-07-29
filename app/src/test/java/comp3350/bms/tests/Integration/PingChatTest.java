@@ -40,8 +40,6 @@ public class PingChatTest {
     //tests to make sure that a new pingChat object has no messages at first
     @Test
     public void testEmptyList() {
-        System.out.println("\nStarting testPingChat: empty list");
-
         setup();
 
         //.getRandom sends -1 to .getRandomS and returns a valid message, but is empty
@@ -65,10 +63,8 @@ public class PingChatTest {
         System.out.println("Finished testPingChat: empty list");
     }
 
-    //tests to make sure that a new pingChat object has no messages at first using real DB
     @Test
     public void testEmptyListWithRealDB() {
-        System.out.println("\nStarting testPingChat: empty list with real DB");
 
         setupReal();
 
@@ -96,7 +92,6 @@ public class PingChatTest {
     //Tests to make sure that PingChat is initializing the DB chats correctly
     @Test
     public void testInitializedList() {
-        System.out.println("\nStarting testPingChat: Initialized list");
 
         setup();
 
@@ -139,7 +134,6 @@ public class PingChatTest {
     //Tests to make sure that PingChat is initializing the DB chats correctly
     @Test
     public void testInitializedListWithRealDB() {
-        System.out.println("\nStarting testPingChat: Initialized list with real DB");
 
         setupReal();
 

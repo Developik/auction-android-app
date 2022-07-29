@@ -1,5 +1,7 @@
 package comp3350.bms.tests.acceptance;
 
+// Purpose: Runs through the Wallet activity and tops up the wallet accordingly and verifies the top up has worked.
+
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.*;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;

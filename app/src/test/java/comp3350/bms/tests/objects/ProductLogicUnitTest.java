@@ -1,4 +1,4 @@
-package comp3350.bms.tests.business;
+package comp3350.bms.tests.objects;
 
 // Purpose: Tests the ProductLogic business object and its functions
 
@@ -15,17 +15,13 @@ import comp3350.bms.objects.Product;
 import comp3350.bms.persistence.DataAccess;
 import comp3350.bms.tests.persistence.DataAccessStub;
 
-public class ProductLogicTest {
+public class ProductLogicUnitTest {
 
     private ArrayList<Product> productList;
     private HashMap<String, String> filters;
 
     private Product product;
     private ArrayList<Product> filteredList;
-
-    private String query;
-    private String minBid;
-    private String maxBid;
 
     private Date date;
     private Date start;
@@ -57,7 +53,6 @@ public class ProductLogicTest {
         filters = new HashMap<>();
         query = "";
         filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
 
         dataAccess.getProductSequential(productList);
 
@@ -108,7 +103,6 @@ public class ProductLogicTest {
         filters = new HashMap<>();
         String query = "Garden Bucket 1234125252423223253";
         filters.put("query", query);
-        filters.put("minMaxBid", minBid + ";" + maxBid);
 
         dataAccess.getProductSequential(productList);
         filteredList = ProductLogic.filterFeed(filters, productList);
