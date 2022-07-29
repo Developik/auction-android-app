@@ -29,7 +29,7 @@ Comp 3350 Android App | Team 2
   * Cost: 0.5 days Priority: Medium
 
 ## Developer Tasks
-* The Developer Tasks are written in the Log file.
+* The updated iteration 3 Developer Tasks are written in the Log file.
 
 ## Architecture
 
@@ -57,6 +57,8 @@ Comp 3350 Android App | Team 2
 - Right click RunAcceptanceTests and click on "Run 'RunAcceptanceTests'" option
 - **Notice**:
 - Regarding ProductLogic, we saw that we needed to both unit test and integration test the product logic.
+- For the Acceptance Tests, they all passed for all of us. If yours fails, try clearing the app_db folder.
+- Another thing regarding the Acceptance tests is that sometimes the build fails but that is due to the Android emulator not launching fast enough or already being launched. Restarting the test (or the emulator rarely) solves this issue. All tests should pass.
 
 ## How to Run Project 
 
