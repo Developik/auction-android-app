@@ -1,4 +1,4 @@
-package comp3350.bms.tests.business;
+package comp3350.bms.tests.Integration;
 
 // Purpose: Tests the AuctionManager business object and its functions
 
@@ -41,22 +41,16 @@ public class AuctionManagerTest {
         } catch (Exception e) {
             Assert.fail();
         }
-        //accessProducts = new AccessProducts();
         bidList = new ArrayList<>();
         dataAccess.getBidSequential(bidList);
         bidInitSize = bidList.size();
     }
 
-    @After
-    public void tearDown() {
-
-    }
-
     @Test
-    public void testAddBid() {
-        System.out.println("Running testAddBid");
+    public void testInsertBid() {
         Product product = dataAccess.getAllProducts().get(0);
 
+        // Test adding valid vids with valid users
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(1, 15.00,  date);
         dataAccess.insertBid(product, bid ,u1);
@@ -70,41 +64,49 @@ public class AuctionManagerTest {
         dataAccess.insertBid(product, bid ,u1);
         Assert.assertEquals(3, dataAccess.getBidsNumber());
 
-        System.out.println("Test getting owner stub test");
+        // Test getting owner (user) who made the bid
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(4, 7.00,  date);
         dataAccess.insertBid(product, bid, u2);
         User owner = dataAccess.getOwnerOfBid(bid);
         Assert.assertEquals(owner.getUsername(), u2.getUsername());
 
-        System.out.println("All bids require a user who made the bid");
+        // Test using null user for bid
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(5, 7.00,  date);
         testRes = dataAccess.insertBid(product, bid ,null);
         Assert.assertEquals("Null object Error", testRes);
 
+        // Test using null product for bid and null user for bid
         testRes = dataAccess.insertBid(product, null ,null);
         Assert.assertEquals("Null object Error", testRes);
 
-        System.out.println("All insert bids operations require a bid");
-
-        System.out.println("Bids with more than 2 decimal values should be added");
+        // Test using a bid amount with decimal places
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        bid = new Bid(6, 7.0000,  date);
+        bid = new Bid(6, 7.1458,  date);
         testRes = dataAccess.insertBid(product, bid ,u2);
 
-        System.out.println("Bids with more than 2 decimal values should be added");
+        // Test using a bid amount of 0
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        bid = new Bid(7, 15.6340,  date);
+        bid = new Bid(6, 0,  date);
         testRes = dataAccess.insertBid(product, bid ,u2);
+        Assert.assertEquals("Bid value too low", testRes);
 
-        Assert.assertEquals(6, dataAccess.getBidsNumber());
+        // Test using a negative bid amount
+        date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
+        bid = new Bid(6, -85,  date);
+        testRes = dataAccess.insertBid(product, bid ,u2);
+        Assert.assertEquals("Bid value too low", testRes);
+
+
+        Assert.assertEquals(5, dataAccess.getBidsNumber());
     }
 
     @Test
     public void testHighestBid() {
         Product product = dataAccess.getAllProducts().get(1);
 
+        // Test value 7.00
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(1, 7.00,  date);
         testRes = dataAccess.insertBid(product, bid ,u2);
@@ -112,6 +114,7 @@ public class AuctionManagerTest {
         Assert.assertEquals(dataAccess.getHighestBid(product).getBidID(),
                 bid.getBidID());
 
+        // Test value 15.00
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(2, 15.00,  date);
         testRes = dataAccess.insertBid(product, bid ,u2);
@@ -119,6 +122,7 @@ public class AuctionManagerTest {
         Assert.assertEquals(dataAccess.getHighestBid(product).getBidID(),
                 bid.getBidID());
 
+        // Test value 60.00
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(3, 60.00,  date);
         testRes = dataAccess.insertBid(product, bid ,u2);
@@ -126,14 +130,16 @@ public class AuctionManagerTest {
         Assert.assertEquals(dataAccess.getHighestBid(product).getBidID(),
                 bid.getBidID());
 
+        // Test value 40.00
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         bid = new Bid(4, 40.00,  date);
         testRes = dataAccess.insertBid(product, bid ,u2);
 
+        // Bid 3 is the highest bid
         Assert.assertEquals(dataAccess.getHighestBid(product).getBidID(),
                 3);
 
-        // get bids for a product
+        // Verify all bids are in the database
         ArrayList<Bid> bids = new ArrayList<>();
         dataAccess.getAllBidsForProduct(bids, product);
         Assert.assertEquals(4, bids.size());

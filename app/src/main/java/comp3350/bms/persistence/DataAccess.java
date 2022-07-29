@@ -25,6 +25,8 @@ public interface DataAccess {
 
     String insertProduct(Product currentProduct);
 
+    String removeProduct(Product currentProduct);
+
     String updateProduct(Product currentProduct);
 
     String getUserSequential(List<User> userResult);

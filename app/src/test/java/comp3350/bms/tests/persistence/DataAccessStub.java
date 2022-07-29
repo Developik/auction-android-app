@@ -66,16 +66,16 @@ public class DataAccessStub implements DataAccess {
 
 
         products = new ArrayList<>();
-        picture = "../../../res/drawable/mortarboard.png";
+        picture = "mortarboard";
         Date today = new Date();
         Date tomorrow = new Date(today.getTime() + (1000 * 60 * 60 * 24));
-        Product prod = new Product(1L, "test product", today, picture, 50.00, 75.00, today, tomorrow, false, "watches");
+        Product prod = new Product(1L, "test product", today, picture, 50.00, 75.00, today, tomorrow, false, "Watches");
         products.add(prod);
 
         Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         Date start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         Date end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        picture = "2.png";
+        picture = "rolex_watch";
         try {
             product = new Product(2L, "Rolex Watch", date, picture, 10.0, 25.0, start, end, false, categories.get(1));
             products.add(product);
@@ -86,7 +86,7 @@ public class DataAccessStub implements DataAccess {
         date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         start = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-        picture = "3.png";
+        picture = "garden_bucket";
         try {
             product = new Product(3L, "Garden Bucket", date, picture, 5.0, 5.0, start, end, false, categories.get(2));
             products.add(product);
@@ -138,6 +138,11 @@ public class DataAccessStub implements DataAccess {
         return null;
     }
 
+    public String removeProduct(Product currentProduct) {
+        products.remove(currentProduct);
+        return null;
+    }
+
     public String updateProduct(Product currentProduct) {
         int index;
 
@@ -176,6 +181,9 @@ public class DataAccessStub implements DataAccess {
         String result = null;
         if (product == null || bid == null || user == null)
             result = "Null object Error";
+        else if (bid.getValue() <= 0){
+            result = "Bid value too low";
+        }
         else {
             bids.add(bid);
             ProductBid productBid = new ProductBid(product.getItemID(),

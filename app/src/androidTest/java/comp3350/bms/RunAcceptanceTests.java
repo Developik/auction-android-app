@@ -1,5 +1,7 @@
 package comp3350.bms;
 
+// Purpose: a central suite that runs all Acceptance tests for this project
+
 import org.junit.runners.Suite;
 import org.junit.runner.RunWith;
 

@@ -1,5 +1,7 @@
 package comp3350.bms.tests.acceptance;
 
+// Purpose: Runs through the chatting process and makes sure that the messages are sent and received correctly.
+
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;

@@ -39,8 +39,17 @@ Hamdi:
   * Written Espresso tests for all user stories. Added new user stories and removed some that were redundant.
 * July 28: 12:00 am - 3:00 am
   * Updated Espresso tests to work with new UI changes. Fixed inconsistent search.
-* July 28: 3:00 am - 4:00 am
+* July 28: 3:00 am - 4:30 am
   * Fixed inconsistency with the chat feature. Will now always respond to messages.
+* July 28: 2:00 pm - 4:00 pm
+  * PR Code Review
+* July 28: 4:00 pm - 9:00 pm
+  * Fixed alternate database with integration tests.
+  * Fixed acceptance tests that did not work due to new UI again.
+  * Adding more tests to the acceptance tests.
+  * Rewrote ProductLogicTest which did not work at all.
+  * Fixed images on the product's list page and the product's page.
+  * Alternate database will now reset itself when the integration tests are complete.
 
 Nikhil:
 * July 26: 3pm - 6pm

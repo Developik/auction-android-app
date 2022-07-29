@@ -45,17 +45,24 @@ Comp 3350 Android App | Team 2
 
 - **For Unit Tests**:
 - We are running JUnit 4 across all tests, this should automatically download with the launch of the project.
+- All unit tests are located in the `objects` folder.
 - This is under `test`
 - Right click RunUnitTests and click on "Run 'RunUnitTests'" option
+- **For Integration Tests**:
+- This is under `test`
+- All integration tests are located in the `Integration` folder.
+- Right click RunIntegrationTests and click on "Run 'RunIntegrationTests'" option
 - **For Acceptance Tests**:
 - This is under `androidTest`
 - Right click RunAcceptanceTests and click on "Run 'RunAcceptanceTests'" option
+- **Notice**:
+- Regarding ProductLogic, we saw that we needed to both unit test and integration test the product logic.
 
 ## How to Run Project 
 
 - Press "Run 'App'"
   - This action will start emulator and app should automatically open 
-  - Emulator used was a Nexus 7 on Marshmallow (6.0)
+  - Emulator used was a Nexus 7 on Marshmallow (6.0) with Android API 23.
 
 ## Dependencies
 
@@ -65,7 +72,7 @@ Comp 3350 Android App | Team 2
 
 ## Potential Problems
 
-- The application crashes.
+- The application crashes/resetting the database.
   - We found that clearing the app_db folder and restarting the emulator fixes the issue.
   - This is under /data/data/comp3350.srsys/app_db/ in the Device File Explorer
   - You shouldn't have to do this, but it might happen very rarely.

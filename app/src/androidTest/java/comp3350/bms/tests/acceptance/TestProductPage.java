@@ -1,5 +1,7 @@
 package comp3350.bms.tests.acceptance;
 
+// Purpose: Test the product page correctly in the app
+
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;

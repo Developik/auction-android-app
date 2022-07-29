@@ -162,6 +162,5 @@ public class UserTest {
         } catch (Exception ignored) {
             Assert.fail("Creation of user failed.");
         }
-        System.out.println("Finished testGetMessageInitializedUser");
     }
 }
