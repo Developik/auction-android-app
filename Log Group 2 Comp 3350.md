@@ -64,7 +64,7 @@ Ryan:
   * worked on creating integration tests for ProductLogic, AccessProduct, AccessWallet, PingChat
 * 3:30pm - 8:00pm, 9:30pm - 10:50pm, July 27
   * completed integration tests from previous day
-* 10:20am - 10:45am, 1:00pm - 3:30pm, July 28
+* 10:20am - 12:05am, 3:00pm - 7:30pm, 8:30pm - 10:00 July 28
   * ensured that tests were working and cleaned up code
   * ensured formating and code standards
 
