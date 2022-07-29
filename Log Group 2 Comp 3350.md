@@ -57,6 +57,9 @@ Hamdi:
   * Rewrote integration tests to work with stub better and the alternate database.
   * Implemented missing methods in DataAccessStub to work with integration tests
   * Created new developer tasks.
+* July 28: 12:30 am - 1:30 am
+  * Final fixes in acceptance tests. Ensured the user never runs out of money.
+  * Ran all tests several times.
 
 Nikhil:
 * July 26: 3pm - 6pm
