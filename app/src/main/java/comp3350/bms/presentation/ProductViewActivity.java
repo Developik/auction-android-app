@@ -71,7 +71,7 @@ public class ProductViewActivity extends Activity {
             accessProducts.getProducts(products);
             for (Product p : products) {
                 System.out.println("---" + p.getItemID().toString() +
-                        "---" + itemID.toString());
+                        "---" + itemID);
                 if (p.getItemID().equals(itemID)) {
                     this.product = p;
                     System.out.println("### CONFIRMED");
@@ -132,14 +132,7 @@ public class ProductViewActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
-    }
-
-    public void buttonProductReviewsOnClick(View v) {
-        Intent productReviewIntent = new Intent(ProductViewActivity.this, ProductReviewActivity.class);
-        ProductViewActivity.this.startActivity(productReviewIntent);
     }
 
     public void buttonSellerProfileOnClick(View view) {
@@ -213,29 +206,29 @@ public class ProductViewActivity extends Activity {
 
     public void updateAllBidHistory() {
         AuctionManager auctionManager = new AuctionManager();
-        ArrayList<Bid> bids = new ArrayList<Bid>();
+        ArrayList<Bid> bids = new ArrayList<>();
         auctionManager.getAllBidsForProduct(bids, product);
 
-        double value = 0;
+        double value;
         User currUser;
         Bid currBid;
 
         if (bids.size() >= 3) {
-            currBid = bids.get(bids.size()-3);
+            currBid = bids.get(bids.size() - 3);
             value = currBid.getValue();
             currUser = auctionManager.getOwnerOfBid(currBid);
             bidHistory1.setText(String.format("Username: %s | Amount: %s",
                     currUser.getUsername(), value));
         }
         if (bids.size() >= 2) {
-            currBid = bids.get(bids.size()-2);
+            currBid = bids.get(bids.size() - 2);
             value = currBid.getValue();
             currUser = auctionManager.getOwnerOfBid(currBid);
             bidHistory2.setText(String.format("Username: %s | Amount: %s",
                     currUser.getUsername(), value));
         }
         if (bids.size() >= 1) {
-            currBid = bids.get(bids.size()-1);
+            currBid = bids.get(bids.size() - 1);
             value = currBid.getValue();
             currUser = auctionManager.getOwnerOfBid(currBid);
             bidHistory3.setText(String.format("Username: %s | Amount: %s",

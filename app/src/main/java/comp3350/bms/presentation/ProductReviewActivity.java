@@ -24,7 +24,6 @@ public class ProductReviewActivity extends Activity {
         ArrayList<Product> prodList = accessProducts.getAllProducts();
         Product thisProduct = prodList.get(0);
         String productName = thisProduct.getName();
-        double currBid = thisProduct.getCurrentBid();
         TextView thisTextView = findViewById(R.id.productTitle);
         thisTextView.setText(productName);
     }

@@ -3,7 +3,6 @@ package comp3350.bms.business;
 // Purpose: AuctionManager handles the business logic for the auctions; the auctions will be
 // sealed so the bidders do not know the highest bid.
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,11 +20,7 @@ public class AuctionManager {
         dataAccess = Services.getDataAccess(Main.dbName);
     }
 
-    public String getAllBids(ArrayList<Bid> bids){
-        return dataAccess.getBidSequential(bids);
-    }
-
-    public String getAllBidsForProduct(ArrayList<Bid> bids, Product product){
+    public String getAllBidsForProduct(ArrayList<Bid> bids, Product product) {
         return dataAccess.getAllBidsForProduct(bids, product);
     }
 
@@ -37,25 +32,17 @@ public class AuctionManager {
         dataAccess.insertBid(product, bid, user);
     }
 
-    public int getBidCount() {
-        int bidsNum = dataAccess.getBidsNumber();
-        return bidsNum;
-    }
-
     public Bid getHighestBid(Product product) {
-        Bid highest = dataAccess.getHighestBid(product);
-        return highest;
+        return dataAccess.getHighestBid(product);
     }
 
     public User getOwnerOfBid(Bid bid) {
-        User winner = dataAccess.getOwnerOfBid(bid);
-        return winner;
+        return dataAccess.getOwnerOfBid(bid);
     }
 
     public int generateBidID() {
         //getBidsSequential
-        int id = dataAccess.getBidsNumber() + 1;
-        return id;
+        return dataAccess.getBidsNumber() + 1;
     }
 
 }

@@ -27,13 +27,9 @@ public interface DataAccess {
 
     String removeProduct(Product currentProduct);
 
-    String updateProduct(Product currentProduct);
-
     String getUserSequential(List<User> userResult);
 
     String updateWallet(Wallet currentWallet);
-
-    String getWalletSequential(List<Wallet> wallets);
 
     Wallet getWalletFromUser(String username);
 

@@ -12,11 +12,6 @@ import comp3350.bms.objects.Product;
 
 public class ProductLogic {
 
-
-    public static Long generateID() {
-        return new Date().getTime();
-    }
-
     public static ArrayList<Product> filterFeed(Map<String, String> filters, ArrayList<Product> productList) {
         ArrayList<Product> newProductList = new ArrayList<>(productList);
         if (filters != null) {
@@ -86,5 +81,4 @@ public class ProductLogic {
         }
         return filteredList;
     }
-
 }

@@ -15,11 +15,7 @@ public class Messages {
 
         alertDialog.setTitle(owner.getString(R.string.fatalError));
         alertDialog.setMessage(message);
-        alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            public void onCancel(DialogInterface dialog) {
-                owner.finish();
-            }
-        });
+        alertDialog.setOnCancelListener(dialog -> owner.finish());
 
         alertDialog.show();
     }
@@ -28,15 +24,6 @@ public class Messages {
         AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
 
         alertDialog.setTitle(owner.getString(R.string.warning));
-        alertDialog.setMessage(message);
-
-        alertDialog.show();
-    }
-
-    public static void info(Activity owner, String message) {
-        AlertDialog alertDialog = new AlertDialog.Builder(owner).create();
-
-        alertDialog.setTitle(owner.getString(R.string.info));
         alertDialog.setMessage(message);
 
         alertDialog.show();

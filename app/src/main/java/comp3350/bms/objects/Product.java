@@ -7,8 +7,6 @@ package comp3350.bms.objects;
 import java.sql.Timestamp;
 import java.util.Date;
 
-import comp3350.bms.business.ProductLogic;
-
 public class Product {
     private Long itemID;
     private String name;
@@ -25,7 +23,6 @@ public class Product {
     public Product(Long itemID, String name, Date datePosted, String picture, double startingBid,
                    double currentBid, Date auctionStart, Date auctionEnd, boolean sold,
                    String category) throws Exception {
-        // separate productLogic later
         this.itemID = itemID;
         this.name = name;
         this.datePosted = datePosted;

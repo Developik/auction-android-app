@@ -32,7 +32,6 @@ public class FeedActivity extends Activity {
     private AccessProducts accessProducts;
     private ArrayList<Product> productList;
     private ArrayAdapter<Product> itemArrayAdapter;
-    private int selectedProductPosition = -1;
     private User user;
 
 
@@ -44,7 +43,7 @@ public class FeedActivity extends Activity {
         if (bundle != null) {
             String user = bundle.getString("user");
             AccessUsers accessUsers = new AccessUsers();
-            List<User> users = new ArrayList<User>();
+            List<User> users = new ArrayList<>();
             accessUsers.getUsers(users);
             for (User u : users) {
                 if (u.getUsername().equals(user)) {
@@ -84,16 +83,12 @@ public class FeedActivity extends Activity {
             final ListView listView = findViewById(R.id.listItems);
 
             // go to Item Activity
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Object listItem = listView.getItemAtPosition(position);
-                    Intent productViewIntent = new Intent(FeedActivity.this, ProductViewActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("user", user.getUsername());
-                    productViewIntent.putExtras(bundle);
-                    FeedActivity.this.startActivity(productViewIntent);
-                }
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                Intent productViewIntent = new Intent(FeedActivity.this, ProductViewActivity.class);
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("user", user.getUsername());
+                productViewIntent.putExtras(bundle1);
+                FeedActivity.this.startActivity(productViewIntent);
             });
             listView.setAdapter(itemArrayAdapter);
 
@@ -105,7 +100,6 @@ public class FeedActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         return true;
     }
 
@@ -114,8 +108,6 @@ public class FeedActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -181,17 +173,13 @@ public class FeedActivity extends Activity {
             final ListView listView = findViewById(R.id.listItems);
 
             // go to Item Activity
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Object listItem = listView.getItemAtPosition(position);
-                    Intent productViewIntent = new Intent(FeedActivity.this, ProductViewActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("user", user.getUsername());
-                    bundle.putLong("itemID", productList.get(position).getItemID());
-                    productViewIntent.putExtras(bundle);
-                    FeedActivity.this.startActivity(productViewIntent);
-                }
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                Intent productViewIntent = new Intent(FeedActivity.this, ProductViewActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("user", user.getUsername());
+                bundle.putLong("itemID", productList.get(position).getItemID());
+                productViewIntent.putExtras(bundle);
+                FeedActivity.this.startActivity(productViewIntent);
             });
             listView.setAdapter(itemArrayAdapter);
         }

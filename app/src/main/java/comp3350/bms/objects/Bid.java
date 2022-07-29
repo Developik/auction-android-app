@@ -7,8 +7,6 @@ import java.util.Date;
 
 public class Bid {
 
-    // we need unique ID for bid
-
     private double value;
     private Date date;
     private int bidID;
@@ -20,7 +18,7 @@ public class Bid {
         } else {
             this.value = value;
         }
-        this.date = date; // new Date()
+        this.date = date;
         this.bidID = bidID;
 
     }

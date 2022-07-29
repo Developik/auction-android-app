@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import comp3350.bms.business.AuctionManager;
 import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
@@ -22,16 +21,12 @@ import comp3350.bms.objects.User;
 import comp3350.bms.objects.Wallet;
 
 public class DataAccessObject implements DataAccess {
-    private Statement st1, st2, st3;
+    private Statement st1;
     private Connection c1;
-    private ResultSet rs2, rs3, rs4, rs5;
+    private ResultSet rs2;
 
     private String dbName;
     private String dbType;
-
-    private ArrayList<Product> products;
-    private ArrayList<User> users;
-    private ArrayList<ChatMessages> chatMessages;
 
     private String cmdString;
     private int updateCount;
@@ -51,8 +46,6 @@ public class DataAccessObject implements DataAccess {
             url = "jdbc:hsqldb:file:" + dbPath; // stored on disk mode
             c1 = DriverManager.getConnection(url, "SA", "");
             st1 = c1.createStatement();
-            st2 = c1.createStatement();
-            st3 = c1.createStatement();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -73,14 +66,11 @@ public class DataAccessObject implements DataAccess {
     public String getChatMessagesSequential(List<ChatMessages> ChatMessagesResult) {
         ChatMessages chatMessage;
         String username, message;
-        username = EOF;
-        message = EOF;
 
         result = null;
         try {
             cmdString = "Select * from ChatMessages";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -104,21 +94,20 @@ public class DataAccessObject implements DataAccess {
 
         Product product;
         Long itemID;
-        String name = EOF;
+        String name;
         Date datePosted;
         String picture = EOF;
         double startingBid;
-        double currentBid = 0;
+        double currentBid;
         Date auctionStart;
         Date auctionEnd;
-        boolean sold = false;
-        String category = EOF;
+        boolean sold;
+        String category;
 
         result = null;
         try {
             cmdString = "Select * from Product";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -148,21 +137,20 @@ public class DataAccessObject implements DataAccess {
     public String getProductSequential(List<Product> productResult) {
         Product product;
         Long itemID;
-        String name = EOF;
+        String name;
         Date datePosted;
         String picture = EOF;
         double startingBid;
-        double currentBid = 0;
+        double currentBid;
         Date auctionStart;
         Date auctionEnd;
-        boolean sold = false;
-        String category = EOF;
+        boolean sold;
+        String category;
 
         result = null;
         try {
             cmdString = "Select * from Product";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -195,7 +183,6 @@ public class DataAccessObject implements DataAccess {
         try {
             cmdString = "Select COUNT(bidID) as num from Bid";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -221,7 +208,6 @@ public class DataAccessObject implements DataAccess {
 
         int count = 0;
         try {
-            //cmdString = "Select Max(value) as maxVal from Bid";
             cmdString = "Select * from Bid " +
                     "JOIN ProductBid ON " +
                     "ProductBid.bidID=Bid.bidID " +
@@ -232,7 +218,6 @@ public class DataAccessObject implements DataAccess {
                     "ORDER BY value DESC " +
                     "LIMIT 1";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -255,15 +240,13 @@ public class DataAccessObject implements DataAccess {
 
     public User getOwnerOfBid(Bid bid) {
         User user = null;
-        String username = EOF;
-        String firstName = EOF;
-        String lastName = EOF;
-        String address = EOF;
-        int age = 0;
+        String username;
+        String firstName;
+        String lastName;
+        String address;
+        int age;
 
         try {
-            //cmdString = "Select * from Bid";
-
             // max at this product
             cmdString = "Select * from User " +
                     "JOIN BidUser ON " +
@@ -273,7 +256,6 @@ public class DataAccessObject implements DataAccess {
                     "where Bid.bidID=" +
                     "'" + bid.getBidID() + "'";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -329,7 +311,7 @@ public class DataAccessObject implements DataAccess {
 
     @Override
     public String getAllBidsForProduct(ArrayList<Bid> bids, Product product) {
-        Bid bid = null;
+        Bid bid;
         Date date;
         double value;
         int bidID;
@@ -344,7 +326,6 @@ public class DataAccessObject implements DataAccess {
                     "where Product.itemID=" +
                     "'" + product.getItemID() + "'";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -385,7 +366,6 @@ public class DataAccessObject implements DataAccess {
                     + ", '" + currentProduct.isSold() + "'"
                     + ", '" + currentProduct.getCategory() + "'";
             cmdString = "Insert into Product " + " Values(" + values + ")";
-            //System.out.println(cmdString);
             updateCount = st1.executeUpdate(cmdString);
             result = checkWarning(st1, updateCount);
         } catch (Exception e) {
@@ -418,7 +398,6 @@ public class DataAccessObject implements DataAccess {
                     + ", '" + newBid.getValue() + "'"
                     + ", '" + date + "'";
             cmdString = "Insert into Bid " + " Values(" + values + ")";
-            //System.out.println(cmdString);
             updateCount = st1.executeUpdate(cmdString);
             result = checkWarning(st1, updateCount);
         } catch (Exception e) {
@@ -429,7 +408,6 @@ public class DataAccessObject implements DataAccess {
             values = currentProduct.getItemID()
                     + ", '" + newBid.getBidID() + "'";
             cmdString = "Insert into ProductBid " + " Values(" + values + ")";
-            //System.out.println(cmdString);
             updateCount = st1.executeUpdate(cmdString);
             result = checkWarning(st1, updateCount);
         } catch (Exception e) {
@@ -438,7 +416,7 @@ public class DataAccessObject implements DataAccess {
 
         try {
             values = newBid.getBidID()
-                    + ", '" + user.getUsername()+ "'";
+                    + ", '" + user.getUsername() + "'";
             cmdString = "Insert into BidUser " + " Values(" + values + ")";
             //System.out.println(cmdString);
             updateCount = st1.executeUpdate(cmdString);
@@ -499,19 +477,15 @@ public class DataAccessObject implements DataAccess {
 
     public String getUserSequential(List<User> userResult) {
         User user;
-        String username = EOF;
-        String firstName = EOF;
-        String lastName = EOF;
-        String address = EOF;
-        int age = 0;
-        // ArrayList<Bid> myBids = new ArrayList<>(); // complete
-        // add remaining fields later
-
+        String username;
+        String firstName;
+        String lastName;
+        String address;
+        int age;
         result = null;
         try {
             cmdString = "Select * from User";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -533,39 +507,11 @@ public class DataAccessObject implements DataAccess {
         return result;
     }
 
-    public String getWalletSequential(List<Wallet> walletResult) {
-        Wallet wallet;
-        int walletID;
-        int balance = 0;
-
-        result = null;
-        try {
-            cmdString = "Select * from Wallet";
-            rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
-        } catch (Exception e) {
-            processSQLError(e);
-        }
-        try {
-            while (rs2.next()) {
-                walletID = rs2.getInt("walletID");
-                balance = rs2.getInt("balance");
-                wallet = new Wallet(walletID, balance);
-                walletResult.add(wallet);
-            }
-            rs2.close();
-        } catch (Exception e) {
-            result = processSQLError(e);
-        }
-
-        return result;
-    }
-
     public String getPaymentcardsSequential(List<Paymentcard> paymentcards,
                                             Wallet wallet) {
         Paymentcard paymentcard;
         int cardID;
-        String cardNumbers = EOF;
+        String cardNumbers;
 
         result = null;
         try {
@@ -577,7 +523,6 @@ public class DataAccessObject implements DataAccess {
                     "where Wallet.walletID=" +
                     "'" + wallet.getWalletID() + "'";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
@@ -612,10 +557,7 @@ public class DataAccessObject implements DataAccess {
                     "'" + username + "'";
 
             System.out.println(cmdString);
-            //cmdString = "Select * from Wallet where username=" +
-            //        "'" + username + "'";
             rs2 = st1.executeQuery(cmdString);
-            //ResultSetMetaData md2 = rs2.getMetaData();
         } catch (Exception e) {
             processSQLError(e);
         }
