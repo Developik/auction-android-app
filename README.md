@@ -33,7 +33,7 @@ Comp 3350 Android App | Team 2
 
 ## Architecture
 
-![image](https://user-images.githubusercontent.com/54965144/178541425-a6e18a5d-ba4f-46ac-809c-d32a321ade85.png)
+![image](https://github.com/Developik/auction-android-app/raw/main/app-architecture.png)
 
 ## Requirements
 * **Android Gradle Plugin version 7.2.1**
