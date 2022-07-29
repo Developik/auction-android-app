@@ -2,8 +2,7 @@ package comp3350.bms.tests.Integration;
 
 // Purpose: Tests the AccessPaymentcards business object and its functions
 
-import org.junit.*;
-
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -10,9 +10,9 @@ import org.junit.runners.Suite;
 import comp3350.bms.tests.Integration.AccessPaymentcardsTest;
 import comp3350.bms.tests.Integration.AccessProductTest;
 import comp3350.bms.tests.Integration.AccessWalletTest;
+import comp3350.bms.tests.Integration.AuctionManagerTest;
 import comp3350.bms.tests.Integration.PingChatTest;
 import comp3350.bms.tests.Integration.ProductLogicTest;
-import comp3350.bms.tests.Integration.AuctionManagerTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

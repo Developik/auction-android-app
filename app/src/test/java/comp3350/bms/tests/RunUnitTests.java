@@ -2,15 +2,16 @@ package comp3350.bms.tests;
 
 // Purpose: a central suite that runs all Unit tests for this project
 
-import org.junit.runner.*;
-import org.junit.runners.*;
+import org.junit.runner.Result;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 import comp3350.bms.tests.objects.BidTest;
 import comp3350.bms.tests.objects.ChatMessagesTest;
 import comp3350.bms.tests.objects.PaymentcardTest;
 import comp3350.bms.tests.objects.PaymentcardWalletTest;
-import comp3350.bms.tests.objects.ProductTest;
 import comp3350.bms.tests.objects.ProductLogicUnitTest;
+import comp3350.bms.tests.objects.ProductTest;
 import comp3350.bms.tests.objects.UserTest;
 import comp3350.bms.tests.objects.WalletTest;
 import comp3350.bms.tests.objects.WalletUserTest;

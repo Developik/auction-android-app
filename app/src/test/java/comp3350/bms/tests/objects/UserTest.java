@@ -2,7 +2,10 @@ package comp3350.bms.tests.objects;
 
 // Purpose: Tests the User object and its functions
 
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;

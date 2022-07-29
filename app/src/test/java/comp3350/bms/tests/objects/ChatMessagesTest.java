@@ -2,7 +2,8 @@ package comp3350.bms.tests.objects;
 
 // Purpose: Tests the ChatMessages object and its functions
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 import comp3350.bms.objects.ChatMessages;
 

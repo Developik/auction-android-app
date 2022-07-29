@@ -5,8 +5,6 @@ package comp3350.bms.tests.Integration;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-
 import comp3350.bms.application.Main;
 import comp3350.bms.application.Services;
 import comp3350.bms.business.AccessWallet;

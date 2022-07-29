@@ -3,9 +3,9 @@ package comp3350.bms.presentation;
 // Purpose: WalletActivity handles the wallet page for the user, which allows them to top up and
 // view past transactions.
 
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;

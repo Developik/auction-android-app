@@ -92,13 +92,11 @@ public class ProductViewActivity extends Activity {
         String currBidStr = "Current Bid: " + currBid;
         tv.setText(currBidStr);
 
-        if(product.getPicture().equals("garden_bucket")){
+        if (product.getPicture().equals("garden_bucket")) {
             iv.setImageResource(R.drawable.garden_bucket);
-        }
-        else if(product.getPicture().equals("rolex_watch")){
+        } else if (product.getPicture().equals("rolex_watch")) {
             iv.setImageResource(R.drawable.rolex_watch);
-        }
-        else {
+        } else {
             iv.setImageResource(R.drawable.mortarboard);
         }
 

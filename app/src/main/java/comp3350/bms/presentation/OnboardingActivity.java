@@ -6,8 +6,8 @@ package comp3350.bms.presentation;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -66,7 +66,7 @@ public class OnboardingActivity extends AppCompatActivity {
         OnboardingActivity.this.startActivity(feedIntent);
     }
 
-    private void updateSpinnerWithData(Spinner spinner){
+    private void updateSpinnerWithData(Spinner spinner) {
         List<User> users = new ArrayList<>();
         AccessUsers accessUsers = new AccessUsers();
         String result = accessUsers.getUsers(users);

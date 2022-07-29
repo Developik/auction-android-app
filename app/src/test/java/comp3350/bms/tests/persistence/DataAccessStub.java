@@ -227,8 +227,7 @@ public class DataAccessStub implements DataAccess {
                         list.add(c);
                     }
                 }
-            }
-            else{
+            } else {
                 return "No paymentcards found";
             }
         }
@@ -241,10 +240,9 @@ public class DataAccessStub implements DataAccess {
         String result = null;
         if (product == null || bid == null || user == null)
             result = "Null object Error";
-        else if (bid.getValue() <= 0){
+        else if (bid.getValue() <= 0) {
             result = "Bid value too low";
-        }
-        else {
+        } else {
             bids.add(bid);
             ProductBid productBid = new ProductBid(product.getItemID(),
                     bid.getBidID());
@@ -316,7 +314,7 @@ public class DataAccessStub implements DataAccess {
 
     @Override
     public String getAllBidsForProduct(ArrayList<Bid> bids, Product product) {
-        ArrayList <Integer> bidTempIds = new ArrayList<Integer>();
+        ArrayList<Integer> bidTempIds = new ArrayList<Integer>();
         for (int j = 0; j < productBids.size(); j++) {
             if (product.getItemID() == productBids.get(j).getProductID())
                 bidTempIds.add(productBids.get(j).getBidID());

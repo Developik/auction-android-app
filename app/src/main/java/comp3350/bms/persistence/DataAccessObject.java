@@ -3,11 +3,11 @@ package comp3350.bms.persistence;
 // Purpose: DataAccessObject interface for accessing the data directly from the database. Refer
 // to the DataAccessStub for the stub implementation.
 
-import java.sql.Statement;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLWarning;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;

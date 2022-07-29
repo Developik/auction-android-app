@@ -5,7 +5,6 @@ package comp3350.bms.presentation;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 
 import comp3350.bms.R;
 

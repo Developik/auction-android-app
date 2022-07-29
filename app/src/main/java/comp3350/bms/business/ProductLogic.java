@@ -3,9 +3,7 @@ package comp3350.bms.business;
 // Purpose: Functions for filtering out products and helper functions for dealing with Products
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
-
 import java.util.Map;
 
 import comp3350.bms.objects.Product;
