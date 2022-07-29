@@ -44,21 +44,22 @@ Comp 3350 Android App | Team 2
 ## How to Run Tests:
 
 - **For Unit Tests**:
-- We are running JUnit 4 across all tests, this should automatically download with the launch of the project.
-- All unit tests are located in the `objects` folder.
-- This is under `test`
-- Right click RunUnitTests and click on "Run 'RunUnitTests'" option
+  - We are running JUnit 4 across all tests, this should automatically download with the launch of the project.
+  - All unit tests are located in the `objects` folder.
+  - This is under `test`
+  - Right click RunUnitTests and click on "Run 'RunUnitTests'" option
 - **For Integration Tests**:
-- This is under `test`
-- All integration tests are located in the `Integration` folder.
-- Right click RunIntegrationTests and click on "Run 'RunIntegrationTests'" option
+  - This is under `test`
+  - All integration tests are located in the `Integration` folder.
+  - Right click RunIntegrationTests and click on "Run 'RunIntegrationTests'" option
 - **For Acceptance Tests**:
-- This is under `androidTest`
-- Right click RunAcceptanceTests and click on "Run 'RunAcceptanceTests'" option
+  - This is under `androidTest`
+  - Right click RunAcceptanceTests and click on "Run 'RunAcceptanceTests'" option
 - **Notice**:
-- Regarding ProductLogic, we saw that we needed to both unit test and integration test the product logic.
-- For the Acceptance Tests, they all passed for all of us. If yours fails, try clearing the app_db folder.
-- Another thing regarding the Acceptance tests is that sometimes the build fails but that is due to the Android emulator not launching fast enough or already being launched. Restarting the test (or the emulator rarely) solves this issue. All tests should pass.
+  - Regarding ProductLogic, we saw that we needed to both unit test and integration test the product logic.
+  - For the Acceptance Tests, they all passed for all of us. If yours fails, try clearing the app_db folder.
+  - Another thing regarding the Acceptance tests is that sometimes the build fails but that is due to the Android emulator not launching fast enough or already being launched. Restarting the test (or the emulator rarely) solves this issue. All tests should pass.
+  - If the tests continue to fail, we noticed it was due to the animations being turned on on some of the emulators. Some of our emulators had no animations (from the Android developer settings, all three options (Window, Transition, Animator) were set to Off.
 
 ## How to Run Project 
 
