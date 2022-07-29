@@ -27,6 +27,9 @@ public class ProductLogicUnitTest {
     private Date start;
     private Date end;
     private String picture;
+    private String query;
+    private String minBid;
+    private String maxBid;
 
     private int productInitSize;
     private DataAccess dataAccess;
