@@ -66,7 +66,7 @@ public class OnboardingActivity extends AppCompatActivity {
         OnboardingActivity.this.startActivity(feedIntent);
     }
 
-    private void updateSpinnerWithData(Spinner spinner){
+    private void updateSpinnerWithData(Spinner spinner) {
         List<User> users = new ArrayList<>();
         AccessUsers accessUsers = new AccessUsers();
         String result = accessUsers.getUsers(users);

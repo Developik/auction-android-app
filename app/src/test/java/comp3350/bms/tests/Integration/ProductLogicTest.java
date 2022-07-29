@@ -202,7 +202,7 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testAddingProductStub(){
+    public void testAddingProductStub() {
         setup();
 
         Product product;
@@ -236,7 +236,7 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testAddingProductReal(){
+    public void testAddingProductReal() {
         setupReal();
 
         Product product;
@@ -270,7 +270,7 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testRemovingProductStub(){
+    public void testRemovingProductStub() {
         setup();
 
         Product product;
@@ -304,7 +304,7 @@ public class ProductLogicTest {
     }
 
     @Test
-    public void testRemovingProductReal(){
+    public void testRemovingProductReal() {
         setupReal();
 
         Product product;

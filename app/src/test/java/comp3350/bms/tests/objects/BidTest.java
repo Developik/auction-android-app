@@ -33,7 +33,7 @@ public class BidTest {
         try {
             System.out.println("Bid with negative value should become 0.");
             Date date = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
-            Bid badBid = new Bid(2, -50,  date);
+            Bid badBid = new Bid(2, -50, date);
             Assert.assertEquals(badBid.getValue(), 0, 0.001);
         } catch (NullPointerException e) {
             // should get here
