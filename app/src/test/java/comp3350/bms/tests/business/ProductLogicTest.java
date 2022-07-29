@@ -39,7 +39,6 @@ public class ProductLogicTest {
     public void setUp() throws Exception {
         dataAccess = new DataAccessStub();
         dataAccess.open("Stub");
-        //accessProducts = new AccessProducts();
         productList = new ArrayList<>();
         dataAccess.getProductSequential(productList);
 
@@ -56,7 +55,7 @@ public class ProductLogicTest {
         productList = new ArrayList<>();
 
         filters = new HashMap<>();
-        String query = "";
+        query = "";
         filters.put("query", query);
         filters.put("minMaxBid", minBid + ";" + maxBid);
 
@@ -99,7 +98,7 @@ public class ProductLogicTest {
         end = new GregorianCalendar(2012, Calendar.FEBRUARY, 11).getTime();
         picture = "3.png";
         try {
-            product = new Product(2L,"Garden Bucket 1234125252423223253",
+            product = new Product(2L, "Garden Bucket 1234125252423223253",
                     date, picture, 5.0, 14241, start, end, false,
                     "TestCategory");
             dataAccess.insertProduct(product);
@@ -118,8 +117,8 @@ public class ProductLogicTest {
         Assert.assertEquals(filteredList.size(), 1);
 
         query = "";
-        String minBid = "14241";
-        String maxBid = "14242";
+        minBid = "14241";
+        maxBid = "14242";
         filters.put("query", query);
         filters.put("minMaxBid", minBid + ";" + maxBid);
 

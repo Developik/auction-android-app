@@ -66,7 +66,7 @@ public class OnboardingActivity extends AppCompatActivity {
         OnboardingActivity.this.startActivity(feedIntent);
     }
 
-    private void updateSpinnerWithData(Spinner spinner) throws Exception {
+    private void updateSpinnerWithData(Spinner spinner){
         List<User> users = new ArrayList<>();
         AccessUsers accessUsers = new AccessUsers();
         String result = accessUsers.getUsers(users);
@@ -84,8 +84,6 @@ public class OnboardingActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(adapter);
-
-
     }
 
     private void copyDatabaseToDevice() {

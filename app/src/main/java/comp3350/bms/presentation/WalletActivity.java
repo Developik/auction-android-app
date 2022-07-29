@@ -39,7 +39,7 @@ public class WalletActivity extends AppCompatActivity {
         if (bundle != null) {
             String user = bundle.getString("user");
             AccessUsers accessUsers = new AccessUsers();
-            List<User> users = new ArrayList<User>();
+            List<User> users = new ArrayList<>();
             accessUsers.getUsers(users);
             for (User u : users) {
                 if (u.getUsername().equals(user)) {
@@ -78,8 +78,6 @@ public class WalletActivity extends AppCompatActivity {
         for (int i = 0; i < paymentcards.size(); i++) {
             stringPaymentcards.add(paymentcards.get(i).getCardNumbers());
         }
-        //Paymentcard paymentcard = accessWallet.get(this.user.getUsername());
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, stringPaymentcards);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);

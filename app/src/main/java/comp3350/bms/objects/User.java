@@ -64,10 +64,6 @@ public class User {
         }
     }
 
-    public Bid getLastBid() {
-        return myBids.get(myBids.size() - 1);
-    }
-
     public boolean userObjectValidation() {
         boolean result = true;
 
