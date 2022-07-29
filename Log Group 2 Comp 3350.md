@@ -70,6 +70,8 @@ Nikhil:
   * Worked on AccessPaymentcardsTest & AccessUsersTest
   * Reviewed PRs
 * July 28: 10am - 6pm
+  * Changed architecture diagram
+* July 29th 1am - 1:30am
   * Edited architecture diagram
   
 Ryan:
