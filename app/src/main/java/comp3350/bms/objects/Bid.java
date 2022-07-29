@@ -12,11 +12,8 @@ public class Bid {
     private double value;
     private Date date;
     private int bidID;
-    //private User user;
 
-    // refactor
     public Bid(int bidID, double value, Date date) {
-        //if (user == null) throw new NullPointerException("user cannot be null");
 
         if (value < 0) {
             this.value = 0;

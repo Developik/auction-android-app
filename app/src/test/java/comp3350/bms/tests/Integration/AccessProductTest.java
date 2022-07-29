@@ -48,7 +48,6 @@ public class AccessProductTest {
     //gets a valid list of Products from database
     @Test
     public void testAccessProduct() {
-        System.out.println("\nStarting testAccessProduct: getProducts");
 
         setup();
 
@@ -62,14 +61,12 @@ public class AccessProductTest {
 
         shutdown();
 
-        System.out.println("Finished testAccessProduct: getProducts");
     }
 
     //tests to make sure that a new AccessProduct object successfully
     //gets a valid list of Products from database using the real DB
     @Test
     public void testAccessProductWithRealDB() {
-        System.out.println("\nStarting testAccessProduct: getProducts");
 
         setupReal();
 
@@ -83,6 +80,5 @@ public class AccessProductTest {
 
         shutdown();
 
-        System.out.println("Finished testAccessProduct: getProducts");
     }
 }

@@ -375,6 +375,7 @@ public class DataAccessObject implements DataAccess {
             Timestamp auctionEnd = currentProduct.getAuctionEndTimestamp();
 
             values = currentProduct.getItemID()
+                    + ",'" + currentProduct.getPicture() + "'"
                     + ", '" + currentProduct.getName() + "'"
                     + ", '" + datePosted + "'"
                     + ", '" + currentProduct.getStartingBid() + "'"
@@ -385,6 +386,20 @@ public class DataAccessObject implements DataAccess {
                     + ", '" + currentProduct.getCategory() + "'";
             cmdString = "Insert into Product " + " Values(" + values + ")";
             //System.out.println(cmdString);
+            updateCount = st1.executeUpdate(cmdString);
+            result = checkWarning(st1, updateCount);
+        } catch (Exception e) {
+            result = processSQLError(e);
+        }
+        return result;
+    }
+
+    public String removeProduct(Product currentProduct) {
+        String values;
+
+        result = null;
+        try {
+            cmdString = "Delete from Product " + " Where itemID=" + "'" + currentProduct.getItemID() + "'";
             updateCount = st1.executeUpdate(cmdString);
             result = checkWarning(st1, updateCount);
         } catch (Exception e) {

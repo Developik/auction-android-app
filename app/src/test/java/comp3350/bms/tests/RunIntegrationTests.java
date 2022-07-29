@@ -7,15 +7,15 @@ import org.junit.runner.Result;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-//import comp3350.bms.tests.business.AuctionManagerTest;
 import comp3350.bms.tests.Integration.AccessProductTest;
 import comp3350.bms.tests.Integration.AccessWalletTest;
 import comp3350.bms.tests.Integration.PingChatTest;
 import comp3350.bms.tests.Integration.ProductLogicTest;
+import comp3350.bms.tests.Integration.AuctionManagerTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        //AuctionManagerTest.class,
+        AuctionManagerTest.class,
         PingChatTest.class,
         AccessProductTest.class,
         AccessWalletTest.class,

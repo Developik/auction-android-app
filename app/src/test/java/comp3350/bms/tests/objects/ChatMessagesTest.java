@@ -12,7 +12,6 @@ public class ChatMessagesTest {
     public void testMessageSet() {
         ChatMessages chatMessages;
 
-        System.out.println("\nStarting testMessageSet");
 
         chatMessages = new ChatMessages();//tests ChatMessages without input
         Assert.assertEquals("Temp: ", chatMessages.getMessage());
@@ -25,6 +24,5 @@ public class ChatMessagesTest {
         chatMessages = new ChatMessages("12345", "TestUser");//tests proper input
         Assert.assertEquals("TestUser: 12345", chatMessages.getMessage());
 
-        System.out.println("Finished testMessageSet");
     }
 }
