@@ -156,13 +156,11 @@ public class FeedActivity extends Activity {
                     String curr_bid_str = "" + productList.get(position).getCurrentBid();
                     text3.setText("Last Bid: " + curr_bid_str);
 
-                    if(productList.get(position).getPicture().equals("garden_bucket")) {
+                    if (productList.get(position).getPicture().equals("garden_bucket")) {
                         image.setImageResource(R.drawable.garden_bucket);
-                    }
-                    else if(productList.get(position).getPicture().equals("rolex_watch")) {
+                    } else if (productList.get(position).getPicture().equals("rolex_watch")) {
                         image.setImageResource(R.drawable.rolex_watch);
-                    }
-                    else {
+                    } else {
                         image.setImageResource(R.drawable.mortarboard);
                     }
 

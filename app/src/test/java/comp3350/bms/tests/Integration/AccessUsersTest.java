@@ -36,7 +36,9 @@ public class AccessUsersTest {
         userResult = new ArrayList<>();
     }
 
-    public void shutdown() { Services.closeDataAccess(); }
+    public void shutdown() {
+        Services.closeDataAccess();
+    }
 
     // Test for existing users in stub database
     @Test
