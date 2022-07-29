@@ -7,6 +7,7 @@ import org.junit.runner.Result;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import comp3350.bms.tests.Integration.AccessPaymentcardsTest;
 import comp3350.bms.tests.Integration.AccessProductTest;
 import comp3350.bms.tests.Integration.AccessWalletTest;
 import comp3350.bms.tests.Integration.PingChatTest;
@@ -16,6 +17,8 @@ import comp3350.bms.tests.Integration.AuctionManagerTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         AuctionManagerTest.class,
+        AccessWalletTest.class,
+        AccessPaymentcardsTest.class,
         PingChatTest.class,
         AccessProductTest.class,
         AccessWalletTest.class,
@@ -29,5 +32,4 @@ public class RunIntegrationTests {
         System.out.println("Tests failed: " + result.getFailureCount());
         System.out.println("Tests ignored: " + result.getIgnoreCount());
     }
-
 }

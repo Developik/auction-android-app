@@ -14,6 +14,7 @@ import comp3350.bms.objects.Bid;
 import comp3350.bms.objects.BidUser;
 import comp3350.bms.objects.ChatMessages;
 import comp3350.bms.objects.Paymentcard;
+import comp3350.bms.objects.PaymentcardWallet;
 import comp3350.bms.objects.Product;
 import comp3350.bms.objects.ProductBid;
 import comp3350.bms.objects.ProductUser;
@@ -32,6 +33,8 @@ public class DataAccessStub implements DataAccess {
     private ArrayList<ChatMessages> chatMessages;
     private ArrayList<Wallet> wallets;
     private ArrayList<WalletUser> walletUsers;
+    private ArrayList<Paymentcard> paymentcards;
+    private ArrayList<PaymentcardWallet> paymentcardWallets;
     private ArrayList<Bid> bids = new ArrayList<>();
     private ArrayList<ProductUser> productUsers = new ArrayList<>();
     private ArrayList<ProductBid> productBids = new ArrayList<>();
@@ -107,6 +110,26 @@ public class DataAccessStub implements DataAccess {
         newMessage = new ChatMessages("Users will be generated randomly in later iterations.", "Ryan");
         chatMessages.add(newMessage);
 
+        wallets = new ArrayList<>();
+        walletUsers = new ArrayList<>();
+        try {
+            Wallet wallet = new Wallet(999, 100.00);
+            walletUsers.add(new WalletUser(999, "joedoe"));
+            wallets.add(wallet);
+        } catch (Exception e) {
+            throw new NumberFormatException("Objects have not been created");
+        }
+
+        paymentcards = new ArrayList<>();
+        paymentcardWallets = new ArrayList<>();
+        try {
+            Paymentcard paymentcard = new Paymentcard(1, "99999999");
+            paymentcardWallets.add(new PaymentcardWallet(1, 999));
+            paymentcards.add(paymentcard);
+        } catch (Exception e) {
+            throw new NumberFormatException("Objects have not been created");
+        }
+
         System.out.println("Opened " + dbType + " database " + dbName);
     }
 
@@ -159,6 +182,18 @@ public class DataAccessStub implements DataAccess {
     }
 
     public String updateWallet(Wallet currentWallet) {
+        int currentId = currentWallet.getWalletID();
+        // Find the wallet with the same ID and replace it in the index
+        int index = -1;
+        for (int i = 0; i < wallets.size(); i++) {
+            if (wallets.get(i).getWalletID() == currentId) {
+                index = i;
+                break;
+            }
+        }
+        if (index >= 0) {
+            wallets.set(index, currentWallet);
+        }
         return null;
     }
 
@@ -168,11 +203,36 @@ public class DataAccessStub implements DataAccess {
     }
 
     public Wallet getWalletFromUser(String username) {
-
+        for (WalletUser w : walletUsers) {
+            if (w.getUsername().equals(username)) {
+                int id = w.getWalletID();
+                for (Wallet w2 : wallets) {
+                    if (w2.getWalletID() == id) {
+                        return w2;
+                    }
+                }
+            }
+        }
         return null;
     }
 
-    public String getPaymentcardsSequential(List<Paymentcard> paymentcards, Wallet wallet) {
+    public String getPaymentcardsSequential(List<Paymentcard> list, Wallet wallet) {
+        // Find the wallet with the same ID and get its paymentcards
+        int id = wallet.getWalletID();
+        for (PaymentcardWallet w : paymentcardWallets) {
+            if (w.getWalletID() == id) {
+                int cardId = w.getCardID();
+                for (Paymentcard c : paymentcards) {
+                    if (c.getCardID() == cardId) {
+                        list.add(c);
+                    }
+                }
+            }
+            else{
+                return "No paymentcards found";
+            }
+        }
+
         return null;
     }
 

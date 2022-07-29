@@ -50,6 +50,10 @@ Hamdi:
   * Rewrote ProductLogicTest which did not work at all.
   * Fixed images on the product's list page and the product's page.
   * Alternate database will now reset itself when the integration tests are complete.
+* July 28: 9:00 pm - 12:30 am
+  * Rewrote integration tests to work with stub better and the alternate database.
+  * Implemented missing methods in DataAccessStub to work with integration tests
+  * Created new developer tasks.
 
 Nikhil:
 * July 26: 3pm - 6pm
@@ -76,6 +80,24 @@ Ryan:
 * 10:20am - 12:05am, 3:00pm - 7:30pm, 8:30pm - 10:00 July 28
   * ensured that tests were working and cleaned up code
   * ensured formating and code standards
+
+________________
+
+Developer Tasks, Iteration 3:
+
+- Fix issues from iteration 2 (Cost: 4 hours; Priority: Low) - Andrii / Ryan / Nikhil / Hamdi
+- Create acceptance tests to test updated UI (Cost: 12 hours; Priority: High) - Hamdi
+- Create more connections to the database (Cost: 9 hours; Priority: High) - Andrii
+- Create integration tests for AccessPaymentCards and AccessUsers (Cost: 3 hours; Priority: High) - Nikhil
+- Create integration tests for ProductLogic, AuctionManager (Cost: 4 hours; Priority: High) - Hamdi / Ryan
+- Create integration tests for AccessProduct, PingChat, AccessWallet  (Cost: 4 hours; Priority: High) - Ryan / Hamdi
+- Update DataAccessStub to match the new database design (Cost: 9 hours; Priority: High) - Andrii / Hamdi
+- Update the database to match the new database design (Cost: 6 hours; Priority: High) - Andrii
+- Make the AuctionManager more functional and more robust (Cost: 4 hours; Priority: High) - Andrii
+- Update Architecture Diagram (Cost: 2 hours; Priority: High) - Nikhil
+- Fix Alternate Database (Cost: 4 hours; Priority: High) - Hamdi
+- Create retrospective activity for iteration 3 (Cost: 1 hour; Priority: Medium) - Andrii / Ryan / Hamdi
+- Update user stories to better match acceptance tests and app functionality correctly (Cost: 1 hour; Priority: Low) - Hamdi
 
 # Iteration 2
 
