@@ -59,7 +59,7 @@ public class TestBidding {
         onView(withId(R.id.bidButton)).check(matches(isDisplayed())).check(matches(isEnabled()));
 
         // Type a bid amount and send it
-        onView(withId(R.id.withDrawAmount)).perform(typeText("100"));
+        onView(withId(R.id.withDrawAmount)).perform(typeText("50"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.bidButton)).perform(click());
 
@@ -90,7 +90,7 @@ public class TestBidding {
 
         // Trying with negative bid amount
         // The bid should work as the text input field doesn't allow negative values
-        onView(withId(R.id.withDrawAmount)).perform(typeText("-5"));
+        onView(withId(R.id.withDrawAmount)).perform(typeText("-45"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.bidButton)).perform(click());
 
