@@ -26,6 +26,9 @@ Andrii:
   * Bidding feature
   * Multiple users 
   * Fixes to allow correct redirection to products
+* 28 July: 11am - 12pm, 5pm - 6pm:
+  * Auction manager tests
+  * Added more functions to stub DB
 
 Hamdi:
 * July 25: 12:00 pm - 3:00 pm
