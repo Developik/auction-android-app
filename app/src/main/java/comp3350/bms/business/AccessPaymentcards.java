@@ -25,6 +25,9 @@ public class AccessPaymentcards {
 
     public String getPaymentCards(List<Paymentcard> paymentcards,
                                   Wallet wallet) {
+        if (paymentcards == null || wallet == null) {
+            return "No payment cards found";
+        }
         return dataAccess.getPaymentcardsSequential(paymentcards, wallet);
     }
 
